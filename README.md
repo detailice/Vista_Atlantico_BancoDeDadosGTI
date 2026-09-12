@@ -3,12 +3,26 @@ Repositório criado para o Projeto Semestral de Modelagem de Banco de Dados.
 
 1. Caracterização da Organização
 
-- **Nome e natureza da organização:** *qual organização real o grupo escolheu (com acesso garantido para pesquisa de campo) — pode ser uma empresa (livraria, lanchonete, pet shop), uma ONG, uma associação comunitária ou outra instituição.*
-- **Contexto e porte:** *com ou sem fins lucrativos; tamanho da operação; número de pessoas envolvidas (funcionários, voluntários, membros, fiéis); volume de atividades (vendas, atendimentos, doações, rituais, eventos).*
-- **Problemas e necessidades identificados:** *qual é a "crise operacional" — o que está desorganizado hoje (planilhas soltas, papel, falta de controle de estoque/doações/cadastros, etc.)?*
-- **Justificativa da escolha:** *por que essa organização foi escolhida e por que ela é um bom caso para o projeto?*
-- **Evidências da organização:** *comprove que a organização existe e que o grupo teve acesso a ela — ex.: fotos do local/da visita, link da organização no Google (Google Maps/Google Meu Negócio, site, rede social), endereço completo e forma de contato (telefone, e-mail, responsável pela organização).*
+- Nome e natureza da organização: VISTA ATLANTICO NEGOCIOS IMOBILIARIOS LTDA
 
+- Contexto e porte:
+Fins lucrativos: Com fins lucrativos. A empresa é registrada como uma Sociedade Empresária Limitada (Ltda.) voltada ao setor privado.
+Tamanho da operação: Classificada no regime de EPP (Empresa de Pequeno Porte). Tem sede localizada em Praia Grande / SP.
+Número de pessoas envolvidas:
+Volume de atividades: Atua no ramo imobiliário. A empresa registra uma carteira com cerca de 900 a 1.000 anúncios de imóveis disponíveis na região da Baixada Santista/Praia Grande. Não realiza doações públicas, rituais ou eventos de caráter comunitário/religioso
+
+- Problemas e necessidades identificados: *qual é a "crise operacional" — o que está desorganizado hoje (planilhas soltas, papel, falta de controle de estoque/doações/cadastros, etc.)?*
+
+- Justificativa da escolha: *por que essa organização foi escolhida e por que ela é um bom caso para o projeto?*
+
+- Evidências da organização:
+Razão Social: Vista Atlântico Negócios Imobiliários LTDA (Nome Fantasia: Vista Atlântico Imóveis)
+CNPJ: 55.866.811/0001-61 (Ativa na Receita Federal do Brasil)
+Registro de Classe: CRECI 46844-J
+Endereço Completo: Rua Tupi, 50 – Vila Tupi, Praia Grande - SP, CEP 11703-260
+Telefone / WhatsApp de Contato: +55 11 96094-7604
+Website Oficial: www.vistaatlanticoimoveis.com.br
+Presença no Google / Maps: https://maps.google.com/?cid=15350459088759669626
 
 2. Processos de Negócio
 
