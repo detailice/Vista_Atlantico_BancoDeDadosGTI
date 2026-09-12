@@ -13,7 +13,8 @@ Volume de atividades: Atua no ramo imobiliário. A empresa registra uma carteira
 
 - Problemas e necessidades identificados: *qual é a "crise operacional" — o que está desorganizado hoje (planilhas soltas, papel, falta de controle de estoque/doações/cadastros, etc.)?*
 
-- Justificativa da escolha: *por que essa organização foi escolhida e por que ela é um bom caso para o projeto?*
+- Justificativa da escolha: A imobiliária é um negócio familiar de um dos membros da equipe e possuí um fluxo de clientes 
+*por que essa organização foi escolhida e por que ela é um bom caso para o projeto?*
 
 - Evidências da organização:
 Razão Social: Vista Atlântico Negócios Imobiliários LTDA (Nome Fantasia: Vista Atlântico Imóveis)
@@ -26,13 +27,12 @@ Presença no Google / Maps: https://maps.google.com/?cid=15350459088759669626
 
 2. Processos de Negócio
 
-- **Principais processos mapeados:** *ex.: cadastro de clientes/beneficiários/fiéis, controle de estoque ou doações, vendas ou arrecadação, emissão de pedidos ou solicitações, entregas ou distribuição, organização de eventos/rituais/mutirões.*
-- **Fluxogramas:** (Opcional) *represente visualmente pelo menos os processos-chave (imagens anexadas). Deve ficar claro o fluxo de cada processo e como eles se integram entre si.*
-
+- **Principais processos mapeados:** Cadastro de clientes; Cadastro de imóveis; Cadastro de corretores; Assinatura de contrato; Agendamento de visitas;
 
 3. Requisitos do Sistema
 
 3.1 Requisitos Funcionais
+
 *O que o sistema precisa FAZER (ex.: "o sistema deve permitir registrar uma venda").*
 
 3.2 Requisitos Não Funcionais
