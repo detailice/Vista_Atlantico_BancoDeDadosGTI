@@ -11,10 +11,9 @@ Tamanho da operação: Classificada no regime de EPP (Empresa de Pequeno Porte).
 Número de pessoas envolvidas:
 Volume de atividades: Atua no ramo imobiliário. A empresa registra uma carteira com cerca de 900 a 1.000 anúncios de imóveis disponíveis na região da Baixada Santista/Praia Grande. Não realiza doações públicas, rituais ou eventos de caráter comunitário/religioso
 
-- Problemas e necessidades identificados: *qual é a "crise operacional" — o que está desorganizado hoje (planilhas soltas, papel, falta de controle de estoque/doações/cadastros, etc.)?*
+- Problemas e necessidades identificados: A descentralização de dados, gerada pela dependência de planilhas e registros em papel, limita o acesso rápido a informações históricas de vendas, carteira de clientes e dados da equipe interna.
 
-- Justificativa da escolha: A imobiliária é um negócio familiar de um dos membros da equipe e possuí um fluxo de clientes 
-*por que essa organização foi escolhida e por que ela é um bom caso para o projeto?*
+- Justificativa da escolha: A organização foi selecionada devido à proximidade e abertura do contato com a direção, comandada pela prima de uma das integrantes da equipe. Outro fator determinante foi o volume de seu portfólio e a oscilação sazonal no fluxo de clientes, típica de períodos como o inverno.
 
 - Evidências da organização:
 Razão Social: Vista Atlântico Negócios Imobiliários LTDA (Nome Fantasia: Vista Atlântico Imóveis)
@@ -27,23 +26,35 @@ Presença no Google / Maps: https://maps.google.com/?cid=15350459088759669626
 
 2. Processos de Negócio
 
-- **Principais processos mapeados:** Cadastro de clientes; Cadastro de imóveis; Cadastro de corretores; Assinatura de contrato; Agendamento de visitas;
+- **Principais processos mapeados:** Cadastro de clientes; Cadastro de imóveis; Cadastro de corretores; Assinatura de contrato; Agendamento de visitas; Encomenda de imóveis (preenchimento de informações do imóvel desejado que gera um alerta em e-mail ou telefone se encontrado);
 
 3. Requisitos do Sistema
 
-3.1 Requisitos Funcionais
+3.1 Requisitos Funcionais:
 
 *O que o sistema precisa FAZER (ex.: "o sistema deve permitir registrar uma venda").*
 
-3.2 Requisitos Não Funcionais
+3.2 Requisitos Não Funcionais:
+Segurança, usabilidade, disponibilidade, adaptabilidade, acessível,
 *Características de qualidade (ex.: desempenho, segurança, usabilidade, disponibilidade).*
 
 
 4. Regras de Negócio
-"Regras de negócio" é o termo técnico usado em modelagem de dados para as regras de funcionamento de qualquer organização, com ou sem fins lucrativos)*
 
-**Regras operacionais:** *condições que a organização impõe (ex.: "um pedido só pode ser fechado se houver estoque disponível", "uma doação só pode ser registrada com identificação do doador", "um ritual só pode ser agendado se o espaço estiver disponível").*
-- **Restrições organizacionais:** *limitações que afetam o modelo (ex.: políticas internas, prazos, exigências legais, normas religiosas ou estatutárias) — e por que elas importam.*
+**Regras operacionais:** 
+Apenas indivíduos com maioridade podem anunciar, comprar ou alugar um imóvel;
+Um imóvel só pode ser alugado ou vendido se estiver disponível;
+Um imóvel só pode ser alugado, vendido ou comprado por um cliente cadastrado na plataforma;
+O cliente só pode comprar ou alugar um imóvel mediante a comprovante de renda (holerite);
+Nenhum imóvel pode ser cadastrado na plataforma com ausência de imagens em boa qualidade
+
+**Restrições organizacionais:** 
+
+**Conformidade com a LGPD:** a imobiliária não pode armazenar nem compartilhar documentos pessoais de clientes (CPF, comprovante de renda, escrituras) em plataformas abertas sem criptografia e consentimento explícito assinado;
+  
+**Exigência do CRECI:** Todos os anúncios, contratos e transações precisam registrar formalmente o número do CRECI do corretor responsável e da imobiliária, sob pena de autuação e multa.
+
+**Baixa maturidade digital empresarial:** Funcionários e corretores mais velhos de casa tem maior resistência à novas tecnologias, além do uso de equipamentos domésticos e de baixo potencial utilizados no trabalho.
 
 
 5. Dicionário de Dados Conceitual (Preliminar)
