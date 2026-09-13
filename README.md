@@ -108,7 +108,11 @@ VISITA
 Chave Primária: ID_VISITA (Atributo Identificador).
 Atributos Simples: data_visita, horário, anotacoes_visita 
 
-- **Relacionamentos pertinentes:** *como as entidades se conectam.*
+- **Relacionamentos pertinentes:**
+POSSUI (PROPRIETARIO $\leftrightarrow$ IMOVEL)Cardinalidade: (1, n) para (1, n) — Um proprietário pode possuir de zero a vários imóveis, e um imóvel pode pertencer a zero ou a múltiplos proprietários.
+REFERENTE_A (IMOVEL $\leftrightarrow$ CONTRATO)Cardinalidade: (1, n) para (1, n) — Um imóvel pode ser objeto de zero a vários contratos ao longo do tempo, assim como um contrato pode associar-se a imóveis.
+ASSINA (CLIENTE $\leftrightarrow$ CONTRATO)Cardinalidade: (0, n) para (1, n) — Um cliente pode assinar zero ou mais contratos. Esse relacionamento contém o atributo tipo.
+INTERMEDIA (CORRETOR $\leftrightarrow$ CONTRATO)Cardinalidade: (0, n) para (1, n) — Um corretor pode intermediar zero ou vários contratos, e um contrato pode ser intermediado por corretores.
  
 - **Restrições e políticas organizacionais aplicadas ao modelo:**
 Unicidade de Identificação: Cada entidade principal possui um atributo identificador único obrigatório (CPF para Cliente/Proprietário, CRECI para Corretor, ID_IMOVEL, ID_CONTRATO e ID_VISITA).
