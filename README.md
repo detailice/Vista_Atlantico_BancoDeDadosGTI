@@ -113,6 +113,9 @@ POSSUI (PROPRIETARIO $\leftrightarrow$ IMOVEL)Cardinalidade: (1, n) para (1, n) 
 REFERENTE_A (IMOVEL $\leftrightarrow$ CONTRATO)Cardinalidade: (1, n) para (1, n) — Um imóvel pode ser objeto de zero a vários contratos ao longo do tempo, assim como um contrato pode associar-se a imóveis.
 ASSINA (CLIENTE $\leftrightarrow$ CONTRATO)Cardinalidade: (0, n) para (1, n) — Um cliente pode assinar zero ou mais contratos. Esse relacionamento contém o atributo tipo.
 INTERMEDIA (CORRETOR $\leftrightarrow$ CONTRATO)Cardinalidade: (0, n) para (1, n) — Um corretor pode intermediar zero ou vários contratos, e um contrato pode ser intermediado por corretores.
+AGENDA (CLIENTE $\leftrightarrow$ VISITA)Cardinalidade: (0, n) para (1, n) - Um cliente pode agendar várias visitas, e uma visita pode ser agendada por um ou mais clientes.
+
+ACOMPANHA (CORRETOR $\leftrightarrow$ VISITA)Cardinalidade: (1, n) para (1, n) — Uma visita pode ser acompanhada por um ou mais corretores, já que um imóvel pode ser vendido por um ou dois corretores, no mesmo contrato; e uma visita pode ser acompanhada por um ou mais corretores.
  
 - **Restrições e políticas organizacionais aplicadas ao modelo:**
 Unicidade de Identificação: Cada entidade principal possui um atributo identificador único obrigatório (CPF para Cliente/Proprietário, CRECI para Corretor, ID_IMOVEL, ID_CONTRATO e ID_VISITA).
