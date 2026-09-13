@@ -57,8 +57,7 @@ Nenhum imóvel pode ser cadastrado na plataforma com ausência de imagens em boa
 **Baixa maturidade digital empresarial:** Funcionários e corretores mais velhos de casa tem maior resistência à novas tecnologias, além do uso de equipamentos domésticos e de baixo potencial utilizados no trabalho.
 
 
-5. Dicionário de Dados Conceitual (Preliminar)
-*(vale 10% — Dimensão Procedimental - Segue o modelo do arquivo 02-03g_Exemplo_Dicionario_Dados.pdf)*
+5. Dicionário de Dados Conceitual
 
 Para cada entidade identificada, liste:
 
@@ -73,10 +72,47 @@ Para cada entidade identificada, liste:
 
 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
 
-- **Entidades reconhecidas:** *liste e justifique brevemente cada uma.*
-- **Atributos e classificações:** *quais atributos pertencem a cada entidade.*
+- **Entidades reconhecidas:**
+PROPRIETARIO: Representa as pessoas físicas detentoras dos direitos de posse dos imóveis cadastrados na imobiliária.
+IMOVEL: Representa a unidade imobiliária (casa, apartamento, terreno, etc.) disponível para comercialização ou locação.
+CLIENTE: Representa o indivíduo interessado em realizar buscas, agendar visitas e firmar contratos de compra ou aluguel.
+CORRETOR: Representa o profissional credenciado encarregado de intermediar negociações, acompanhar visitas e gerenciar contratos.
+CONTRATO: Representa o instrumento legal de formalização de uma transação imobiliária de compra ou locação.
+VISITA: Representa o registro do evento de visitação presencial a um determinado imóvel.
+
+- **Atributos e classificações:**
+PROPRIETARIO
+Chave Primária: CPF (Atributo Identificador).
+Atributo Simples: nome, telefone, e-mail.
+
+IMOVEL
+ID_IMOVEL: Atributo Identificador (Chave Primária).
+Atributo Composto: endereço (desmembrado em longradouro, número e bairro).
+Atributos Simples: area_m2, valor, finalidade, oferta, IPTU, QTDE_quartos, QTDE_banheiros, vaga_garagem, status, tipo_imovel.
+
+CLIENTE
+Chave Primária: CPF (Atributo Identificador).
+Atributo Simples: nome, e-mail, telefone.
+
+CORRETOR
+Chave Primária: CRECI (Atributo Identificador).
+Atributos Simples: nome, comissão, telefone, e-mail
+Atributo Multivalorado/Composto: idiomas (opções: Português, Inglês, Espanhol).
+Atributo Multivalorado/Composto: Status (opções: ativo, férias, afastado).
+
+CONTRATO
+ID_CONTRATO: Atributo Identificador (Chave Primária).
+Atributos Simples: forma_pagamento, valor, data_inicio, data_fim
+
+VISITA
+Chave Primária: ID_VISITA (Atributo Identificador).
+Atributos Simples: data_visita, horário, anotacoes_visita 
+
 - **Relacionamentos pertinentes:** *como as entidades se conectam.*
-- **Restrições e políticas organizacionais aplicadas ao modelo.**
+ 
+- **Restrições e políticas organizacionais aplicadas ao modelo:**
+Unicidade de Identificação: Cada entidade principal possui um atributo identificador único obrigatório (CPF para Cliente/Proprietário, CRECI para Corretor, ID_IMOVEL, ID_CONTRATO e ID_VISITA).
+Controle Operacional do Corretor: O modelo restringe a gestão de corretores através do rastreamento de disponibilidade operacional (Status: ativo, férias ou afastado) e competência de atendimento por idioma.
 
 
 7. Diagrama Entidade-Relacionamento (DER)
