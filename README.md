@@ -1,4 +1,4 @@
-# BancoDeDados_GTI2S
+# Vista Atlântico — Banco de Dados
 Repositório criado para o Projeto Semestral de Modelagem de Banco de Dados.
 
 ## 1. Caracterização da Organização
@@ -32,9 +32,11 @@ Repositório criado para o Projeto Semestral de Modelagem de Banco de Dados.
 
 **3.1 Requisitos Funcionais:**
 
-**Usuário (clientes)**:
+**Usuário (clientes)**:  
 O sistema deve permitir: cadastro de clientes como usuários; cadastro imóveis; busca de imóveis (com ou sem uso de filtros);  agendamento de visitas; envio mensagens aos corretores; encomenda de um imóvel; envio de  mensagem caso a encomenda seja finalizada nos canais de comunicação disponibilizados;
 
+**Usuário (Corretores)**:  
+O sistema deve permitir: cadastro de novos corretores; recebimento de mensagens de clientes; exibir os imóveis que cada corretor é responsável; visualizar visitas marcadas; acesso aos contratos; visualização das informações dos imóveis e demais detalhes;
 
 **3.2 Requisitos Não Funcionais:**
 Segurança, usabilidade, disponibilidade, versatilidade (bom desempenho em *desktop* e *mobile*) e acessibilidade.
@@ -63,11 +65,8 @@ Para cada entidade identificada, liste:
 
 | Atributo | Descrição | Regra de negócio associada |
 |----------|-----------|------------------------------|
-| *nome do atributo* | *o que ele representa* | *se houver alguma regra (obrigatoriedade, valores possíveis, etc.)* |
+| - | - | - |
 
-*Mantenha o dicionário organizado e padronizado (mesmo formato de tabela para todas as entidades).*
-
-**Atenção à privacidade:** se forem usados exemplos de valores para ilustrar os atributos, esses exemplos devem ser **fictícios** — não utilize dados reais de clientes, fiéis, beneficiários, doadores ou funcionários da organização (nomes, CPFs, contatos etc.), mesmo que tenham sido observados durante a pesquisa de campo. Os exemplos devem apenas ser **coerentes com as operações reais** observadas.
 
 
 ## 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
