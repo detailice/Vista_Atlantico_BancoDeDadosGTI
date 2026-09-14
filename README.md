@@ -133,9 +133,10 @@ Controle Operacional do Corretor: O modelo restringe a gestão de corretores atr
 - O modelo deve ser **consistente** e já demonstrar potencial de **escalabilidade e integração** (pensando nas próximas etapas do projeto).
 
 
-8. Justificativa Técnica
-
-*Explique e defenda as decisões de abstração e modelagem tomadas: por que essas entidades, esses atributos, esses relacionamentos e essas cardinalidades — e não outras alternativas possíveis?*
+8. Justificativa Técnica:
+A modelagem foi desenvolvida com base na perspectiva de uso externo do sistema, mapeando os requisitos essenciais da rotina da imobiliária a partir da visão do cliente.
+A separação das entidades foi adotada para deixar clara a função de cada participante e permitir o registro individual de eventos, como as informações de cada visita.
+Os atributos atendem às necessidades práticas identificadas; e a opção pelas cardinalidades garante a flexibilidade do sistema.
 
 
 9. Uso de Inteligência Artificial
