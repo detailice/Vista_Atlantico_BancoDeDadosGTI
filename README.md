@@ -1,7 +1,7 @@
 # BancoDeDados_GTI2S
 Repositório criado para o Projeto Semestral de Modelagem de Banco de Dados.
 
-1. Caracterização da Organização
+## 1. Caracterização da Organização
 
 - Nome e natureza da organização: VISTA ATLANTICO NEGOCIOS IMOBILIARIOS LTDA
 
@@ -24,11 +24,11 @@ Telefone / WhatsApp de Contato: +55 11 96094-7604
 Website Oficial: www.vistaatlanticoimoveis.com.br
 Presença no Google / Maps: https://maps.google.com/?cid=15350459088759669626
 
-2. Processos de Negócio
+## 2. Processos de Negócio
 
 - **Principais processos mapeados:** Cadastro de clientes; Cadastro de imóveis; Cadastro de corretores; Assinatura de contrato; Agendamento de visitas; Encomenda de imóveis (preenchimento de informações do imóvel desejado que gera um alerta em e-mail ou telefone se encontrado);
 
-3. Requisitos do Sistema
+## 3. Requisitos do Sistema
 
 3.1 Requisitos Funcionais:
 
@@ -39,7 +39,7 @@ Segurança, usabilidade, disponibilidade, adaptabilidade, acessível,
 *Características de qualidade (ex.: desempenho, segurança, usabilidade, disponibilidade).*
 
 
-4. Regras de Negócio
+## 4. Regras de Negócio
 
 **Regras operacionais:** 
 Apenas indivíduos com maioridade podem anunciar, comprar ou alugar um imóvel;
@@ -57,7 +57,7 @@ Nenhum imóvel pode ser cadastrado na plataforma com ausência de imagens em boa
 **Baixa maturidade digital empresarial:** Funcionários e corretores mais velhos de casa tem maior resistência à novas tecnologias, além do uso de equipamentos domésticos e de baixo potencial utilizados no trabalho.
 
 
-5. Dicionário de Dados Conceitual
+## 5. Dicionário de Dados Conceitual
 
 Para cada entidade identificada, liste:
 
@@ -70,7 +70,7 @@ Para cada entidade identificada, liste:
 **Atenção à privacidade:** se forem usados exemplos de valores para ilustrar os atributos, esses exemplos devem ser **fictícios** — não utilize dados reais de clientes, fiéis, beneficiários, doadores ou funcionários da organização (nomes, CPFs, contatos etc.), mesmo que tenham sido observados durante a pesquisa de campo. Os exemplos devem apenas ser **coerentes com as operações reais** observadas.
 
 
-6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
+## 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
 
 - **Entidades reconhecidas:**
 PROPRIETARIO: Representa as pessoas físicas detentoras dos direitos de posse dos imóveis cadastrados na imobiliária.
@@ -122,7 +122,7 @@ Unicidade de Identificação: Cada entidade principal possui um atributo identif
 Controle Operacional do Corretor: O modelo restringe a gestão de corretores através do rastreamento de disponibilidade operacional (Status: ativo, férias ou afastado) e competência de atendimento por idioma.
 
 
-7. Diagrama Entidade-Relacionamento (DER)
+## 7. Diagrama Entidade-Relacionamento (DER)
 
 - Anexe o DER (em imagem).
 - O diagrama deve representar corretamente:
@@ -133,14 +133,30 @@ Controle Operacional do Corretor: O modelo restringe a gestão de corretores atr
 - O modelo deve ser **consistente** e já demonstrar potencial de **escalabilidade e integração** (pensando nas próximas etapas do projeto).
 
 
-8. Justificativa Técnica:
+## 8. Justificativa Técnica:
 A modelagem foi desenvolvida com base na perspectiva de uso externo do sistema, mapeando os requisitos essenciais da rotina da imobiliária a partir da visão do cliente.
 A separação das entidades foi adotada para deixar clara a função de cada participante e permitir o registro individual de eventos, como as informações de cada visita.
 Os atributos atendem às necessidades práticas identificadas; e a opção pelas cardinalidades garante a flexibilidade do sistema.
 
+---
 
-9. Uso de Inteligência Artificial
+## 9. Uso de Inteligência Artificial
 *(documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, escrita, organização de ideias ou revisão de texto)*
-generalização incorreta sobre o tipo de organização). |
 
-*Se o grupo não usou nenhuma ferramenta de IA, declare isso explicitamente nesta seção.*
+Se o grupo usou alguma ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc.) em qualquer parte do trabalho, registre **para cada uso relevante**:
+
+| Item | O que registrar |
+|------|------------------|
+| **Ferramenta e etapa** | Utilizamos o GEMINI 3.6 Flash na formatação do tópico de Relacionamentos Pertinentes |
+| **Motivação** | Não sabíamos a melhor maneira de registrar do READ.ME, então preferimos pedir ajuda para organizar o que escrevemos |
+| **Prompt(s) utilizados** | "Vou te dar algumas orientações e preciso que você se baseie no diagrama que vou mandar aqui para responder, segue:
+Relacionamentos pertinentes: como as entidades se conectam.
+Restrições e políticas organizacionais aplicadas ao modelo." |
+| **Resposta recebida** | Relacionamentos pertinentes POSSUI (PROPRIETARIO $\leftrightarrow$ IMOVEL) Cardinalidade: (0, n) para (0, n) — Um proprietário pode possuir de zero a vários imóveis, e um imóvel pode pertencer a zero ou a múltiplos proprietários. |
+| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como (ex.: comparação com o que foi observado na visita de campo). |
+| **Trechos rejeitados ou corrigidos** | Corrigimos o espaçamento entre as frases e ajustamos algumas palavras para melhor compreensão da equipe |
+| **Justificativa da escolha final** | A resposta do Gemini se baseou no diagrama que fizemos, mas certas partes continham palavras que não utilizamos e trechos que fugiam do que mostramos, em resumo, ela alucinou. |
+| **Reflexão crítica** | A IA alucinou em algumas partes, inseriu informações além do necessário e além da compreensão técnica do time acerca do trabalho. |
+
+---
+
