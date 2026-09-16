@@ -8,7 +8,7 @@ Repositório criado para o Projeto Semestral de Modelagem de Banco de Dados.
 **Contexto e porte:**
 - **Fins lucrativos:** Com fins lucrativos. A empresa é registrada como uma Sociedade Empresária Limitada (Ltda.) voltada ao setor privado.
 - **Tamanho da operação:** Classificada no regime de EPP (Empresa de Pequeno Porte). Tem sede localizada em Praia Grande / SP.
-- **Número de pessoas envolvidas:**
+- **Número de pessoas envolvidas:** 8
 - **Volume de atividades:** Atua no ramo imobiliário. A empresa registra uma carteira com cerca de 900 a 1.000 anúncios de imóveis disponíveis na região da Baixada Santista/Praia Grande. Não realiza doações públicas, rituais ou eventos de caráter comunitário/religioso
 
 - **Problemas e necessidades identificados:** A descentralização de dados, gerada pela dependência de planilhas e registros em papel, limita o acesso rápido a informações históricas de vendas, carteira de clientes e dados da equipe interna.
