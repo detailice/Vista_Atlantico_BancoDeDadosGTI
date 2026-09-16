@@ -129,33 +129,27 @@ ID_IMOVEL: Atributo Identificador (Chave Primária).
 
 ## 7. Diagrama Entidade-Relacionamento (DER)
 
-- Anexe o DER (em imagem).
-- O diagrama deve representar corretamente:
-  - Entidades
-  - Atributos
-  - Relacionamentos
-  - **Cardinalidades**
-- O modelo deve ser **consistente** e já demonstrar potencial de **escalabilidade e integração** (pensando nas próximas etapas do projeto).
+<img width="1124" height="713" alt="image" src="https://github.com/user-attachments/assets/12557d48-55b2-4ea4-9ccd-966904075290" />
 
+## 8. Diagrama de classes
 
-## 8. Justificativa Técnica:
-A modelagem foi desenvolvida com base na perspectiva de uso externo do sistema, mapeando os requisitos essenciais da rotina da imobiliária a partir da visão do cliente.
-A separação das entidades foi adotada para deixar clara a função de cada participante e permitir o registro individual de eventos, como as informações de cada visita.
-Os atributos atendem às necessidades práticas identificadas; e a opção pelas cardinalidades garante a flexibilidade do sistema.
+<img width="1227" height="814" alt="VistaAtlantico — Classes - Diagrama de Classes (1)" src="https://github.com/user-attachments/assets/e3b1bb34-655d-4993-8f4c-0365a638f4e9" />
 
-## 9. Uso de Inteligência Artificial
+## 9. Justificativa Técnica:
+A modelagem foi desenvolvida com base na perspectiva de uso externo do sistema, mapeando os requisitos essenciais da rotina da imobiliária a partir da visão do cliente. A separação das entidades foi adotada para deixar clara a função de cada participante e permitir o registro individual de eventos, como as informações de cada visita. Os atributos atendem às necessidades práticas identificadas; e a opção pelas cardinalidades garante a flexibilidade do sistema.
 
-| Item | O que registrar |
-|------|------------------|
-| **Ferramenta e etapa** | Utilizamos o GEMINI 3.6 Flash na formatação do tópico de Relacionamentos Pertinentes |
-| **Motivação** | Não sabíamos a melhor maneira de registrar do READ.ME, então preferimos pedir ajuda para organizar o que escrevemos |
-| **Prompt(s) utilizados** | "Vou te dar algumas orientações e preciso que você se baseie no diagrama que vou mandar aqui para responder, segue:
-Relacionamentos pertinentes: como as entidades se conectam.
-Restrições e políticas organizacionais aplicadas ao modelo." |
-| **Resposta recebida** | Relacionamentos pertinentes POSSUI (PROPRIETARIO $\leftrightarrow$ IMOVEL) Cardinalidade: (0, n) para (0, n) — Um proprietário pode possuir de zero a vários imóveis, e um imóvel pode pertencer a zero ou a múltiplos proprietários. |
-| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como (ex.: comparação com o que foi observado na visita de campo). |
-| **Trechos rejeitados ou corrigidos** | Corrigimos o espaçamento entre as frases e ajustamos algumas palavras para melhor compreensão da equipe |
-| **Justificativa da escolha final** | A resposta do Gemini se baseou no diagrama que fizemos, mas certas partes continham palavras que não utilizamos e trechos que fugiam do que mostramos, em resumo, ela alucinou. |
-| **Reflexão crítica** | A IA alucinou em algumas partes, inseriu informações além do necessário e além da compreensão técnica do time acerca do trabalho. |
+## 10. Uso de Inteligência Artificial
+
+| Item | registros do 1º uso | registros do 2º uso |
+|--------|----------|----------|
+| **Ferramenta e etapa** | Utilizamos o GEMINI 3.6 Flash na formatação do tópico de Relacionamentos Pertinentes | Utilizamos o Claude Sonnet 5 (médio, pensamento ativo) na correção do Diagrama de Classes 
+| **Motivação** | Não sabíamos a melhor maneira de registrar do READ.ME, então preferimos pedir ajuda para organizar o que escrevemos | Tivemos o conteúdo somente por uma aula, com uma atividade não corrigida, temos somente o conhecimento básico |
+| **Prompt(s) utilizados** | "Vou te dar algumas orientações e preciso que você se baseie no diagrama que vou mandar aqui para responder, segue: Relacionamentos pertinentes: como as entidades se conectam. Restrições e políticas organizacionais aplicadas ao modelo." | "Esse diagrama de classes é sobre o sistema de uma imobiliaria que aluga e vende imóveis, verifique se as associações e a multiplicidade estão corretas. O formato de saída deve ser um texto explicativo breve acerca das correções." e "Ok, poderia revisar se os métodos de cada classe e as visibilidades estão corretas? mantenha o mesmo formato, texto explicativo breve sobre as correções"
+| **Resposta recebida** | Relacionamentos pertinentes POSSUI (PROPRIETARIO $\leftrightarrow$ IMOVEL) Cardinalidade: (0, n) para (0, n) — Um proprietário pode possuir de zero a vários imóveis, e um imóvel pode pertencer a zero ou a múltiplos proprietários. (...) | "Analisando o diagrama, encontrei algumas inconsistências nas multiplicidades e no tipo de relacionamento (composição x associação/agregação). Segue um resumo das correções sugeridas: 1. PROPRIETÁRIO "POSSUI" IMÓVEL (...) |
+| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como (ex.: comparação com o que foi observado na visita de campo). | A fonte usada como base foi o DER que anexamos, comparamos as resposta com ele e com os materiais de aula fornecidos | O conteúdo utilizado para as respostas vieram do treinamento do modelo Sonnet 5 com "documentação padronizada e aberta", analisamos as correções junto com o material dado em sala no semestre passado por outro docente.
+| **Trechos rejeitados ou corrigidos** | Corrigimos o espaçamento entre as frases e ajustamos algumas palavras para melhor compreensão da equipe | Não corrigimos ou rejeitamos.
+| **Justificativa da escolha final** | A resposta do Gemini se baseou no diagrama que fizemos, mas certas partes continham palavras que não utilizamos e trechos que fugiam do que mostramos, em resumo, ela alucinou. | As correções apresentaram informações relevantes e validadas posteriormente com os materiais da docente que nos deu a disciplina.
+| **Reflexão crítica** | A IA alucinou em algumas partes, inseriu informações além do necessário e além da compreensão técnica do time acerca do trabalho. | 
+
 
 ---
