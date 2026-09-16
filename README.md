@@ -44,11 +44,11 @@ Segurança, usabilidade, disponibilidade, versatilidade (bom desempenho em *desk
 ## 4. Regras de Negócio
 
 **Regras operacionais:** 
-Apenas indivíduos com maioridade podem anunciar, comprar ou alugar um imóvel;
-Um imóvel só pode ser alugado ou vendido se estiver disponível;
-Um imóvel só pode ser alugado, vendido ou comprado por um cliente cadastrado na plataforma;
-O cliente só pode comprar ou alugar um imóvel mediante a comprovante de renda (holerite);
-Nenhum imóvel pode ser cadastrado na plataforma com ausência de imagens em boa qualidade
+Apenas indivíduos com maioridade podem anunciar, comprar ou alugar um imóvel;  
+Um imóvel só pode ser alugado ou vendido se estiver disponível;  
+Um imóvel só pode ser alugado, vendido ou comprado por um cliente cadastrado na plataforma;  
+O cliente só pode comprar ou alugar um imóvel mediante a comprovante de renda (holerite);  
+Nenhum imóvel pode ser cadastrado na plataforma com ausência de imagens em boa qualidade  
 
 **Restrições organizacionais:** 
 
