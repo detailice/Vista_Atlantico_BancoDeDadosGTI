@@ -16,13 +16,13 @@ Repositório criado para o Projeto Semestral de Modelagem de Banco de Dados.
 - **Justificativa da escolha:** A organização foi selecionada devido à proximidade e abertura do contato com a direção, comandada pela prima de uma das integrantes da equipe. Outro fator determinante foi o volume de seu portfólio e a oscilação sazonal no fluxo de clientes, típica de períodos como o inverno.
 
 - **Evidências da organização:**
-**Razão Social:** Vista Atlântico Negócios Imobiliários LTDA (Nome Fantasia: Vista Atlântico Imóveis)
-**CNPJ:** 55.866.811/0001-61 (Ativa na Receita Federal do Brasil)
-**Registro de Classe:** CRECI 46844-J
-**Endereço Completo:** Rua Tupi, 50 – Vila Tupi, Praia Grande - SP, CEP 11703-260
-**Telefone / WhatsApp de Contato:** +55 11 96094-7604
-**Website Oficial:** www.vistaatlanticoimoveis.com.br
-**Presença no Google / Maps:** https://maps.google.com/?cid=15350459088759669626
+**Razão Social:** Vista Atlântico Negócios Imobiliários LTDA (Nome Fantasia: Vista Atlântico Imóveis)  
+**CNPJ:** 55.866.811/0001-61 (Ativa na Receita Federal do Brasil)  
+**Registro de Classe:** CRECI 46844-J  
+**Endereço Completo:** Rua Tupi, 50 – Vila Tupi, Praia Grande - SP, CEP 11703-260  
+**Telefone / WhatsApp de Contato:** +55 11 96094-7604  
+**Website Oficial:** www.vistaatlanticoimoveis.com.br  
+**Presença no Google / Maps:** https://maps.google.com/?cid=15350459088759669626  
 
 ## 2. Processos de Negócio
 
