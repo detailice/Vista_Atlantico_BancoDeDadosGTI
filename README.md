@@ -63,11 +63,126 @@ Nenhum imóvel pode ser cadastrado na plataforma com ausência de imagens em boa
 
 Para cada entidade identificada, liste:
 
-| Atributo | Descrição | Regra de negócio associada |
+| Entidade | Relaciona-se com | Cardinalidade |
 |----------|-----------|------------------------------|
-| - | - | - |
+| Proprietário  | Imovel | 0:N — um proprietário pode ou não ter um imóvel cadastrado |
+| Imovel | Contrato | 1:N — um imóvel pode estar em vários contratos  |
+| Contrato  | Cliente | 1:N — um contrato é assinado por um ou mais clientes |
+| Cliente  | Visita | 1:1 opcional — um cliente pode ou não visitar um imóvel  |
+| Visita  | Corretor | 1:1 opcional — um corretor pode ou não acompanhar visitas a um imóvel  |
+| Corretor  | Contrato | 1:N — um contrato é assinado por um ou mais clientes  |
+
+**VISITA** constrói um relacionamento ternário entre CLIENTE e CORRETOR (um cliente se interessa por um imóvel e aciona o corretor, a negociação pode exigir uma visita) 
+
+**PROPRIETARIO** é a pessoa física que possui um imóvel e procura o serviço corretagem da imobiliária 
+
+IMOVEL é o bem físico fixo que é anunciado para venda ou locação 
+
+CONTRATO é o registro autenticado em cartório acerca da venda, locação ou corretagem de um imóvel 
+
+CLIENTE é a pessoa física que procura a plataforma para comprar ou alugar um imóvel. 
+
+VISITA é o evento no qual um ou mais clientes acompanham um corretor a um imóvel 
+
+### 5.1 **Fluxo de dados**
+Cliente se cadastra/loga no sistema → cliente seleciona o tipo de imóvel que deseja visualizar → cliente seleciona o imóvel de interesse, marcando uma visita → o agendamento gera um registro em VISITA, ligando esse CLIENTE a um CORRETOR → a critério do cliente, a negociação pode avançar e gerar um CONTRATO, que é referenciado nos registros do CLIENTE e do CORRETOR → toda leitura ou escrita nessas quatro tabelas é registrada pelo log de acesso do SGBD (§5), o que sustenta auditoria e conformidade com a LGPD (§6). 
+
+### 5.2 Convenções do dicionário
+SGBD: MySQL 8, mecanismo de armazenamento InnoDB — cuida da persistência dos arquivos de dados, do log de transações (redo/undo) e mantém o índice primário clusterizado por chave. 
+Codificação de caracteres: utf8mb4 com collation utf8mb4_0900_ai_ci. Escolhida em vez de latin1 por cobrir acentuação do português sem perda em campos de nome e texto livre.
+
+Notação Formal utilizada:
+
+| Símbolo | Significado |
+|----------|-----------|
+| = | é composto de |
+| + | e (conecta elementos obrigatórios) |
+|  | ---|
+|  |--- |
+
+Prefixos: NM_nome, ID_identificador, QT_quantidade, TP_tipo (categorização), IN_ indicador booleano. O caso também utiliza TL_(telefone), EM_(endereço de e-mail) não está entre os prefixos padrões, porém segue os princípios básicos  
+Versão deste dicionário: v1.0, 6/setembro/2026. Qualquer alteração de estrutura deve gerar nova revisão registrada nesta seção; a prática atende, ela própria, ao princípio de rastreabilidade exigido pela LGPD (art. 6º, X). 
+
+### 5.3 Dicionário de dados por entidade
+
+**PROPRIETARIO**
+> **PROPRIETARIO = @ID_PROPRIETÁRIO + NM_PROPRIETARIO + TL_PROPRIETARIO + EM_PROPRIETARIO**  
+
+**Leitura:** @ID_Proprietário é o identificador único; os outros três campos seguintes são obrigatórios e conectados por +.
+
+| Atributo | Tipo físico | Obrigatório | Significado e relevância |
+| -------- | --------- |---------|---------|
+| ID_PROPRIETARIO | Integer | Sim (PK) | Identificador do proprietário |
+| NM_PROPRIETARIO | Varchar(120) | Sim | Nome completo, que pode ser o nome social declarado ou o nome civil; identifica o proprietário nas negociações e nos contratos.|
+| TL_PROPRIETARIO | Varchar(11) | Sim | Número de telefone ativo para contato. Permite um meio de comunicação direta entre o proprietário e a imobiliária.|
+| EM_PROPRIETARIO | Varchar(100) | Sim | Endereço de e-mail ativo, possibilita outra forma de comunicação com o proprietário.|
+
+**IMOVEL**
+> **IMOVEL = @ID_IMOVEL + ID_PROPRIETARIO (?) + TP_IMOVEL + [TP_VENDA| TP_LOCAÇÃO] + MQ_ÁREA + IN_STATUS + QT_VAGA_GARAGEM + QT_BANHEIROS + QT_QUARTOS + PR_IMOVEL + TP_FINALIDADE + EN_endereço + PR_IPTU**  
+
+**Leitura:** @ID_IMOVEL é identificador único, 
+
+| Atributo | Tipo físico | Obrigatório | Significado e relevância |
+| -------- | --------- |---------|---------|
+| ID_IMOVEL | Integer | Sim | Identificador do imóvel. |
+| ID_PROPRIETARIO | Integer | Sim (FK) | Referência ao titular do imóvel em contratos e negociações. |
+| TP_IMOVEL | Varchar(50) | Sim | Classificação dos imóveis de acordo com seu tipo; Permite filtragem nas pesquisas no site. |
+| TP_VENDA;TP_LOCAÇÃO | Varchar(10) | Sim | Modelos de oferta para obtenção de um imóvel, seja de maneira temporária ou permanente; Direciona os clientes de acordo com suas necessidades. |
+| MQ_ÁREA | Real | Sim | Área de metros quadrados em cada imóvel; Contextualiza o tamanho dos imóveis. |
+| IN_STATUS | Boolean | Sim | Indicador da condição do imóvel; Imóveis já vendidos ou alugados não aparecem nas telas de anuncio e busca, com registros salvos por questões de auditória interna ou juridica. |
+| QT_VAGA_GARAGEM | Integer | Sim | Quantidade de vagas de garagem disponíveis; Define um dos critérios para negociação, acerca da necessidade dos clientes. |
+| QT_BANHEIROS | Integer | Sim | Quantidade de banheiros contidos no imóvel; Define um dos critérios para negociação, acerca da necessidade dos clientes. |
+| QT_QUARTOS | Integer | Sim | Quantidade de quartos contidos no imóvel; Define um dos critérios para negociação, acerca da necessidade dos clientes. |
+| PR_IMOVEL | Real | Sim | Preço de negociação do imóvel; Um dos critérios basais para a decisão final dos clientes |
+| TP_FINALIDADE | Varchar(50) | Sim | Uso especifico do imóvel; Determinada em contrato, passível de multa ou rescisão contratual em caso de mudança não autorizada |
+| EN_endereço | Varchar(120) | Sim | -|
+| PR_IPTU | Real | Sim | -|
 
 
+
+**PROPRIETARIO**
+> **PROPRIETARIO = @ID_PROPRIETÁRIO + NM_PROPRIETARIO + TL_PROPRIETARIO + EM_PROPRIETARIO**
+Leitura:
+
+| Atributo | Tipo físico | Obrigatório | Significado e relevância |
+| -------- | --------- |---------|---------|
+| - | - | - | -|
+| - | - | - | -|
+| - | - | - | -|
+| - | - | - | -|
+
+**PROPRIETARIO**
+> **PROPRIETARIO = @ID_PROPRIETÁRIO + NM_PROPRIETARIO + TL_PROPRIETARIO + EM_PROPRIETARIO**
+Leitura:
+
+| Atributo | Tipo físico | Obrigatório | Significado e relevância |
+| -------- | --------- |---------|---------|
+| - | - | - | -|
+| - | - | - | -|
+| - | - | - | -|
+| - | - | - | -|
+
+**PROPRIETARIO**
+> **PROPRIETARIO = @ID_PROPRIETÁRIO + NM_PROPRIETARIO + TL_PROPRIETARIO + EM_PROPRIETARIO**
+Leitura:
+
+| Atributo | Tipo físico | Obrigatório | Significado e relevância |
+| -------- | --------- |---------|---------|
+| - | - | - | -|
+| - | - | - | -|
+| - | - | - | -|
+| - | - | - | -|
+
+**PROPRIETARIO**
+> **PROPRIETARIO = @ID_PROPRIETÁRIO + NM_PROPRIETARIO + TL_PROPRIETARIO + EM_PROPRIETARIO**
+Leitura:
+
+| Atributo | Tipo físico | Obrigatório | Significado e relevância |
+| -------- | --------- |---------|---------|
+| - | - | - | -|
+| - | - | - | -|
+| - | - | - | -|
+| - | - | - | -|
 
 ## 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
 
