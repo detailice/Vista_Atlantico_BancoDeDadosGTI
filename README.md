@@ -85,35 +85,35 @@ Para cada entidade identificada, liste:
 <ins>**PROPRIETARIO**</ins>
 
 **Chave Primária:** CPF (Atributo Identificador).  
-**Atributo Simples:** nome, telefone, e-mail.  
+**Atributo Simples:** NOME, TELEFONE, E-MAIL.  
 
 <ins>**IMOVEL**</ins>
 
 ID_IMOVEL: Atributo Identificador (Chave Primária).  
-**Atributo Composto:** endereço (desmembrado em longradouro, número e bairro).  
-**Atributos Simples:** area_m2, valor, finalidade, oferta, IPTU, QTDE_quartos, QTDE_banheiros, vaga_garagem, status, tipo_imovel.  
+**Atributo Composto:** ENDEREÇO (desmembrado em logradouro, número e bairro).  
+**Atributos Simples:** AREA_M2, VALOR, FINALIDADE, OFERTA, IPTU, QTDE_QUARTOS, QTDE_BANHEIROS, VAGA_GARAGEM, STATUS, TIPO_IMOVEL.  
 
 <ins>**CLIENTE**</ins>
 
 **Chave Primária:** CPF (Atributo Identificador).  
-**Atributo Simples:** nome, e-mail, telefone.  
+**Atributo Simples:** NOME, E-MAIL, TELEFONE.  
 
 <ins>**CORRETOR**</ins>
 
 **Chave Primária:** CRECI (Atributo Identificador).  
-**Atributos Simples:** nome, comissão, telefone, e-mail  
-**Atributo Multivalorado/Composto:** idiomas (opções: Português, Inglês, Espanhol).  
-**Atributo Multivalorado/Composto:** Status (opções: ativo, férias, afastado).
+**Atributos Simples:** NOME, TELEFONE, E-MAIL, COMISSÃO.  
+**Atributo Multivalorado/Composto:** IDIOMAS (opções: Português, Inglês, Espanhol).  
+**Atributo Multivalorado/Composto:** STATUS (opções: ativo, férias, afastado).
 
 <ins>**CONTRATO**</ins>
 
 **ID_CONTRATO:** Atributo Identificador (Chave Primária).  
-**Atributos Simples:** forma_pagamento, valor, data_inicio, data_fim
+**Atributos Simples:** FORMA_PAGAMENTO, VALOR, DATA_INICIO, DATA_FIM.
 
 <ins>**VISITA**</ins>
 
 **Chave Primária:** ID_VISITA (Atributo Identificador).  
-**Atributos Simples:** data_visita, horário, anotacoes_visita 
+**Atributos Simples:** DATA_VISITA, HORARIO, ANOTACOES_VISITA .
 
 - **Relacionamentos pertinentes:**  
 **POSSUI (PROPRIETARIO $\leftrightarrow$ IMOVEL)** Cardinalidade: (1, n) para (1, n) — Um proprietário pode possuir de zero a vários imóveis, e um imóvel pode pertencer a zero ou a múltiplos proprietários.  
