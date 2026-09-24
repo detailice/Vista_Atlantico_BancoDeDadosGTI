@@ -1,4 +1,4 @@
-# Entrega 2 — Modelo Lógico, Implementação SQL e Apresentação Final
+# Modelo Lógico, Implementação SQL e Apresentação Final
 ### Modelagem de um sistema de gestão de informações para uma organização de pequeno porte
 
 > Este arquivo é o esqueleto dos artefatos finais do grupo, a serem organizados no repositório GitHub.
