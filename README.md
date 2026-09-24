@@ -11,14 +11,26 @@
 
 ---
 
+Alice de Lima (RGM 47612614), Laura Sophia Collado (RGM 48128406), Lucas Praxedes (RGM 47832550), Paulo Ricardo Freitas (RGM 47917687) e Thiago Barbante (RGM 47856564)
+
+---
+
 ## 1. Relatório Técnico Final
 *(arquivo Markdown — reúne a maior parte da Dimensão Conceitual, 30%)*
 
 ### 1.1 Revisão do Modelo Conceitual
 *Se necessário, ajuste o DER da Entrega 1 com base no feedback recebido. Explique o que mudou e por quê.*
 
-*Reapresente também as evidências da organização (fotos, link no Google, endereço, forma de contato) — atualizadas se houve uma nova visita nesta etapa.*
-
+- **Evidências da organização:**
+  
+**Razão Social:** Vista Atlântico Negócios Imobiliários LTDA (Nome Fantasia: Vista Atlântico Imóveis)  
+**CNPJ:** 55.866.811/0001-61 (Ativa na Receita Federal do Brasil)  
+**Registro de Classe:** CRECI 46844-J  
+**Endereço Completo:** Rua Tupi, 50 – Vila Tupi, Praia Grande - SP, CEP 11703-260  
+**Telefone / WhatsApp de Contato:** +55 11 96094-7604  
+**Website Oficial:** www.vistaatlanticoimoveis.com.br  
+**Presença no Google / Maps:** https://maps.google.com/?cid=15350459088759669626
+  
 ### 1.2 Conversão do Modelo Conceitual para o Modelo Lógico
 *(vale 7,5%)*
 - **Entidades → Tabelas:** *como cada entidade virou tabela.*
