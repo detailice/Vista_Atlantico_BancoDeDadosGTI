@@ -105,15 +105,17 @@ Notação Formal utilizada:
 | [] | escolha obrigatória entre alternativas|
 | @ |identificador (chave primária) |
 | * * | comentários fora da estrutura formal |
+| ( ) | Dados opcionais |
 
-**Prefixos:** NM_nome, ID_identificador, QT_quantidade, TP_tipo (categorização), IN_ indicador booleano. O caso também utiliza TL_(telefone), EM_(endereço de e-mail), HR_(horário), MQ_(metros quadrados), PR_(preço), LG_(linguas) e DS_(descrição/texto livre), que não estão entre os prefixos padrões, porém seguem os princípios básicos.  
+
+**Prefixos:** NM_nome, ID_identificador, QT_quantidade, TP_tipo (categorização), IN_ indicador booleano, DT_data. O caso também utiliza TL_(telefone), EN_(endereço), EM_(endereço de e-mail), HR_(horário), MQ_(metros quadrados), PR_(preço), LG_(linguas) e DS_(descrição/texto livre), que não estão entre os prefixos padrões, porém seguem os princípios básicos.  
 
 **Versão deste dicionário:** v1.0, 6/setembro/2026. Qualquer alteração de estrutura deve gerar nova revisão registrada nesta seção; a prática atende, ela própria, ao princípio de rastreabilidade exigido pela LGPD (art. 6º, X). 
 
 ### 5.3 Dicionário de dados por entidade
 
 **PROPRIETARIO**
-> **PROPRIETARIO = ID_PROPRIETARIO + NM_PROPRIETARIO + TL_PROPRIETARIO + EM_PROPRIETARIO**  
+> **PROPRIETARIO = @ID_PROPRIETARIO + NM_PROPRIETARIO + TL_PROPRIETARIO + EM_PROPRIETARIO**  
 
 **Leitura:** @ID_Proprietário é o identificador único; os outros três campos seguintes são obrigatórios e conectados por +.
 
@@ -125,7 +127,7 @@ Notação Formal utilizada:
 | EM_PROPRIETARIO | Varchar(100) | Sim | Endereço de e-mail ativo, possibilita outra forma de comunicação com o proprietário.|
 
 **IMOVEL**
-> **IMOVEL = @ID_IMOVEL + ID_PROPRIETARIO + TP_IMOVEL + [TP_VENDA| TP_LOCAÇÃO] + MQ_ÁREA + IN_STATUS + QT_VAGA_GARAGEM + QT_BANHEIROS + QT_QUARTOS + PR_IMOVEL + TP_FINALIDADE + EN_endereço + PR_IPTU** 
+> **IMOVEL = @ID_IMOVEL + ID_PROPRIETARIO + TP_IMOVEL + [TP_VENDA| TP_LOCAÇÃO] + MQ_ÁREA + IN_STATUS + QT_VAGA_GARAGEM + QT_BANHEIROS + QT_QUARTOS + PR_IMOVEL + TP_FINALIDADE + EN_IMOVEL + PR_IPTU** 
 
 **Leitura:** @ID_IMOVEL é identificador único, seguido pelo ID_PROPRIETÁRIO obrigatório, que garante com que todo imóvel possua um proprietário prévio; os outros onze campos são obrigatórios e conectados por +, [TP_VENDA|TP_LOCAÇÃO] exige escolher um tipo de oferta para cadastro e posteriormente filtragem de pesquisa. <sup> *notação formal da escolha obrigatória modificada para compatibilidade com markdown de tabela do github.*</sup>
 
@@ -147,17 +149,18 @@ Notação Formal utilizada:
 
 
 **CONTRATO**
-> **CONTRATO = @ID_CONTRATO + ID_CLIENTE + ID_PROPRIETARIO + ID_CORRETOR + TP_CONTRATO + FORMA_PAGAMENTO + PR_IMÓVEL + DATA_INICIO + (DATA_FIM)**
+> **CONTRATO = @ID_CONTRATO + ID_CLIENTE + ID_PROPRIETARIO + ID_CORRETOR + TP_CONTRATO + TP_PAGAMENTO + PR_IMÓVEL + DT_INICIO + (DT_FIM)**
 
 Leitura: ID_CONTRATO é o identificador único, seguido por outros três identificadores estrangeiros, que garantem que nenhum contrato seja registrado sem as devidas partes; TP_contrato diferencia contratos entre venda e locação, o campo DATA_FIM vêm entre parênteses pois é utilizado somente em contratos de locação.
 
 | Atributo | Tipo físico | Obrigatório | Significado e relevância |
 | -------- | --------- |---------|---------|
 | ID_CONTRATO | Integer | Sim  (PK)| Código de localização do registro em sistema. |
-| ID_CLIENTE | Integer | Sim (FK, único) | Referência ao cliente; Opera como um dos pilares do contrato. |
-| ID_PROPRIETARIO | Integer | Sim (FK, único) | Referência ao proprietário; Diz respeito a uma das principais partes interessadas na negociação. |
-| ID_CORRETOR | Integer | Sim (FK, único) | Referência ao corretor; De suma importância em negociações com corretagem. |
-| FORMA_PAGAMENTO | Text | Sim | Opção escolhida para subsídio do imóvel; Solicitada por lei em contratos imobiliários. |
+| ID_CLIENTE | Integer | Sim (FK) | Referência ao cliente; Opera como um dos pilares do contrato. |
+| ID_PROPRIETARIO | Integer | Sim (FK) | Referência ao proprietário; Diz respeito a uma das principais partes interessadas na negociação. |
+| ID_CORRETOR | Integer | Sim (FK) | Referência ao corretor; De suma importância em negociações com corretagem. |
+| TP_CONTRATO | Text | Sim | Característica diferencial entre locações e aquisições de imóveis
+| TP_PAGAMENTO | Text | Sim | Opção escolhida para subsídio do imóvel; Solicitada por lei em contratos imobiliários. |
 | PR_IMOVEL | Real | Sim | Preço de negociação do imóvel; dado basal para cálculo de comissão do corretor que mediou a negociação |
 | DATA_INICIO | date | Sim | Data em que o contrato entra em vigor; Solicitada por lei em contratos imobiliários. |
 | DATA_FIM | date | Não | Data de expiração do contrato; Exigida por lei em contratos de locação. |
@@ -177,7 +180,7 @@ Leitura: ID_CRECI usa o prefixo de identificador por ser um registro emitido por
 | TP_ATIVO; TP_AFASTADO; TP_FÉRIAS | Varchar(20) | Sim (escolha)| Indicador de disponibilidade do corretor; Corretores em período de férias ou afastados das funções não são exibidos como agentes disponíveis para contato.|
 
 **CLIENTE**
-> **CLIENTE = @ID_CLIENTE + NM_PROPRIETARIO + TL_CLIENTE + EM_CLIENTE**
+> **CLIENTE = @ID_CLIENTE + NM_CLIENTE + TL_CLIENTE + EM_CLIENTE**
 Leitura:@ID_CLIENTE é o identificador único; os outros três campos seguintes são obrigatórios e conectados por +.
 
 | Atributo | Tipo físico | Obrigatório | Significado e relevância |
