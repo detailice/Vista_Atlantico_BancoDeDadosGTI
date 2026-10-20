@@ -1,6 +1,6 @@
 # Vista Atlântico — Banco de Dados
 Repositório criado para o Projeto Semestral de Modelagem de Banco de Dados.  
-**Alice de Lima (RGM 47612614), Laura Sophia Collado (RGM 48128406), Lucas Praxedes (RGM 47832550), Paulo Ricardo Freitas (RGM 47917687) e Thiago Barbante (RGM 47856564)**
+**Alice de Lima (RGM 47612614), Laura Sophia Collado (RGM 48128406), Nicole Xavier (RGM 48329002), Paulo Ricardo Freitas (RGM 47917687) e Thiago Barbante (RGM 47856564)**
 
 ## 1. Caracterização da Organização
 
