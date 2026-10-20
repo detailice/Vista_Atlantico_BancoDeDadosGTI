@@ -126,6 +126,8 @@ Notação Formal utilizada:
 | TL_PROPRIETARIO | Varchar(11) | Sim | Número de telefone ativo para contato. Permite um meio de comunicação direta entre o proprietário e a imobiliária.|
 | EM_PROPRIETARIO | Varchar(100) | Sim | Endereço de e-mail ativo, possibilita outra forma de comunicação com o proprietário.|
 
+**índices:** PK ID_PROPRIETARIO; índice secundário em NM_PROPRIETARIO (busca por nome nos registros do sistema)
+
 **IMOVEL**
 > **IMOVEL = @ID_IMOVEL + ID_PROPRIETARIO + TP_IMOVEL + [TP_VENDA| TP_LOCAÇÃO] + MQ_ÁREA + IN_STATUS + QT_VAGA_GARAGEM + QT_BANHEIROS + QT_QUARTOS + PR_IMOVEL + TP_FINALIDADE + EN_IMOVEL + PR_IPTU** 
 
@@ -147,6 +149,8 @@ Notação Formal utilizada:
 | EN_IMOVEL | Varchar(120) | Sim | Localização do imóvel|
 | PR_IPTU | Real | Sim | Preço do IPTU (Imposto Predial e Territorial Urbano); Um dos dados primordiais em negociações de compra e/ou venda de imóveis |
 
+**índices:** PK ID_IMOVEL; índice secundário em ID_PROPRIETARIO (Chave estrangeira para acelerar a pesquisa do imóvel)
+
 
 **CONTRATO**
 > **CONTRATO = @ID_CONTRATO + ID_CLIENTE + ID_PROPRIETARIO + ID_CORRETOR + TP_CONTRATO + TP_PAGAMENTO + PR_IMÓVEL + DT_INICIO + (DT_FIM)**
@@ -165,6 +169,8 @@ Leitura: ID_CONTRATO é o identificador único, seguido por outros três identif
 | DATA_INICIO | date | Sim | Data em que o contrato entra em vigor; Solicitada por lei em contratos imobiliários. |
 | DATA_FIM | date | Não | Data de expiração do contrato; Exigida por lei em contratos de locação. |
 
+**índices:** PK ID_CONTRATO; índice em ID_CLIENTE (localiza o contrato a partir do locador ou comprador); índice em ID_CORRETOR (relatórios de performance por período)
+
 **CORRETOR**
 > **CORRETOR = @ID_CORRETOR + ID_CRECI + NM_CORRETOR + TL_CORRETOR + EM_CORRETOR + LG_CORRETOR + [TP_ATIVO| TP_AFASTADO|TP_FÉRIAS]** 
 Leitura: ID_CRECI usa o prefixo de identificador por ser um registro emitido por órgão externo (Conselho Regional de Corretores de Imóveis), não trata-se de um código interno de domínio; [TP_ATIVO| TP_AFASTADO|TP_FÉRIAS] exige que cada corretor informe seu status de disponibilidade na plataforma. <sup> *notação formal da escolha obrigatória modificada para compatibilidade com markdown de tabela do github.*</sup>
@@ -179,6 +185,8 @@ Leitura: ID_CRECI usa o prefixo de identificador por ser um registro emitido por
 | LG_CORRETOR | Text | Sim | Línguas faladas pelo corretor; Orienta a escolha de clientes estrangeiros ou imigrantes recém migrados. |
 | TP_ATIVO; TP_AFASTADO; TP_FÉRIAS | Varchar(20) | Sim (escolha)| Indicador de disponibilidade do corretor; Corretores em período de férias ou afastados das funções não são exibidos como agentes disponíveis para contato.|
 
+**índices:** PK ID_CORRETOR; índice único em ID_CRECI (evita duplicidade de registros profissionais e agiliza validações)
+
 **CLIENTE**
 > **CLIENTE = @ID_CLIENTE + NM_CLIENTE + TL_CLIENTE + EM_CLIENTE**
 Leitura:@ID_CLIENTE é o identificador único; os outros três campos seguintes são obrigatórios e conectados por +.
@@ -189,6 +197,8 @@ Leitura:@ID_CLIENTE é o identificador único; os outros três campos seguintes 
 | NM_CLIENTE | Varchar(120) | Sim | Nome completo, que pode ser o nome social declarado ou o nome civil; identifica o cliente nas negociações e nos contratos.|
 | TL_CLIENTE | Varchar(11) | Sim | Número de telefone ativo para contato. Permite um meio de comunicação direta com a imobiliária e o corretor.|
 | EM_CLIENTE | Varchar(100) | Sim | Endereço de e-mail ativo, possibilita outra forma de comunicação com a imobiliária e o corretor.|
+
+**índices:** PK ID_CLIENTE; índice secundário em NM_CLIENTE (busca por nome na base de dados)
 
 **VISITA**
 > **VISITA = @ID_VISITA + ID_IMOVEL + ID_CLIENTE + ID_CORRETOR + DT_VISITA + TM_HORARIO + DS_ANOTACOES**
@@ -203,6 +213,8 @@ Leitura: ID_VISITA é identificador único, as três chaves seguintes são estra
 | DT_VISITA | Data | Sim | Data marcada para visitação de cada imóvel. Necessária para organização da agenda de compromissos de cada corretor. |
 | TM_HORARIO | Time | Sim | Horário marcado para visitação do imóvel; Necessária para organização da agenda de compromissos de cada corretor. |
 | DS_ANOTACOES | Text | Não | Descrição livre das opiniões e impressores dos clientes.|
+
+**índices:** PK ID_VISITA; índice em ID_IMOVEL (relatórios comerciais de análise de popularidade entre os clientes); índice em ID_CORRETOR (relatórios de performance por período).
 
 ### 5.3 Log de acesso (metadado operacional) 
 As quatro tabelas ficam sob o mesmo mecanismo de auditoria do SGBD: o plugin audit_log do MySQL, configurado para gravar em formato JSON no caminho definido por audit_log_file (variável de sistema, sob $HOME neste ambiente — nunca sob /tmp, pelas mesmas razões que valem para LibreOffice/ffmpeg). Na ausência do plugin, a alternativa é o log geral (general_log=ON, log_output=TABLE), consultável em mysql.general_log. Retenção e rotação do log seguem política própria, independente da retenção dos dados de negócio. 
