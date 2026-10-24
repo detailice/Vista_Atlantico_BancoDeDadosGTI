@@ -53,11 +53,11 @@ O sistema deverá apresentar disponibilidade mínima de 99% durante o horário d
 RNF-04 — Compatibilidade e Desempenho:
 O sistema deverá ser compatível com computadores e dispositivos móveis, adaptando sua interface aos diferentes tamanhos de tela. Em condições de teste documentadas, pelo menos 95% das consultas deverão apresentar resultados em até 3 segundos, considerando uma base de 1.000 imóveis cadastrados.
 
-**Justificativa das Métricas Quantitativas:**
-As métricas quantitativas estabelecidas nos requisitos não funcionais representam critérios técnicos de aceitação propostos pelo grupo, considerando as características e necessidades identificadas na organização. Esses parâmetros deverão ser validados por meio de testes durante o desenvolvimento do sistema, podendo ser ajustados conforme sua viabilidade técnica.
-
 RNF-05 — Acessibilidade:
 O sistema deverá permitir navegação por teclado nas principais funcionalidades, apresentar identificação textual nos campos e botões e manter contraste adequado entre textos e elementos visuais, facilitando sua utilização por pessoas com diferentes necessidades de acesso.
+
+**Justificativa das Métricas Quantitativas:**
+As métricas quantitativas estabelecidas nos requisitos não funcionais representam critérios técnicos de aceitação propostos pelo grupo, considerando as características e necessidades identificadas na organização. Esses parâmetros deverão ser validados por meio de testes durante o desenvolvimento do sistema, podendo ser ajustados conforme sua viabilidade técnica.
 
 ## 4. Regras de Negócio
 
