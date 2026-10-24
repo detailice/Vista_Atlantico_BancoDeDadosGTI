@@ -34,10 +34,10 @@ Repositório criado para o Projeto Semestral de Modelagem de Banco de Dados.
 **3.1 Requisitos Funcionais:**
 
 **Usuário (clientes)**:  
-O sistema deve permitir: cadastro de clientes como usuários; cadastro imóveis; busca de imóveis (com ou sem uso de filtros);  agendamento de visitas; envio de mensagens aos corretores; encomenda de um imóvel; envio de  mensagem caso a encomenda seja finalizada nos canais de comunicação disponibilizados;
+O sistema deve permitir: cadastro de clientes como usuários; cadastro de imóveis pelos usuários autorizados, vinculando cada imóvel ao seu respectivo proprietário; busca de imóveis (com ou sem uso de filtros);  agendamento de visitas; envio de mensagens aos corretores; o cliente registre uma solicitação de imóvel, informando as características desejadas; envio de notificações ao cliente pelos canais de comunicação disponibilizados quando forem identificados imóveis compatíveis com sua solicitação;
 
 **Usuário (Corretores)**:  
-O sistema deve permitir: cadastro de novos corretores; recebimento de mensagens de clientes; exibir os imóveis que cada corretor é responsável; visualizar visitas marcadas; acesso aos contratos; visualização das informações dos imóveis e demais detalhes;
+O sistema deve permitir: cadastro de novos corretores; recebimento de mensagens de clientes; exibir os imóveis que cada corretor é responsável; visualizar visitas marcadas; permitir que os corretores autorizados consultem os contratos de compra, venda e locação vinculados às negociações sob sua responsabilidade; visualização das informações dos imóveis e demais detalhes;
 
 **3.2 Requisitos Não Funcionais:**
 Segurança, usabilidade, disponibilidade, versatilidade (bom desempenho em *desktop* e *mobile*) e acessibilidade.
