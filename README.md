@@ -40,7 +40,21 @@ O sistema deve permitir: cadastro de clientes como usuários; cadastro de imóve
 O sistema deve permitir: cadastro de novos corretores; recebimento de mensagens de clientes; exibir os imóveis que cada corretor é responsável; visualizar visitas marcadas; que os corretores autorizados consultem os contratos de compra, venda e locação vinculados às negociações sob sua responsabilidade; visualização das informações dos imóveis e demais detalhes;
 
 **3.2 Requisitos Não Funcionais:**
-Segurança, usabilidade, disponibilidade, versatilidade (bom desempenho em *desktop* e *mobile*) e acessibilidade.
+
+RNF-01 — Segurança da Informação:
+O sistema deverá exigir autenticação para o acesso às informações restritas, controlar as permissões dos usuários e utilizar conexões criptografadas para proteger a transmissão de dados pessoais e contratuais.
+
+RNF-02 — Usabilidade:
+O sistema deverá apresentar interface intuitiva, com menus identificados, linguagem simples e funcionalidades claramente organizadas, permitindo que os usuários realizem operações de cadastro e consulta sem necessidade de conhecimentos técnicos avançados.
+
+RNF-03 — Disponibilidade:
+O sistema deverá apresentar disponibilidade mínima de 99% durante o horário de funcionamento da imobiliária, considerando períodos mensais de operação e excluindo manutenções previamente programadas.
+
+RNF-04 — Compatibilidade e Desempenho:
+O sistema deverá ser compatível com computadores e dispositivos móveis, adaptando sua interface aos diferentes tamanhos de tela. Em condições de teste documentadas, pelo menos 95% das consultas deverão apresentar resultados em até 3 segundos, considerando uma base de 1.000 imóveis cadastrados.
+
+RNF-05 — Acessibilidade:
+O sistema deverá permitir navegação por teclado nas principais funcionalidades, apresentar identificação textual nos campos e botões e manter contraste adequado entre textos e elementos visuais, facilitando sua utilização por pessoas com diferentes necessidades de acesso.
 
 ## 4. Regras de Negócio
 
