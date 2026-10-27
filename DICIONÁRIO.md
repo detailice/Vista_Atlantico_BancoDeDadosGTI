@@ -1,5 +1,9 @@
 ## Caso: Dicionário de dados de uma Imobiliária
 
+## 1. Modelo conceitual
+
+Este modelo representa uma imobiliária, na qual cada cliente possui seu cadastro e quando há interesse em alugar, comprar ou anunciar algum imóvel, entra em contato com um corretor. O contato pode gerar uma visita em um imóvel e por fim, um contrato de negociação.
+
 | Entidade | Relaciona-se com | Cardinalidade |
 |----------|-----------|------------------------------|
 | Proprietário  | Imovel | 0:N — um proprietário pode ou não ter um imóvel cadastrado |
