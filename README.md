@@ -124,6 +124,7 @@ Notação Formal utilizada:
 | * * | comentários fora da estrutura formal |
 | ( ) | Dados opcionais |
 
+> A notação formal possuí outros símbolos, que não foram utilizados por não serem pertinentes aos tipos de dados e suas formatações referentes ao presente contexto.
 
 **Prefixos:** NM_nome, ID_identificador, QT_quantidade, TP_tipo (categorização), IN_ indicador booleano, DT_data. O caso também utiliza TL_(telefone), EN_(endereço), EM_(endereço de e-mail), HR_(horário), MQ_(metros quadrados), PR_(preço), LG_(linguas) e DS_(descrição/texto livre), que não estão entre os prefixos padrões, porém seguem os princípios básicos.  
 
@@ -172,7 +173,7 @@ Notação Formal utilizada:
 **CONTRATO**
 > **CONTRATO = @ID_CONTRATO + ID_CLIENTE + ID_PROPRIETARIO + ID_CORRETOR + TP_CONTRATO + TP_PAGAMENTO + PR_IMÓVEL + DT_INICIO + (DT_FIM)**
 
-Leitura: ID_CONTRATO é o identificador único, seguido por outros três identificadores estrangeiros, que garantem que nenhum contrato seja registrado sem as devidas partes; TP_contrato diferencia contratos entre venda e locação, o campo DATA_FIM vêm entre parênteses pois é utilizado somente em contratos de locação.
+Leitura: ID_CONTRATO é o identificador único, seguido por outros três identificadores estrangeiros, que garantem que nenhum contrato seja registrado sem as devidas partes; TP_contrato diferencia contratos entre venda e locação, o campo DT_FIM vêm entre parênteses pois é utilizado somente em contratos de locação.
 
 | Atributo | Tipo físico | Obrigatório | Significado e relevância |
 | -------- | --------- |---------|---------|
@@ -183,8 +184,8 @@ Leitura: ID_CONTRATO é o identificador único, seguido por outros três identif
 | TP_CONTRATO | Text | Sim | Característica diferencial entre locações e aquisições de imóveis
 | TP_PAGAMENTO | Text | Sim | Opção escolhida para subsídio do imóvel; Solicitada por lei em contratos imobiliários. |
 | PR_IMOVEL | Real | Sim | Preço de negociação do imóvel; dado basal para cálculo de comissão do corretor que mediou a negociação |
-| DATA_INICIO | date | Sim | Data em que o contrato entra em vigor; Solicitada por lei em contratos imobiliários. |
-| DATA_FIM | date | Não | Data de expiração do contrato; Exigida por lei em contratos de locação. |
+| DT_INICIO | date | Sim | Data em que o contrato entra em vigor; Solicitada por lei em contratos imobiliários. |
+| DT_FIM | date | Não | Data de expiração do contrato; Exigida por lei em contratos de locação. |
 
 **índices:** PK ID_CONTRATO; índice em ID_CLIENTE (localiza o contrato a partir do locador ou comprador); índice em ID_CORRETOR (relatórios de performance por período)
 
@@ -246,6 +247,8 @@ As quatro tabelas ficam sob o mesmo mecanismo de auditoria do SGBD: o plugin aud
 | CORRETOR | Corretor; auditoria | Administrativo/RH| Administrativo/RH| Administrativo/RH (desligamento)|
 | CLIENTE | Corretor; auditoria | Corretores| Cliente | Apenas anonimização ao fim da retenção|
 | VISITA | Corretor autor; auditoria | Corretor| Corretor| Corretor|
+
+Os atributos estruturados previstos nas entidades PROPRIETARIO, CLIENTE, CORRETOR, IMOVEL, CONTRATO e VISITA não contemplam, em princípio, dados pessoais sensíveis nos termos do art. 5º, II, da Lei nº 13.709/2018, abrangendo principalmente dados pessoais comuns, como identificação, contato, registro CRECI e informações financeiras e patrimoniais. O tratamento desses dados deverá observar as bases legais aplicáveis, especialmente a execução de contrato ou de procedimentos preliminares relacionados (art. 7º, V) e o cumprimento de obrigações legais ou regulatórias (art. 7º, II). O campo livre DS_ANOTACOES, da entidade VISITA, representa um risco de armazenamento de informações excessivas ou sensíveis, devendo seu preenchimento observar os princípios da finalidade e da necessidade (art. 6º, I e III), com acesso restrito conforme as permissões definidas na matriz da seção 5.4. Os mecanismos de controle de acesso e auditoria deverão permitir a rastreabilidade das operações, contribuindo para a responsabilização e prestação de contas (art. 6º, X). Quanto à retenção, os dados pessoais das entidades PROPRIETARIO e CLIENTE deverão ser eliminados ou anonimizados quando não forem mais necessários, respeitadas as hipóteses legais de conservação e a integridade referencial do banco de dados. Os registros de CONTRATO poderão ser preservados enquanto necessários ao cumprimento de obrigações legais, fiscais ou ao exercício regular de direitos, observados os critérios de retenção previstos na legislação aplicável.
 
 ## 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
 
