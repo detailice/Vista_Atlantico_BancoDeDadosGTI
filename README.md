@@ -281,8 +281,8 @@ ID_IMOVEL: Atributo Identificador (Chave Primária).
 
 <ins>**CORRETOR**</ins>
 
-**Chave Primária:** CRECI (Atributo Identificador).  
-**Atributos Simples:** NOME, TELEFONE, E-MAIL, COMISSÃO.  
+**Chave Primária:** ID (Atributo Identificador).  
+**Atributos Simples:** NOME, TELEFONE, E-MAIL, COMISSÃO e CRECI (único) 
 **Atributo Multivalorado/Composto:** IDIOMAS (opções: Português, Inglês, Espanhol).  
 **Atributo Multivalorado/Composto:** STATUS (opções: ativo, férias, afastado).
 
@@ -299,7 +299,7 @@ ID_IMOVEL: Atributo Identificador (Chave Primária).
 - **Relacionamentos pertinentes:**  
 **POSSUI (PROPRIETARIO $\leftrightarrow$ IMOVEL)** Cardinalidade: (0, n) para (1, n) — Um proprietário pode possuir de zero a vários imóveis, e um imóvel pode pertencer a zero ou a múltiplos proprietários.  
 **REFERENTE_A (IMOVEL $\leftrightarrow$ CONTRATO)** Cardinalidade: (1, n) para (1, n) — Um imóvel pode ser objeto de zero a vários contratos ao longo do tempo, assim como um contrato pode associar-se a imóveis.  
-**ASSINA (CLIENTE $\leftrightarrow$ CONTRATO)** Cardinalidade: (0, n) para (1, n) — Um cliente pode assinar zero ou vários contratos. Um contrato pode ser assinado por um ou mais clientes. Esse relacionamento contém o atributo tipo.  
+**ASSINA (CLIENTE $\leftrightarrow$ CONTRATO)** Cardinalidade: (0, n) para (1, n) — Um cliente pode assinar zero ou vários contratos. Um contrato pode ser assinado por um ou mais clientes.   
 **REALIZA (CLIENTE $\leftrightarrow$ VISITA)** Cardinalidade: (1,1) para (0, n) - Uma visita só pode ser realizada com um par de cliente(s) e corretor(es)
 **REALIZA (CORRETOR $\leftrightarrow$ VISITA)** Cardinalidade: (1, n) para (1, n) — Uma visita só pode ser realizada com um par de cliente(s) e corretor(es).
  
