@@ -14,23 +14,35 @@
 
 ### 1.1 Revisão do Modelo Conceitual
 
-**Caracterização da organização**
+### **Caracterização da organização:**
 
-- **Nome e natureza da organização:** VISTA ATLANTICO NEGOCIOS IMOBILIARIOS LTDA
-- **Contexto e porte:**
+- **Nome e natureza da organização:** VISTA ATLANTICO NEGOCIOS IMOBILIARIOS LTDA  
+- **Razão Social:** Vista Atlântico Negócios Imobiliários LTDA (Nome Fantasia: Vista Atlântico Imóveis)  
+- **CNPJ:** 55.866.811/0001-61 (Ativa na Receita Federal do Brasil)  
+- **Registro de Classe:** CRECI 46844-J  
+- **Endereço Completo:** Rua Tupi, 50 – Vila Tupi, Praia Grande - SP, CEP 11703-260  
+- **Telefone / WhatsApp de Contato:** +55 11 96094-7604  
+- **Website Oficial:** www.vistaatlanticoimoveis.com.br  
+- **Presença no Google / Maps:** https://maps.google.com/?cid=15350459088759669626
+  
+### **Contexto e porte:**
 
-**Razão Social:** Vista Atlântico Negócios Imobiliários LTDA (Nome Fantasia: Vista Atlântico Imóveis)  
-**CNPJ:** 55.866.811/0001-61 (Ativa na Receita Federal do Brasil)  
-**Registro de Classe:** CRECI 46844-J  
-**Endereço Completo:** Rua Tupi, 50 – Vila Tupi, Praia Grande - SP, CEP 11703-260  
-**Telefone / WhatsApp de Contato:** +55 11 96094-7604  
-**Website Oficial:** www.vistaatlanticoimoveis.com.br  
-**Presença no Google / Maps:** https://maps.google.com/?cid=15350459088759669626  
+- **Fins lucrativos:** Com fins lucrativos. A empresa é registrada como uma Sociedade Empresária Limitada (Ltda.) voltada ao setor privado.  
+- **Tamanho da operação:** Classificada no regime de EPP (Empresa de Pequeno Porte). Tem sede localizada em Praia Grande / SP.  
+- **Número de pessoas envolvidas:** 8  
+- **Volume de atividades:** Atua no ramo imobiliário. A empresa registra uma carteira com cerca de 900 a 1.000 anúncios de imóveis disponíveis na região da Baixada Santista/Praia Grande. Não realiza doações públicas, rituais ou eventos de caráter comunitário/religioso.  
 
-- **Problemas e necessidades identificados:**   
-- **Escopo do sistema:** 
-- **Justificativa da escolha:** 
-- **Evidências da organização:** 
+### **Problemas e necessidades identificados:**  
+- **P1 - Descentralização de dados:** atualmente, a imobiliária utiliza diversos sistemas e ferramentas para guardar dados dos clientes, compras, vendas, contratos, encomendas de imóveis etc, demandando muito tempo para reunir informações e aplicá-las em processos (geração de contratos, recomendação de imóveis por encomenda etc)  
+
+- **P2 -**
+  
+**Escopo do sistema:** O banco de dados armazenará dados pertinentes aos principais processos da imobiliária, como cadastros (clientes, proprietários e imóveis), compra e/ou locação de imóveis, contratos, visitas e encomendas. Estes dados são utilizados pelos corretores, analistas jurídicos e serviços terceirizados (divulgação dos anúncios da página da imobiliária).
+  
+**Justificativa da escolha:** A organização foi selecionada devido à proximidade e abertura do contato com a direção, comandada pela prima de uma das integrantes da equipe. Outro fator determinante foi o volume de seu portfólio e a oscilação sazonal no fluxo de clientes, típica de períodos como o inverno.  
+
+- **Evidências da organização:** Inseridas no repositório, pasta "LEVANTAMENTO".
+
 - **Responsável pela organização:**
 
 **Relato da entrevista**
@@ -39,42 +51,87 @@
 - **Comprovação:**
 - **O que foi levantado:** 
 
+---
+
 **Processos de negócio:**
 
-**Requisitos:**
+---
 
-- **Requisitos Funcionais:**
+### **Requisitos:**
 
-**RF-01 —**
+**Requisitos Funcionais:**
 
-**RF-02 —**
+- **RF01:** O sistema deve permitir o cadastro de clientes como usuários, com nome completo, telefone e e-mail;
 
-**RF-03 —**
+- **RF02:** O sistema deve permitir o cadastro de corretores como usuários, com nome completo, CRECI (código de registro no Conselho Regional de Corretores de Imóveis), telefone, e-mail, idiomas falados e status na plataforma (ativo, afastado, férias ou demitido);
+
+- **RF03:** O sistema deve permitir o cadastro de imóveis, com a área em metros quadrados, preço, finalidade, tipo de oferta (venda ou locação), status do imóvel (disponível, em obras, indisponível etc), IPTU, quantidade de vagas de garagem, quartos e banheiros, bem como o tipo de imóvel (casa, apartamento, estúdio, sobrado, terreno etc) e suas fotos;
+
+- **RF04:** O sistema deve permitir o armazenamento de contratos e suas principais informações: preço, tipo (compra ou locação), forma de pagamento, data de início e data de finalização (em casos de locação);
+
+- **RF05:** O sistema deve permitir que um usuário encomende um imóvel, inserindo a descrição, cidade e bairro desejados, bem como uma faixa de valor (máximo e mínimo);
+
+- **RF06:** O sistema deve armazenar a data em que uma encomenda de imóvel é realizada e seu status atual (não atendida, em análise ou concluída);
+
+- **RF07:** O sistema deve permitir que um corretor registre cada visita realizada à um imóvel, com data, horário e anotações;
+
+- **RF08:** O sistema deve permitir que os usuários busquem imóveis, informando sua pretensão (compra, locação, visualizar imóveis novos ou pesquisa por código) e tipo de imóvel, utilizando ou não filtros de busca (preço, região, quantidade de quartos, banheiros etc);
+
+- **RF09:** O sistema deve permitir que os usuários agendem visitas diretamente na página do imóvel, selecionando data, horário, bem como insiram nome completo, telefone e e-mail obrigatóriamente;
+
+- **RF10:** O sistema deve permitir que os usuários enviem mensagens aos corretores, se identificando com nome completo, telefone e e-mail;
+
+- **RF11:** O sistema deve permitir que os clientes que encomendaram imóveis na plataforma recebam recomendações de imóveis pelos meios de contato disponibilizados durante o processo de encomenda (SMS, ligações ou e-mails);
+
+- **RF12:** O sistema deve permitir que corretores cadastrados na plataforma recebam mensagens de clientes, filtrando-as por lidas ou não lidas;
+
+- **RF13:** O sistema deve permitir que corretores cadastrados na plataforma visualizem as visitas marcadas;
+
+---
   
-- **Requisitos Não Funcionais:**
+**Requisitos Não Funcionais:**
 
-**RNF-01 — Segurança da Informação:** O sistema deverá exigir autenticação para o acesso às informações restritas, controlar as permissões dos usuários e utilizar conexões criptografadas para proteger a transmissão de dados pessoais e contratuais.
+- **RNF01 — Segurança da Informação:** O sistema deverá exigir autenticação para o acesso às informações restritas, controlar as permissões dos usuários e utilizar conexões criptografadas para proteger a transmissão de dados pessoais e contratuais;
 
-**RNF-02 — Usabilidade:** O sistema deverá apresentar interface intuitiva, com menus identificados, linguagem simples e funcionalidades claramente organizadas, permitindo que os usuários realizem operações de cadastro e consulta sem necessidade de conhecimentos técnicos avançados.
+- **RNF02 — Usabilidade:** O sistema deverá apresentar interface intuitiva, com menus identificados, linguagem simples e funcionalidades claramente organizadas, permitindo que os usuários realizem operações de cadastro e consulta sem necessidade de conhecimentos técnicos avançados;
 
-**RNF-03 — Disponibilidade:** O sistema deverá apresentar disponibilidade mínima de 99% durante o horário de funcionamento da imobiliária, considerando períodos mensais de operação e excluindo manutenções previamente programadas.
+- **RNF03 — Disponibilidade:** O sistema deverá apresentar disponibilidade mínima de 99% durante o horário de funcionamento da imobiliária, considerando períodos mensais de operação e excluindo manutenções previamente programadas;
 
-**RNF-04 — Compatibilidade e Desempenho:** O sistema deverá ser compatível com computadores e dispositivos móveis, adaptando sua interface aos diferentes tamanhos de tela. Em condições de teste documentadas, pelo menos 95% das consultas deverão apresentar resultados em até 3 segundos, considerando uma base de 1.000 imóveis cadastrados.
+- **RNF04 — Compatibilidade e Desempenho:** O sistema deverá ser compatível com computadores e dispositivos móveis, adaptando sua interface aos diferentes tamanhos de tela. Em condições de teste documentadas, pelo menos 95% das consultas deverão apresentar resultados em até 3 segundos, considerando uma base de 1.000 imóveis cadastrados;
 
-**RNF-05 — Acessibilidade:** O sistema deverá permitir navegação por teclado nas principais funcionalidades, apresentar identificação textual nos campos e botões e manter contraste adequado entre textos e elementos visuais, facilitando sua utilização por pessoas com diferentes necessidades de acesso.
+- **RNF05 — Acessibilidade:** O sistema deverá permitir navegação por teclado nas principais funcionalidades, apresentar identificação textual nos campos e botões e manter contraste adequado entre textos e elementos visuais, facilitando sua utilização por pessoas com diferentes necessidades de acesso;
 
-> **Justifique os requisitos prováveis não incluídos:**
+--- 
 
-**Regras de negócio**
+**Requisitos prováveis não incluídos:** O sistema não permite que os clientes visualizem as visitas que já realizaram, somente os corretores possuem essa visão, visto que dentro da organização somente corretores podem registrar visitas realizadas.
+
+### **Regras de negócio**
 
 > **Justifique as regras prováveis não incluídas:** se uma regra comum nesse tipo de organização ficou de fora, explique por quê (ex.: a organização não realiza o processo correspondente, ou a regra não se aplica ao porte ou à natureza dela).
 
-**RN-01 —**
+**Regras operacionais:**
 
-**RN-02 —**
+- **RN01:** Apenas indivíduos com maioridade podem anunciar, comprar ou alugar um imóvel;
 
-**RN-03 —**
+- **RN02:** Um imóvel só pode ser alugado ou vendido se estiver disponível; 
 
+- **RN03:** Um imóvel só pode ser alugado, vendido ou comprado por um cliente cadastrado na plataforma;
+
+- **RN04:** O cliente só pode comprar ou alugar um imóvel mediante a comprovante de renda (holerite); 
+
+- **RN05:** Nenhum imóvel pode ser cadastrado na plataforma com ausência de imagens em boa qualidade
+
+- **RN06:** 
+
+- **RN07:**
+
+**Restrições legais e organizacionais:**
+
+- **RN01 - Conformidade com a LGPD:** a imobiliária não pode armazenar nem compartilhar documentos pessoais de clientes (CPF, comprovante de renda, escrituras) em plataformas abertas sem criptografia, consentimento explícito assinado e politica de privacidade disponível para leitura;
+
+- **RN02 - Exigência do CRECI:** Todos os anúncios, contratos e transações precisam registrar formalmente o número do CRECI do corretor responsável e da imobiliária, sob pena de autuação e multa.
+
+---
 
 **Notação do DER conceitual**
 
