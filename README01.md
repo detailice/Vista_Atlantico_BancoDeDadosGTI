@@ -39,7 +39,7 @@ O sistema deve permitir o cadastro de clientes e proprietários como usuários p
 
 **Usuários privilegiados (Corretores):**
 
-O sistema deve permitir o cadastro de corretores, contendo nome completo, CRECI, telefone, e-mail, idiomas falados e situação cadastral. Os corretores poderão receber e responder mensagens de clientes, visualizar os imóveis sob sua responsabilidade, consultar visitas agendadas, registrar visitas realizadas e consultar contratos vinculados às negociações pelas quais são responsáveis, respeitando as permissões de acesso estabelecidas.
+O sistema deve permitir o cadastro de corretores, contendo nome completo, CRECI, telefone, e-mail, idiomas falados e situação cadastral. Os corretores poderão receber e responder mensagens de clientes, visualizar os imóveis sob sua responsabilidade, consultar visitas agendadas, registrar visitas realizadas e consultar contratos vinculados às negociações pelas quais são responsáveis. O acesso às informações deverá ser restrito às atividades e negociações atribuídas a cada corretor.
 
 **Usuários privilegiados (Administradores):**
 
