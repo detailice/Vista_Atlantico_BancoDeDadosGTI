@@ -137,7 +137,7 @@
 
 - **RN:** A situação de disponibilidade do imóvel deverá ser atualizada após a formalização de uma negociação que impeça novas ofertas incompatíveis.
 
-- **RN:**   Toda transação imobiliária deverá ser realizada por um corretor com registro CRECI ativo e situação funcional regular no sistema, não sendo permitida a participação de corretores afastados ou demitidos.
+- **RN:**   Toda transação imobiliária deverá ser realizada por um corretor com registro CRECI ativo e situação funcional regular no sistema, não sendo permitida a participação de corretores afastados ou demitidos. 
 
 **Restrições legais e organizacionais:**
 
