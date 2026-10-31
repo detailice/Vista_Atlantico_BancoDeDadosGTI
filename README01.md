@@ -241,7 +241,7 @@ Leitura: ID_VISITA é identificador único, as três chaves seguintes são estra
 **índices:** PK ID_VISITA; índice em ID_IMOVEL (relatórios comerciais de análise de popularidade entre os clientes); índice em ID_CORRETOR (relatórios de performance por período).
 
 ### 5.3 Log de acesso (metadado operacional) 
-As quatro tabelas ficam sob o mesmo mecanismo de auditoria do SGBD: o plugin audit_log do MySQL, configurado para gravar em formato JSON no caminho definido por audit_log_file (variável de sistema, sob $HOME neste ambiente — nunca sob /tmp, pelas mesmas razões que valem para LibreOffice/ffmpeg). Na ausência do plugin, a alternativa é o log geral (general_log=ON, log_output=TABLE), consultável em mysql.general_log. Retenção e rotação do log seguem política própria, independente da retenção dos dados de negócio. 
+O sistema deverá prever mecanismos de auditoria para registrar operações relevantes de leitura e escrita realizadas nas entidades PROPRIETARIO, CLIENTE, CORRETOR, IMOVEL, CONTRATO e VISITA. Esses mecanismos deverão permitir a identificação das operações realizadas, contribuindo para a rastreabilidade dos acessos e a responsabilização dos usuários. A implementação deverá considerar os recursos disponíveis no SGBD e definir critérios próprios de armazenamento, retenção e rotação dos registros de auditoria, respeitando os requisitos de segurança da informação e a legislação aplicável.
 
 ### 5.4 Acesso por operação e conformidade com a LGPD
 
