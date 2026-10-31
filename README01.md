@@ -70,8 +70,8 @@ Nenhum imóvel pode ser cadastrado na plataforma com ausência de imagens em boa
 
 **Restrições organizacionais:** 
 
-**Conformidade com a LGPD:** a imobiliária não pode armazenar nem compartilhar documentos pessoais de clientes (CPF, comprovante de renda, escrituras) em plataformas abertas sem criptografia, consentimento explícito assinado e politica de privacidade disponível para leitura;
-  
+**Conformidade com a LGPD:** O tratamento de dados pessoais realizado pela imobiliária deverá respeitar a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018), com finalidades legítimas e específicas, utilizando uma base legal adequada para cada operação. Os dados e documentos pessoais dos clientes, proprietários e corretores deverão ser armazenados e compartilhados somente quando necessário, com acesso restrito às pessoas autorizadas e adoção de medidas de segurança para evitar acessos não autorizados, vazamentos ou uso indevido. A imobiliária deverá disponibilizar informações claras sobre o tratamento dos dados por meio de uma política de privacidade.
+
 **Exigência do CRECI:** Todos os anúncios, contratos e transações precisam registrar formalmente o número do CRECI do corretor responsável e da imobiliária, sob pena de autuação e multa.
 
 **Baixa maturidade digital empresarial:** Funcionários e corretores mais velhos de casa tem maior resistência à novas tecnologias, além do uso de equipamentos domésticos e de baixo potencial utilizados no trabalho.
