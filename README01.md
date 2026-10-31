@@ -112,7 +112,7 @@ VISITA constrói um relacionamento ternário entre CLIENTE e CORRETOR (um client
 
 ### 5.1 **Fluxo de dados**
 
-Cliente se cadastra/loga no sistema → cliente seleciona o tipo de imóvel que deseja visualizar → cliente seleciona o imóvel de interesse, marcando uma visita → o agendamento gera um registro em VISITA, ligando esse CLIENTE a um CORRETOR → a critério do cliente, a negociação pode avançar e gerar um CONTRATO, que é referenciado nos registros do CLIENTE e do CORRETOR → toda leitura ou escrita nessas quatro tabelas é registrada pelo log de acesso do SGBD (§5), o que sustenta auditoria e conformidade com a LGPD (§6). 
+Cliente se cadastra/loga no sistema → cliente seleciona o tipo de imóvel que deseja visualizar → cliente seleciona o imóvel de interesse, marcando uma visita → o agendamento gera um registro em VISITA, relacionando CLIENTE, CORRETOR e IMOVEL → a critério do cliente, a negociação pode avançar e gerar um CONTRATO, relacionado ao CLIENTE, PROPRIETARIO e CORRETOR → as operações de leitura e escrita nas entidades PROPRIETARIO, CLIENTE, CORRETOR, IMOVEL, CONTRATO e VISITA deverão estar sujeitas a mecanismos de registro e auditoria, conforme a política de controle de acesso e rastreabilidade.
 
 ### 5.2 Convenções do dicionário
 **SGBD:** MySQL 8, mecanismo de armazenamento InnoDB — cuida da persistência dos arquivos de dados, do log de transações (redo/undo) e mantém o índice primário clusterizado por chave. 
