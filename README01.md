@@ -246,13 +246,13 @@ As quatro tabelas ficam sob o mesmo mecanismo de auditoria do SGBD: o plugin aud
 ### 5.4 Acesso por operação e conformidade com a LGPD
 
 | Tabela | Leitura | Inserção | Atualização | Exclusão |
-| ----- | ---- | ----| ----| ----|
-| PROPRIETARIO | Corretores; auditoria| Proprietários| Proprietários| Apenas anonimização ao fim da retenção
-| IMOVEL | Corretores; clientes; proprietários; auditoria | Proprietários| Proprietários; corretores | Nenhum contrato, apenas dados utilizados para fins comerciais|
-| CONTRATO | Corretores; clientes; proprietários; auditoria | Corretores; clientes; proprietários; auditoria | Corretores | Nenhum papel |
-| CORRETOR | Corretor; auditoria | Administrativo/RH| Administrativo/RH| Administrativo/RH (desligamento)|
-| CLIENTE | Corretor; auditoria | Corretores| Cliente | Apenas anonimização ao fim da retenção|
-| VISITA | Corretor autor; auditoria | Corretor| Corretor| Corretor|
+| ----- | ----- | ----- | ----- | ----- |
+| PROPRIETARIO | Usuário padrão relacionado ao cadastro; corretores responsáveis; administradores | Administradores | Usuário padrão, somente nos próprios dados pessoais; administradores | Sem exclusão direta; anonimização quando cabível, respeitadas as hipóteses legais de conservação |
+| CLIENTE | Usuário padrão relacionado ao cadastro; corretores responsáveis; administradores | Usuários padrão, por meio do próprio cadastro; administradores | Usuário padrão, somente nos próprios dados pessoais; administradores | Sem exclusão direta; anonimização quando cabível, respeitadas as hipóteses legais de conservação |
+| IMOVEL | Usuários padrão; corretores responsáveis; administradores | Administradores e corretores autorizados | Administradores e corretores autorizados | Sem exclusão direta de registros vinculados a negociações; avaliar inativação ou remoção quando aplicável |
+| CONTRATO | Usuários padrão participantes da negociação; corretores responsáveis; administradores | Administradores e corretores autorizados | Administradores e corretores autorizados | Sem exclusão direta; preservação conforme obrigações legais e exercício regular de direitos |
+| CORRETOR | Próprio corretor, quanto aos seus dados; administradores | Administradores | Administradores; corretor, somente nos próprios dados pessoais quando autorizado | Sem exclusão direta; inativação do cadastro em caso de desligamento |
+| VISITA | Usuários padrão envolvidos na visita; corretor responsável; administradores | Corretores responsáveis | Corretores responsáveis; administradores | Sem exclusão direta; priorizar cancelamento ou inativação do registro |
 
 Os atributos estruturados previstos nas entidades PROPRIETARIO, CLIENTE, CORRETOR, IMOVEL, CONTRATO e VISITA não contemplam, em princípio, dados pessoais sensíveis nos termos do art. 5º, II, da Lei nº 13.709/2018, abrangendo principalmente dados pessoais comuns, como identificação, contato, registro CRECI e informações financeiras e patrimoniais. O tratamento desses dados deverá observar as bases legais aplicáveis, especialmente a execução de contrato ou de procedimentos preliminares relacionados (art. 7º, V) e o cumprimento de obrigações legais ou regulatórias (art. 7º, II). O campo livre DS_ANOTACOES, da entidade VISITA, representa um risco de armazenamento de informações excessivas ou sensíveis, devendo seu preenchimento observar os princípios da finalidade e da necessidade (art. 6º, I e III), com acesso restrito conforme as permissões definidas na matriz da seção 5.4. Os mecanismos de controle de acesso e auditoria deverão permitir a rastreabilidade das operações, contribuindo para a responsabilização e prestação de contas (art. 6º, X). Quanto à retenção, os dados pessoais das entidades PROPRIETARIO e CLIENTE deverão ser eliminados ou anonimizados quando não forem mais necessários, respeitadas as hipóteses legais de conservação e a integridade referencial do banco de dados. Os registros de CONTRATO poderão ser preservados enquanto necessários ao cumprimento de obrigações legais, fiscais ou ao exercício regular de direitos, observados os critérios de retenção previstos na legislação aplicável.
 
