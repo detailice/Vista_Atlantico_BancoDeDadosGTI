@@ -33,11 +33,17 @@ Repositório criado para o Projeto Semestral de Modelagem de Banco de Dados.
 
 **3.1 Requisitos Funcionais:**
 
-**Usuário (clientes)**:  
-O sistema deve permitir: cadastro de clientes como usuários; cadastro de imóveis pelos usuários autorizados, vinculando cada imóvel ao seu respectivo proprietário; busca de imóveis (com ou sem uso de filtros);  agendamento de visitas; envio de mensagens aos corretores; que o cliente registre uma solicitação de imóvel, informando as características desejadas; envio de notificações ao cliente pelos canais de comunicação disponibilizados quando forem identificados imóveis compatíveis com sua solicitação;
+**Usuários padrão (Clientes e Proprietários):**
 
-**Usuário (Corretores)**:  
-O sistema deve permitir: cadastro de novos corretores; recebimento de mensagens de clientes; exibir os imóveis que cada corretor é responsável; visualizar visitas marcadas; que os corretores autorizados consultem os contratos de compra, venda e locação vinculados às negociações sob sua responsabilidade; visualização das informações dos imóveis e demais detalhes;
+O sistema deve permitir o cadastro de clientes e proprietários como usuários padrão da plataforma, possibilitando que cada usuário consulte e atualize seus próprios dados cadastrais. Os clientes poderão buscar imóveis, utilizar filtros de pesquisa, agendar visitas, enviar mensagens aos corretores e registrar solicitações de imóveis com as características desejadas. Os proprietários poderão consultar as informações dos imóveis vinculados ao seu cadastro e acompanhar as informações relacionadas à sua participação nas negociações. O sistema também deverá permitir o envio de notificações aos clientes quando forem identificados imóveis compatíveis com suas solicitações.
+
+**Usuários privilegiados (Corretores):**
+
+O sistema deve permitir o cadastro de corretores, contendo nome completo, CRECI, telefone, e-mail, idiomas falados e situação cadastral. Os corretores poderão receber e responder mensagens de clientes, visualizar os imóveis sob sua responsabilidade, consultar visitas agendadas, registrar visitas realizadas e consultar contratos vinculados às negociações pelas quais são responsáveis, respeitando as permissões de acesso estabelecidas.
+
+**Usuários privilegiados (Administradores):**
+
+O sistema deverá contemplar usuários com perfil administrativo, responsáveis pelo gerenciamento dos cadastros e pela administração das permissões de acesso da plataforma. Esses usuários poderão realizar operações administrativas sobre os registros de clientes, proprietários, corretores, imóveis, contratos e visitas, respeitando as regras de segurança, rastreabilidade e proteção de dados pessoais.
 
 **3.2 Requisitos Não Funcionais:**
 
