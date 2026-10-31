@@ -61,23 +61,23 @@
 
 **Requisitos Funcionais:**
 
-- **RF01:** O sistema deve permitir o cadastro de clientes como usuários, com nome completo, telefone e e-mail;
+- **RF01:** O sistema deve permitir o cadastro de usuários padrão, contemplando clientes e proprietários de imóveis em um mesmo tipo de conta, com nome completo, telefone e e-mail. Cada usuário deverá ter acesso somente às informações relacionadas ao seu próprio cadastro e à sua participação nas negociações.
 
-- **RF02:** O sistema deve permitir o cadastro de corretores como usuários, com nome completo, CRECI (código de registro no Conselho Regional de Corretores de Imóveis), telefone, e-mail, idiomas falados e status na plataforma (ativo, afastado, férias ou demitido);
+- **RF02:** O sistema deve permitir o cadastro de corretores como usuários privilegiados, com nome completo, CRECI (código de registro no Conselho Regional de Corretores de Imóveis), telefone, e-mail, idiomas falados e status na plataforma (ativo, afastado, férias ou demitido), com permissões de acesso às informações relacionadas às negociações sob sua responsabilidade.
 
-- **RF03:** O sistema deve permitir o cadastro de imóveis, com a área em metros quadrados, preço, finalidade, tipo de oferta (venda ou locação), status do imóvel (disponível, em obras, indisponível etc), IPTU, quantidade de vagas de garagem, quartos e banheiros, bem como o tipo de imóvel (casa, apartamento, estúdio, sobrado, terreno etc) e suas fotos;
+- **RF03:** O sistema deve permitir que usuários privilegiados autorizados realizem o cadastro de imóveis, vinculando cada imóvel ao seu respectivo proprietário e registrando área em metros quadrados, preço, finalidade, tipo de oferta (venda ou locação), status do imóvel, IPTU, quantidade de vagas de garagem, quartos e banheiros, tipo de imóvel e suas respectivas fotos.
 
-- **RF04:** O sistema deve permitir o armazenamento de contratos e suas principais informações: preço, tipo (compra ou locação), forma de pagamento, data de início e data de finalização (em casos de locação);
+- **RF04:** O sistema deve permitir o cadastro e armazenamento de contratos por usuários privilegiados autorizados, contendo suas principais informações, como preço, tipo (compra ou locação), forma de pagamento, data de início e data de finalização, quando aplicável. Os usuários padrão que participarem de uma negociação poderão consultar os respectivos contratos, enquanto os corretores poderão consultar os contratos vinculados às negociações sob sua responsabilidade.
 
 - **RF05:** O sistema deve permitir que um usuário encomende um imóvel, inserindo a descrição, cidade e bairro desejados, bem como uma faixa de valor (máximo e mínimo);
 
 - **RF06:** O sistema deve armazenar a data em que uma encomenda de imóvel é realizada e seu status atual (não atendida, em análise ou concluída);
 
-- **RF07:** O sistema deve permitir que um corretor registre cada visita realizada à um imóvel, com data, horário e anotações;
+- **RF07:** O sistema deve permitir que corretores registrem visitas realizadas ou agendadas aos imóveis, informando data, horário, cliente relacionado e anotações pertinentes, permitindo a consulta dos registros pelos corretores responsáveis e pelos usuários padrão envolvidos na respectiva visita, conforme suas permissões de acesso.
 
 - **RF08:** O sistema deve permitir que os usuários busquem imóveis, informando sua pretensão (compra, locação, visualizar imóveis novos ou pesquisa por código) e tipo de imóvel, utilizando ou não filtros de busca (preço, região, quantidade de quartos, banheiros etc);
 
-- **RF09:** O sistema deve permitir que os usuários agendem visitas diretamente na página do imóvel, selecionando data, horário, bem como insiram nome completo, telefone e e-mail obrigatóriamente;
+- **RF09:** O sistema deve permitir que usuários padrão agendem visitas diretamente na página do imóvel, selecionando data e horário e informando nome completo, telefone e e-mail. As informações do agendamento deverão ficar disponíveis para o corretor responsável e para os usuários envolvidos na visita, respeitando as permissões de acesso.
 
 - **RF10:** O sistema deve permitir que os usuários enviem mensagens aos corretores, se identificando com nome completo, telefone e e-mail;
 
@@ -85,7 +85,9 @@
 
 - **RF12:** O sistema deve permitir que corretores cadastrados na plataforma recebam mensagens de clientes, filtrando-as por lidas ou não lidas;
 
-- **RF13:** O sistema deve permitir que corretores cadastrados na plataforma visualizem as visitas marcadas;
+- **RF13:** O sistema deve permitir que corretores cadastrados visualizem e gerenciem os registros de visitas relacionados aos imóveis e clientes sob sua responsabilidade, respeitando as permissões de acesso estabelecidas.
+
+- **RF14:** O sistema deve estabelecer níveis de acesso conforme o tipo de usuário, contemplando usuários padrão (clientes e proprietários) e usuários privilegiados da imobiliária. Os usuários privilegiados deverão possuir permissões específicas de acordo com suas funções, distinguindo as atividades dos corretores e dos administradores, enquanto os usuários padrão poderão consultar e atualizar seus próprios dados e acessar somente as informações relacionadas à sua participação nas negociações.
 
 ---
   
