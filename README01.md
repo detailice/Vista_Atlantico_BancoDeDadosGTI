@@ -240,10 +240,10 @@ Leitura: ID_VISITA é identificador único, as três chaves seguintes são estra
 
 **índices:** PK ID_VISITA; índice em ID_IMOVEL (relatórios comerciais de análise de popularidade entre os clientes); índice em ID_CORRETOR (relatórios de performance por período).
 
-### 5.3 Log de acesso (metadado operacional) 
+### 5.4 Log de acesso (metadado operacional) 
 O sistema deverá prever mecanismos de auditoria para registrar operações relevantes de leitura e escrita realizadas nas entidades PROPRIETARIO, CLIENTE, CORRETOR, IMOVEL, CONTRATO e VISITA. Esses mecanismos deverão permitir a identificação das operações realizadas, contribuindo para a rastreabilidade dos acessos e a responsabilização dos usuários. A implementação deverá considerar os recursos disponíveis no SGBD e definir critérios próprios de armazenamento, retenção e rotação dos registros de auditoria, respeitando os requisitos de segurança da informação e a legislação aplicável.
 
-### 5.4 Acesso por operação e conformidade com a LGPD
+### 5.5 Acesso por operação e conformidade com a LGPD
 
 | Tabela | Leitura | Inserção | Atualização | Exclusão |
 | ----- | ----- | ----- | ----- | ----- |
