@@ -121,15 +121,45 @@
 
 - **RN05:** Nenhum imóvel pode ser cadastrado na plataforma com ausência de imagens em boa qualidade
 
-- **RN06:** 
+- **RN06:** Todo imóvel cadastrado deverá estar vinculado a pelo menos um proprietário, sendo permitida a existência de múltiplos proprietários para um mesmo imóvel.  
 
-- **RN07:**
+- **RN07:** Um imóvel poderá possuir múltiplos contratos ao longo do tempo, desde que não existam contratos ativos simultâneos que representem negociações incompatíveis sobre o mesmo imóvel.
+
+- **RN:** Uma visita somente poderá ser agendada para um imóvel devidamente cadastrado na imobiliária, devendo estar vinculada ao cliente interessado e ao corretor responsável pelo acompanhamento.
+
+- **RN:** Um cliente pode comprar ou alugar um imóvel sem obrigatoriamente visitá-lo
+
+- **RN:** Uma visita somente poderá ser agendada para um imóvel devidamente cadastrado na imobiliária, devendo estar vinculada ao cliente interessado e ao corretor responsável pelo acompanhamento.
+
+- **RN:** Um mesmo corretor não poderá ser designado para acompanhar visitas diferentes em horários conflitantes.
+
+- **RN:** Todo contrato deverá estar vinculado a pelo menos um imóvel, um cliente participante e um corretor responsável pela intermediação.
+
+- **RN:** A situação de disponibilidade do imóvel deverá ser atualizada após a formalização de uma negociação que impeça novas ofertas incompatíveis.
+
+- **RN:** 
 
 **Restrições legais e organizacionais:**
 
 - **RN01 - Conformidade com a LGPD:** a imobiliária não pode armazenar nem compartilhar documentos pessoais de clientes (CPF, comprovante de renda, escrituras) em plataformas abertas sem criptografia, consentimento explícito assinado e politica de privacidade disponível para leitura;
 
 - **RN02 - Exigência do CRECI:** Todos os anúncios, contratos e transações precisam registrar formalmente o número do CRECI do corretor responsável e da imobiliária, sob pena de autuação e multa.
+
+- **RN03 - Lei do inquilinato:** Todos os contratos de aluguel devem seguir as normas de regulamentação da Lei nº 8.245/91, com direitos e deveres do locador e do locatário, bem como todos os processos que acompanham a locação.
+
+**O contratos devem obrigatoriamente possuir:**
+
+  **Identificação das partes:** dados do locador, do inquilino e, quando houver, do fiador;  
+  **Descrição do imóvel:** endereço, características e finalidade da locação;  
+  **Prazo:** início, duração e condições para encerrar o contrato;  
+  **Pagamento:** valor do aluguel, vencimento e forma de pagamento;  
+  **Reajuste:** índice, periodicidade e data de aplicação;  
+  **Garantias financeiras:** modalidade escolhida<sup> 1 </sup> (caução: valor de 3 meses de aluguel ou bens; fiança: um fiador responsável pelas obrigações garantidas; Seguro-fiança locatícia: uma seguradora oferece cobertura conforme as condições da apólice) suas condições;  
+  **Despesas:** divisão de encargos, como IPTU, condomínio e seguro;  
+  **Rescisão:** multa e condições para a saída antecipada;  
+  **Entrega e devolução:** registro do estado do imóvel e procedimentos para devolver as chaves. 
+  
+<sup> **1:** </sup> **Caução:** valor de 3 meses de aluguel ou bens; **Fiança:** um fiador responsável pelas obrigações garantidas; **Seguro-fiança locatícia:** uma seguradora oferece cobertura conforme as condições da apólice.
 
 ---
 
