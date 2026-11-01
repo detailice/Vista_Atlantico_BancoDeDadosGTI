@@ -206,8 +206,8 @@
 - 
 -   
 - **Potencial dos dados para BI:**
-- A utlilização de ferramentas de Business Intlligence poderá transformar os dados armazenados no banco em paineis gerenciaveis e relatorios visuais, facilitando a interpretação dos resultados pela adminisração da imobiliaria. enttre as possibilidades de aplicação , destacam-se:
-- Painel de desempenho da imobiiaria: apresentaçao da quantidade de imoveis cadastrados , disponiveis e distribuidos por tipo efinalidade.
+- A utlilização de ferramentas de Business Intlligence poderá transformar os dados armazenados no banco em paineis gerenciaveis e relatorios visuais, facilitando a interpretação dos resultados pela administração da imobiliaria. entre as possibilidades de aplicação , destacam-se:
+- Painel de desempenho da imobiiaria: apresentaçao da quantidade de imoveis cadastrados , disponiveis e distribuidos por tipo e finalidade.
 - Painel de desempenho comercial: acompanhamento da quantidade de contratos , valores negociados e participação dos corretores nas negociações.
 - Relatório de visitas : identificação dos imoveis mais visitados e acompanhamento da movimentação de interessados.
 - Análise temporal: comparação mensal dos registros de visitas e contratos, permitindo observar períodos de maior ou menor movimentação comercial.
