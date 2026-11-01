@@ -198,11 +198,31 @@
 - Justificar as **restrições** aplicadas (unicidade, obrigatoriedade, valores permitidos etc.), citando o código da regra de negócio (`RNxx`) que cada restrição implementa, quando houver.  
 - Justificar **decisões arquiteturais** gerais do modelo.
 ### 1.6 Proposta de Arquitetura Analítica para BI e IA
-*(vale 7,5%)*
-- **Informações estratégicas** que podem ser extraídas dos dados para a gestão da organização.  
-- **Indicadores e métricas gerenciais** propostos (KPIs).  
-- **Potencial dos dados para BI:** como a estrutura apoia dashboards/relatórios.  
-- **Aplicações analíticas e de IA:** como o modelo pode alimentar análises preditivas, recomendações etc.
+
+- **Informações estratégicas**
+- A centralização das informações no banco de dados permitirá à VISTA ATLANTICO IMOVEIS obter uma visão mais organizada de suas operações comerciais , facilitando  acompanhamento da carteira de imoveis , dos clientes , dos proprietáios , dos corretores , das visitas e dos contratos. Aparti dessas informações , a imobiliaria poderá acompanhar indicadores relacionados a disponibilidade dos imoveis, à movimentações de visitas , ao volume de negociações e ao desempenho comercial dos corretores. Essas informações poderão auxiliar a gestão na identificação de oportunidade de negocio, no acompanhamneto dos resultados, e no planejamento das atividades comercias, considerando também as variações sazonais da procura por imovéis na região da baixada santista.
+  
+- **Indicadores e métricas gerenciais** propostos (KPIs):
+- 
+-   
+- **Potencial dos dados para BI:**
+- A utlilização de ferramentas de Business Intlligence poderá transformar os dados armazenados no banco em paineis gerenciaveis e relatorios visuais, facilitando a interpretação dos resultados pela adminisração da imobiliaria. enttre as possibilidades de aplicação , destacam-se:
+- Painel de desempenho da imobiiaria: apresentaçao da quantidade de imoveis cadastrados , disponiveis e distribuidos por tipo efinalidade.
+- Painel de desempenho comercial: acompanhamento da quantidade de contratos , valores negociados e participação dos corretores nas negociações.
+- Relatório de visitas : identificação dos imoveis mais visitados e acompanhamento da movimentação de interessados.
+- Análise temporal: comparação mensal dos registros de visitas e contratos, permitindo observar períodos de maior ou menor movimentação comercial.
+Essas ferramentas poderão contribuir para uma gestão baseada em dados, reduzindo a dependência de controles decentralizados e facilitando o acesso às informações estratégicas. 
+-
+- - **Aplicações analíticas e de IA:**
+  -A estrutura de dados proposta poderá servir como base para futuras aplicações de Inteligência Artificial, com a finalidade de apoiar os processos comerciais e melhorar o atendimento aos clientes.
+As principais possibilidades identificadas são:
+
+- Sistema de recomendação de imóveis: utilização de algoritmos para recomendar imóveis aos clientes de acordo com critérios como localização, faixa de preço, tipo de imóvel, quantidade de quartos, banheiros e vagas de garagem. Para essa aplicação, será necessário armazenar as preferências e os critérios de busca dos clientes.
+- Análise do interesse dos clientes: utilização dos registros de visitas para identificar quais imóveis despertam maior interesse, considerando a frequência de visitação e as características dos imóveis.
+- Previsão de demanda imobiliária: aplicação de modelos analíticos sobre dados históricos de visitas e contratos para identificar padrões de procura ao longo dos meses e auxiliar no planejamento comercial.
+- Análise de desempenho dos corretores: utilização dos registros de visitas e contratos para identificar padrões de desempenho e apoiar a distribuição de oportunidades comerciais.
+As aplicações apresentadas representam possibilidades futuras, não funcionalidades já implementadas. Sua viabilidade dependerá da disponibilidade de dados históricos suficientes, da qualidade das informações armazenadas e da validação dos resultados obtidos pelos modelos analíticos.
+
 **Rastreabilidade:** inclua uma tabela que ligue cada problema declarado na caracterização da organização e cada KPI proposto às tabelas que o sustentam e à consulta do script SQL que o responde (pelo código da consulta — ver seção 3):
 | Problema ou KPI | Tabelas envolvidas | Consulta no script |
 | :---- | :---- | :---- |
