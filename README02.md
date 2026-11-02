@@ -33,9 +33,8 @@
 - **Volume de atividades:** Atua no ramo imobiliário. A empresa registra uma carteira com cerca de 900 a 1.000 anúncios de imóveis disponíveis na região da Baixada Santista/Praia Grande. Não realiza doações públicas, rituais ou eventos de caráter comunitário/religioso.  
 
 ### **Problemas e necessidades identificados:**  
-- **P1 - Descentralização de dados:** atualmente, a imobiliária utiliza diversos sistemas e ferramentas para guardar dados dos clientes, compras, vendas, contratos, encomendas de imóveis etc, demandando muito tempo para reunir informações e aplicá-las em processos (geração de contratos, recomendação de imóveis por encomenda etc)  
+- **P1 - Descentralização de dados:** atualmente, a imobiliária utiliza diversos sistemas e ferramentas (planilhas excel, registros em papéis) para guardar dados dos clientes, compras, vendas, contratos, encomendas de imóveis etc, demandando muito tempo para reunir informações e aplicá-las em processos (geração de contratos, recomendação de imóveis por encomenda etc)  
 
-- **P2 -**
   
 **Escopo do sistema:** O banco de dados armazenará dados pertinentes aos principais processos da imobiliária, como cadastros (clientes, proprietários e imóveis), compra e/ou locação de imóveis, contratos, visitas e encomendas. Estes dados são utilizados pelos corretores, analistas jurídicos e serviços terceirizados (divulgação dos anúncios da página da imobiliária).
   
@@ -127,19 +126,21 @@
 
 - **RN07:** Um imóvel poderá possuir múltiplos contratos ao longo do tempo, desde que não existam contratos ativos simultâneos que representem negociações incompatíveis sobre o mesmo imóvel.
 
-- **RN:** Uma visita somente poderá ser agendada para um imóvel devidamente cadastrado na imobiliária, devendo estar vinculada ao cliente interessado e ao corretor responsável pelo acompanhamento.
+- **RN08:** Uma visita somente poderá ser agendada para um imóvel devidamente cadastrado na imobiliária, devendo estar vinculada ao cliente interessado e ao corretor responsável pelo acompanhamento.
 
-- **RN:** Um cliente pode comprar ou alugar um imóvel sem obrigatoriamente visitá-lo
+- **RN09:** Um cliente pode comprar ou alugar um imóvel sem obrigatoriamente visitá-lo
 
-- **RN:** Uma visita somente poderá ser agendada para um imóvel devidamente cadastrado na imobiliária, devendo estar vinculada ao cliente interessado e ao corretor responsável pelo acompanhamento.
+- **RN10:** Uma visita só pode ser realizada com o acompanhamento de um corretor cadastrado na plataforma.
 
-- **RN:** Um mesmo corretor não poderá ser designado para acompanhar visitas diferentes em horários conflitantes.
+- **RN11:** Um mesmo corretor não poderá ser designado para acompanhar visitas diferentes em horários conflitantes.
 
-- **RN:** Todo contrato deverá estar vinculado a pelo menos um imóvel, um cliente participante e um corretor responsável pela intermediação.
+- **RN12:** Todo contrato deverá estar vinculado a pelo menos um imóvel, um cliente participante e um corretor responsável pela intermediação.
 
-- **RN:** A situação de disponibilidade do imóvel deverá ser atualizada após a formalização de uma negociação que impeça novas ofertas incompatíveis.
+- **RN13:** A situação de disponibilidade do imóvel deverá ser atualizada após a formalização de uma negociação que impeça novas ofertas incompatíveis.
 
-- **RN:**   Toda transação imobiliária deverá ser realizada por um corretor com registro CRECI ativo e situação funcional regular no sistema, não sendo permitida a participação de corretores afastados ou demitidos. 
+- **RN14:** Toda transação imobiliária deverá ser realizada por um corretor com registro CRECI ativo e situação funcional regular no sistema, não sendo permitida a participação de corretores afastados ou demitidos.
+
+- **RN15:** Um proprietário pode conceder exclusividade de corretagem a um corretor mediante a contrato, com prazo definido entre 60 e 180 dias.
 
 **Restrições legais e organizacionais:**
 
@@ -148,6 +149,8 @@
 - **RN02 - Exigência do CRECI:** Todos os anúncios, contratos e transações precisam registrar formalmente o número do CRECI do corretor responsável e da imobiliária, sob pena de autuação e multa.
 
 - **RN03 - Lei do inquilinato:** Todos os contratos de aluguel devem seguir as normas de regulamentação da Lei nº 8.245/91, com direitos e deveres do locador e do locatário, bem como todos os processos que acompanham a locação.
+
+- **RN03 - Percentual de comissão:** Todo corretor tem direito a comissão por cada venda ou locação que intermedia, sendo de 6% para vendas, um valor equivalente ao primeiro mês de aluguel em casos de locação e 30% em casos de locação por temporada, que dura até 90 dias.
 
 **O contratos devem obrigatoriamente possuir:**
 
@@ -162,6 +165,11 @@
   **Entrega e devolução:** registro do estado do imóvel e procedimentos para devolver as chaves. 
   
 <sup> **1:** </sup> **Caução:** valor de 3 meses de aluguel ou bens; **Fiança:** um fiador responsável pelas obrigações garantidas; **Seguro-fiança locatícia:** uma seguradora oferece cobertura conforme as condições da apólice.
+
+**Regras de negócio não cobertas:**
+
+- **RN - Administração de aluguéis:** A imobiliária apenas realiza o contato entre locadores e locatários, após o recebimento do valor integral do primeiro aluguel, todo o contato entre locatário e locador ocorre sem a imobiliária.
+
 
 ---
 
