@@ -212,10 +212,9 @@
 *Apresente o **DER conceitual revisado**, na notação descrita acima. A revisão parte da correção da Entrega 1 recebida pelo grupo — o DER e os demais itens acima. Para cada apontamento da correção, registre o que foi feito:*
 | Apontamento da correção da E1 | O que mudou no trabalho | Por quê |
 | :---- | :---- | :---- |
-| *ex.: N:N entre PEDIDO e PRODUTO sem quantidade* | *criada a entidade associativa ITEM\_PEDIDO com quantidade e preço praticado* | *sem ela não é possível saber quanto de cada produto foi vendido* |
-| *ex.: chaves estrangeiras desenhadas no DER* | *removidas — passam a aparecer só no modelo lógico (seção 2\)* | *FK é decisão do modelo lógico, não do conceitual* |
-&nbsp;
-*Se o grupo discordar de algum apontamento e mantiver o modelo como estava, registre isso na tabela com a justificativa. Apontamento não citado na tabela é tratado como não corrigido.*
+| *Chaves estrangeiras em três entidades* | *Removemos as chaves estrangeiras das entidades no modelo conceitual* | *As chaves estrangeiras não pertencem ao modelo conceitual, apenas ao modelo lógico* |
+| *Link externo do BrModelo no repositório ao invés da imagem do modelo conceitual* | *Removemos o link e adicionamos a imagem no repositório* | *É obrigatório a imagem no repositório para a melhor visualização* |
+| *Cardinalidades presentes nos relacionamentos do modelo conceitual divergem do README* | *Modificamos as cardinalidades do DER para serem compatíveis com as cardinalidades do README* | *As cardinalidades precisam ser iguais nos dois documentos* |
 
 ### 1.2 Conversão do Modelo Conceitual para o Modelo Lógico
 *(vale 7,5%)*
