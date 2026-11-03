@@ -226,6 +226,55 @@
 - **Generalização/especialização:** *se o DER tiver, qual estratégia de conversão foi usada (tabela única, uma tabela por entidade ou só as especializadas) e por quê.*
 ### 1.3 Definição de Chaves Primárias e Estrangeiras
 *Liste as PKs e FKs de cada tabela (serve de base para a justificativa técnica abaixo).*
+
+- **PROPRIETARIO:**
+  ID_PROPRIETARIO (PK)
+
+- **IMOVEL:**
+  ID_IMOVEL (PK)
+
+- **CONTRATO:**
+   ID_CONTRATO (PK), ID_IMOVEL (FK)
+
+- **CLIENTE:**
+   ID_CLIENTE (PK)
+
+- **CORRETOR:**
+   ID_CORRETOR (PK)
+
+- **ENCOMENDA:**
+   ID_ENCOMENDA (PK), ID_CLIENTE (FK)
+
+- **VISITA:**
+   ID_VISITA (PK), ID_IMOVEL (FK)
+
+- **DOCUMENTO:**
+   ID_DOC (PK)
+
+- **AGENDA:**
+   ID_VISTA (FK), ID_CLIENTE (FK)
+
+- **REALIZA:**
+   ID_VISITA (FK), ID_CORRETOR (FK)
+
+- **REGISTRA:**
+   ID_DOC (FK), ID_CORRETOR (FK)
+
+- **POSSUI:**
+   ID_IMOVEL (FK), ID_PROPRIETARIO (FK)
+
+- **ASSINA:**
+   ID_CONTRATO (FK), ID_CLIENTE (FK)
+
+- **INTERMEDIA:**
+   ID_CORRETOR (FK), ID_CONTRATO (FK)
+
+- **FOTOS_IMOVEL:**
+   FOTOS_IMOVEL (PK), ID_IMOVEL (FK)
+
+- **IDIOMA:**
+   IDIOMA (PK), ID_CORRETOR (FK)
+  
 ### 1.4 Processo de Normalização (1FN, 2FN e 3FN)
 *(vale 7,5%)*
 - **1FN:** *eliminação de grupos repetitivos/atributos multivalorados.*  
