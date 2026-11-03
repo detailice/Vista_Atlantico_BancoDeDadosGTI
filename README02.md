@@ -34,7 +34,6 @@
 
 ### **Problemas e necessidades identificados:**  
 - **P1 - Descentralização de dados:** atualmente, a imobiliária utiliza diversos sistemas e ferramentas (planilhas excel, registros em papéis) para guardar dados dos clientes, compras, vendas, contratos, encomendas de imóveis etc, demandando muito tempo para reunir informações e aplicá-las em processos (geração de contratos, recomendação de imóveis por encomenda etc)  
-
   
 **Escopo do sistema:** O banco de dados armazenará dados pertinentes aos principais processos da imobiliária, como cadastros (clientes, proprietários e imóveis), compra e/ou locação de imóveis, contratos, visitas e encomendas. Estes dados são utilizados pelos corretores, analistas jurídicos e serviços terceirizados (divulgação dos anúncios da página da imobiliária).
   
@@ -52,7 +51,43 @@
 
 ---
 
-**Processos de negócio:**
+### **Processos de negócio:**
+
+**Principais processos mapeados:** 
+
+- **Cadastro de clientes e proprietários:** Clientes preenchem suas informações (nome completo, telefone e e-mail) para ter acesso aos imóveis por meio de contato com os corretores, seja pelo envio de mensagens direto pelo site ou via WhatsApp da imobiliária, sendo registrados automaticamente no banco pelo site ou manualmente pelo corretor que recebeu a mensagem. Proprietários se registram na plataforma (nome completo, telefone e e-mail) ao registrarem seus imóveis, o registro passa pela avaliação de um corretor, que filtra e aprova os cadastros de acordo com os requisitos (fotos em boa qualidade de todos os cômodos e todos os campos preenchidos).
+
+- **Cadastro de imóveis:** Um proprietário pode cadastrar seu próprio imóvel, preenchendo suas informações pessoais (nome completo, telefone e e-mail) e as características do imóvel (endereço completo, tipo de oferta, preço, quantidade de vagas, quartos e banheiros, etc), que serão enviadas e sujeitadas a aprovação por um dos corretores. Os corretores também podem cadastrar imóveis, mediante contrato de autorização de corretagem assinado por ambas as partes (corretor e proprietário), declarando todas as características do imóvel, bem como outras clausulas pertinentes.
+
+- **Cadastro de corretores:** Corretores que queiram integram o time podem enviar suas informações (nome completo, telefone e e-mail) com link URL do perfil no LinkedIn ou anexar seu currículo, sendo sujeitados a avaliação da diretora da imobiliária. Caso se tornem parte da equipe, a diretora quem realiza o cadastro, inserindo nome completo, telefone, e-mail e quais idiomas fala, bem como os imóveis pelos quais está responsável pela corretagem, separados por venda ou locação.
+
+- **Assinatura de contrato:** Após enviarem todas as informações pertinentes a elaboração do contrato para o time jurídico externo, a imobiliária recebe o contrato e o submete às demais partes interessadas (proprietário e comprador/locador), que podem assinar de maneira virtual ou presencial.
+
+- **Agendamento e realização de visitas:** Após o cliente manifestar interesse por um imóvel, ele acessa a página deste imóvel na plataforma e clica no botão "Agendar visita", que exibe os campos de decisão do dia e horário da visita, bem como deixar uma mensagem. O sistema envia essas informações para a caixa de mensagens do corretor responsável por aquele imóvel, o notificando de que há uma nova agenda pendente. (incompleto(?)
+
+- **Encomenda de imóveis (preenchimento de informações do imóvel desejado que gera um alerta em e-mail ou telefone se encontrado);** Caso o usuário navegue por toda a plataforma e não encontre um imóvel ao seu gosto, ele realiza a encomenda de um imóvel, preenchendo nome completo, telefone, e-mail e a descrição do que procura. Os corretores recebem aquela solicitação e caso encontrem um imóvel que se encaixe naquela descrição, enviam um e-mail para o usuário.
+
+- **Proposta e negociação:** Após um cliente se interessar por um imóvel, ele entra em contato com o corretor via telefone ou no botão "Enviar mensagem" na página do imóvel. Os corretores recebem a mensagem e formalizam a proposta, que depois de ser aceita pelo proprietário, a imobiliária solicita os documentos<sup>**1,2**</sup> do imóvel e os documentos do proprietário<sup>**3**</sup>. Caso tudo esteja regular e o pagamento for a vista, as partes interessadas formalizam no cartório com assinatura de escrituras públicas, caso seja um imóvel financiado, tudo é enviado ao correspondente bancário da imobiliária e ele dá andamento.
+
+- **Comissão:** Após a negociação ser firmada com a assinatura do contrato, o corretor tem direito a 6% do valor da venda, que é pago pelo vendedor, sendo esses 6% divididos entre corretor e imobiliária, ficando 50% para cada.
+
+- **Administração da locação (Cobrança e repasse de aluguéis):** A imobiliária atua como mediadora financeira, consolidando o valor e os encargos (IPTU e condomínio, se houver), em um único boleto, envia ao locatário e faz a conciliação bancária assim que o pagamento é efetuado. Dessa quantia, é descontada a taxa de administração devida à imobiliária, além de eventuais despesas autorizadas de manutenção ou retenções de impostos. Depois da compensação, o valor líquido é transferido para a conta do proprietário dentro do prazo contratual (até 5 dias úteis) , acompanhado de um extrato detalhado da transação. Em caso de atraso ou inadimplência, a imobiliária executa a régua de cobrança com aplicação de multa e juros e, se necessário, aciona as garantias locatícias do contrato — como seguro fiança, fiadores ou a cláusula de aluguel garantido — para assegurar o recebimento dos valores.
+
+- **Vistoria de entrada e saída:** Antes da assinatura de contrato, o corretor responsável elabora um laudo que registra as condições de pintura, instalações e hidráulicas, pisos, revestimentos, portas, janelas e qualquer mobília existente, com fotos anexadas. Esse documento é validado por ambas as partes (locador e locatário) e assinado antes da entrega oficial de chaves. No encerramento do contrato, a vistoria de saída compara o estado atual do imóvel com o laudo inicial para identificar se houve danos extraordinários causados pelo uso indevido ou falta de manutenção por parte do locatário. O inquilino não responde pelo desgastes naturais decorrentes do uso regular do imóvel ao longo do tempo, mas fica obrigado a reparar estragos causados por mau uso, como furos não autorizados em azulejos ou avarias em equipamentos. Uma vez constatada a igualdade com a vistoria inicial ou finalizados os reparos devidos, o imóvel é recebido e o contrato é formalmente rescindido com a devolução das chaves.
+
+**Processos prováveis não incluídos:**
+
+- **Ações jurídicas :** A imobiliária contrata um time jurídico externo, que processa, elabora, emite e cuida dos contratos aplicados na organização, bem como auxilia na verificação dos d.
+
+- **Anúncio e divulgação em outros portais:** A imobiliária não possuí uma equipe de marketing ou divulgação, a diretora<sup>**1**</sup> contrata serviços esterno terceirizados para anunciar a página. 
+> <sup>**1**</sup>(Os custos e processos de cada contratação ficam somente a encargo dela, o grupo não obteve acesso a informações detalhadas).
+
+- **Repasse de contas:** Com exceção da divulgação e anúncios em portais externos, que é de responsabilidade da diretora da imobiliária, o repasse de contas internas e demais rotinas financeiras internas (salário, benefícios, comissões) são organizadas por um agente financeiro externo. (novamente, a equipe não obteve acesso a detalhes desses processos)
+
+> <sup>**1**</sup> **Venda:** Certidão de Matrícula no CRI (Cartório de Registro de Imóveis) atualizada (atesta quem é o dono real e se não há pendências jurídicas), certidão negativa de débitos IPTU, declaração de quitação de débitos condominiais, caso seja um imóvel localizado em condomínio, certidão Negativa de Utilidade Pública / Desapropriação. (todos estes documentos verificam se o imóvel não possuí dívidas ou pendências financeiras antes de ser vendido)  
+> <sup>**2**</sup> **Locação:** Cópia da matrícula ou da escritura, comprovante de IPTU e condomínio, laudo de vistoria inicial (se optado pelo locador), garantia locatícia (**Fiador:** matrícula atualizada de um imóvel quitado em nome do fiador + comprovação de renda; **Seguro-Fiança:** Análise aprovada diretamente pela seguradora ou comprovante de aporte da apólice; **Caução** (até 3 aluguéis): Comprovante de depósito em conta poupança conjunta/vinculada.)
+
+> <sup>**3**</sup>Certidões dos Distribuidores Cíveis e Criminais (verifica a ficha criminal e possíveis processos pendentes), Certidão Negativa de Débitos Trabalhistas, Certidão Conjunta de Débitos Relativos a Tributos Federais e à Dívida Ativa da União (regularidade na Receita Federal e Procuradoria-Geral da Fazenda Nacional), Certidão dos Protestos de Títulos e comprovantes de renda
 
 ---
 
@@ -102,13 +137,11 @@
 
 - **RNF05 — Acessibilidade:** O sistema deverá permitir navegação por teclado nas principais funcionalidades, apresentar identificação textual nos campos e botões e manter contraste adequado entre textos e elementos visuais, facilitando sua utilização por pessoas com diferentes necessidades de acesso;
 
---- 
-
 **Requisitos prováveis não incluídos:** O sistema não permite que os clientes visualizem as visitas que já realizaram, somente os corretores possuem essa visão, visto que dentro da organização somente corretores podem registrar visitas realizadas.
 
-### **Regras de negócio**
+---
 
-> **Justifique as regras prováveis não incluídas:** se uma regra comum nesse tipo de organização ficou de fora, explique por quê (ex.: a organização não realiza o processo correspondente, ou a regra não se aplica ao porte ou à natureza dela).
+### **Regras de negócio**
 
 **Regras operacionais:**
 
@@ -142,34 +175,34 @@
 
 - **RN15:** Um proprietário pode conceder exclusividade de corretagem a um corretor mediante a contrato, com prazo definido entre 60 e 180 dias.
 
+- **RN16:** Uma negociação só pode ser concluída (assinatura de contrato e entrega das chaves) mediante análise dos documentos do imóvel e do proprietário, como mencionado nos processos de negócio.
+
 **Restrições legais e organizacionais:**
 
 - **RN01 - Conformidade com a LGPD:** a imobiliária não pode armazenar nem compartilhar documentos pessoais de clientes (CPF, comprovante de renda, escrituras) em plataformas abertas sem criptografia, consentimento explícito assinado e politica de privacidade disponível para leitura;
 
 - **RN02 - Exigência do CRECI:** Todos os anúncios, contratos e transações precisam registrar formalmente o número do CRECI do corretor responsável e da imobiliária, sob pena de autuação e multa.
 
-- **RN03 - Lei do inquilinato:** Todos os contratos de aluguel devem seguir as normas de regulamentação da Lei nº 8.245/91, com direitos e deveres do locador e do locatário, bem como todos os processos que acompanham a locação.
+- **RN03 - Lei do inquilinato<sup>**4**</sup>:** Todos os contratos de aluguel devem seguir as normas de regulamentação da Lei nº 8.245/91, com direitos e deveres do locador e do locatário, bem como todos os processos que acompanham a locação.
 
 - **RN03 - Percentual de comissão:** Todo corretor tem direito a comissão por cada venda ou locação que intermedia, sendo de 6% para vendas, um valor equivalente ao primeiro mês de aluguel em casos de locação e 30% em casos de locação por temporada, que dura até 90 dias.
 
-**O contratos devem obrigatoriamente possuir:**
+- **RN04 - Autorização ou exclusividade:** O anúncio público de um imóvel só pode ocorrer mediante assinatura de contrato de autorização, podendo ou não conceder exclusividade em uma das clausulas, de acordo com o art.5 da Lei nº 6.530/1978.
 
+- **RN05: - Repasse do aluguel (Lei do Inquilinato (Lei nº 8.245/91)):** Toda imobiliária que realiza corretagem em locações deve repassar os aluguéis aos proprietários, sujeitos a prazos e condições definidas em contrato de locação.
+
+> <sup>**4**</sup>**O contratos devem obrigatoriamente possuir:**  
   **Identificação das partes:** dados do locador, do inquilino e, quando houver, do fiador;  
   **Descrição do imóvel:** endereço, características e finalidade da locação;  
   **Prazo:** início, duração e condições para encerrar o contrato;  
   **Pagamento:** valor do aluguel, vencimento e forma de pagamento;  
   **Reajuste:** índice, periodicidade e data de aplicação;  
-  **Garantias financeiras:** modalidade escolhida<sup> 1 </sup> (caução: valor de 3 meses de aluguel ou bens; fiança: um fiador responsável pelas obrigações garantidas; Seguro-fiança locatícia: uma seguradora oferece cobertura conforme as condições da apólice) suas condições;  
+  **Garantias financeiras:** modalidade escolhida<sup> **5** </sup> ) suas condições;  
   **Despesas:** divisão de encargos, como IPTU, condomínio e seguro;  
   **Rescisão:** multa e condições para a saída antecipada;  
   **Entrega e devolução:** registro do estado do imóvel e procedimentos para devolver as chaves. 
   
-<sup> **1:** </sup> **Caução:** valor de 3 meses de aluguel ou bens; **Fiança:** um fiador responsável pelas obrigações garantidas; **Seguro-fiança locatícia:** uma seguradora oferece cobertura conforme as condições da apólice.
-
-**Regras de negócio não cobertas:**
-
-- **RN - Administração de aluguéis:** A imobiliária apenas realiza o contato entre locadores e locatários, após o recebimento do valor integral do primeiro aluguel, todo o contato entre locatário e locador ocorre sem a imobiliária.
-
+> <sup> **5:** </sup> **Caução:** valor de 3 meses de aluguel ou bens; **Fiança:** um fiador responsável pelas obrigações garantidas; **Seguro-fiança locatícia:** uma seguradora oferece cobertura conforme as condições da apólice.
 
 ---
 
