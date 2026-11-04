@@ -408,7 +408,11 @@ Uma visita pode ser agendada por mais de um cliente e um cliente pode agendar v�
 
 
 
-- **Generalização/especialização:** *se o DER tiver, qual estratégia de conversão foi usada (tabela única, uma tabela por entidade ou só as especializadas) e por quê.*
+- **Generalização/especialização:**
+  
+- O DER não possui generalização/especialização, portanto nenhuma das estratégias de conversão foi necessária. Corretor, Cliente e Proprietário têm atributos parecidos (`nome`, `telefone`, `email`), mas foram modelados como entidades independentes, pois têm papéis e relacionamentos diferentes no sistema.
+
+  
 ### 1.3 Definição de Chaves Primárias e Estrangeiras
 *Liste as PKs e FKs de cada tabela (serve de base para a justificativa técnica abaixo).*
 
