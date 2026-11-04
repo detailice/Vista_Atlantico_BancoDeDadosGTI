@@ -353,25 +353,25 @@ Cada tabela contém apenas as duas chaves estrangeiras, que juntas formam a chav
 
 - **Relacionamentos → Chaves**
 
-  **possui (proprietário – imóvel)** O relacionamento virou a tabela `possui`. Um proprietário pode ter vários imóveis e um imóvel pode ter vários proprietários, então nem `proprietario` nem `imovel` poderiam guardar a chave do outro sem repetir registros. Na tabela `possui`, cada linha liga um proprietário a um imóvel, usando `id_proprietario` e `id_imovel`. Juntas, essas duas colunas formam a chave primária.
+**Possui (proprietário – imóvel):** O relacionamento virou a tabela `possui`. Um proprietário pode ter vários imóveis e um imóvel pode ter vários proprietários, então nem `proprietario` nem `imovel` poderiam guardar a chave do outro sem repetir registros. Na tabela `possui`, cada linha liga um proprietário a um imóvel, usando `id_proprietario` e `id_imovel`. Juntas, essas duas colunas formam a chave primária.
 
-  **referente_a (contrato – imóvel)** O relacionamento virou uma coluna. Como cada contrato se refere a um único imóvel, a tabela `contrato` passou a guardar o `id_imovel` do imóvel a que pertence. Essa coluna é obrigatória, pois todo contrato precisa ter um imóvel.
+**Referente_a (contrato – imóvel):**  O relacionamento virou uma coluna. Como cada contrato se refere a um único imóvel, a tabela `contrato` passou a guardar o `id_imovel` do imóvel a que pertence. Essa coluna é obrigatória, pois todo contrato precisa ter um imóvel.
 
- **recebe (imóvel – visita)** O relacionamento virou uma coluna. Como cada visita é feita em um único imóvel, a tabela `visita` passou a guardar o `id_imovel` do imóvel visitado. 
+**Recebe (imóvel – visita):**  O relacionamento virou uma coluna. Como cada visita é feita em um único imóvel, a tabela `visita` passou a guardar o `id_imovel` do imóvel visitado. 
 
-**realiza (corretor – visita)** O relacionamento virou a tabela `realiza`. Um corretor realiza várias visitas e uma visita pode ter mais de um corretor, então cada linha da tabela liga um corretor a uma visita, usando `id_corretor` e `id_visita`. 
+**Realiza (corretor – visita):**  O relacionamento virou a tabela `realiza`. Um corretor realiza várias visitas e uma visita pode ter mais de um corretor, então cada linha da tabela liga um corretor a uma visita, usando `id_corretor` e `id_visita`. 
 
-**registra (corretor – documento)** O relacionamento virou a tabela `registra`. Um corretor registra vários documentos e um documento pode ser registrado por mais de um corretor, então cada linha liga um corretor a um documento, usando `id_corretor` e `id_doc`, que juntas formam a chave primária. 
+**Registra (corretor – documento):**  O relacionamento virou a tabela `registra`. Um corretor registra vários documentos e um documento pode ser registrado por mais de um corretor, então cada linha liga um corretor a um documento, usando `id_corretor` e `id_doc`, que juntas formam a chave primária. 
 
-**intermedia (corretor – contrato)** O relacionamento virou a tabela `intermedia`. Um corretor intermedia vários contratos e um contrato pode ter mais de um corretor, então cada linha liga um corretor a um contrato, usando `id_corretor` e `id_contrato`. 
+**Intermedia (corretor – contrato):**  O relacionamento virou a tabela `intermedia`. Um corretor intermedia vários contratos e um contrato pode ter mais de um corretor, então cada linha liga um corretor a um contrato, usando `id_corretor` e `id_contrato`. 
 
-**assina (cliente – contrato)** O relacionamento virou a tabela `assina`. Um cliente assina vários contratos e um contrato pode ter mais de um cliente, então cada linha liga um cliente a um contrato, usando `id_cliente` e `id_contrato`.
+**Assina (cliente – contrato):**  O relacionamento virou a tabela `assina`. Um cliente assina vários contratos e um contrato pode ter mais de um cliente, então cada linha liga um cliente a um contrato, usando `id_cliente` e `id_contrato`.
 
-**agenda (cliente – visita)** O relacionamento virou a tabela `agenda`. Um cliente agenda várias visitas e uma visita pode ser agendada por mais de um cliente, então cada linha liga um cliente a uma visita, usando `id_cliente` e `id_visita`. 
+**Agenda (cliente – visita):**  O relacionamento virou a tabela `agenda`. Um cliente agenda várias visitas e uma visita pode ser agendada por mais de um cliente, então cada linha liga um cliente a uma visita, usando `id_cliente` e `id_visita`. 
 
-**realiza (cliente – encomenda)** O relacionamento virou uma coluna. Como cada encomenda é feita por um único cliente, a tabela `encomenda` passou a guardar o `id_cliente` de quem a fez. A coluna é obrigatória.
+**Realiza (cliente – encomenda):**  O relacionamento virou uma coluna. Como cada encomenda é feita por um único cliente, a tabela `encomenda` passou a guardar o `id_cliente` de quem a fez. A coluna é obrigatória.
  
- **Atributos multivalorados** Os atributos multivalorados seguiram a mesma lógica de coluna: a tabela `fotos_imovel` guarda o `id_imovel` do imóvel a que cada foto pertence, e a tabela `idioma` guarda o `id_corretor` do corretor que fala cada idioma.
+ **Atributos multivalorados:**  Os atributos multivalorados seguiram a mesma lógica de coluna: a tabela `fotos_imovel` guarda o `id_imovel` do imóvel a que cada foto pertence, e a tabela `idioma` guarda o `id_corretor` do corretor que fala cada idioma.
  
 - **Cardinalidades:** *como cada cardinalidade (1:1, 1:N, N:N) foi tratada (inclusive tabelas associativas, se houver).*  
 - **Generalização/especialização:** *se o DER tiver, qual estratégia de conversão foi usada (tabela única, uma tabela por entidade ou só as especializadas) e por quê.*
