@@ -223,7 +223,33 @@
 
 ### 1.2 Conversão do Modelo Conceitual para o Modelo Lógico
 *(vale 7,5%)*
-- **Entidades → Tabelas:** *como cada entidade virou tabela.*  
+- **Entidades → Tabelas**
+
+  
+**Imóvel → `imovel`**:
+A entidade Imóvel virou a tabela `imovel`, com `id_imovel` como PK. É a entidade central do sistema: não recebe chaves estrangeiras, mas é referenciada por `contrato`, `visita`, `fotos_imovel` e pela tabela associativa `possui`. O atributo composto de endereço foi dividido em colunas, e o atributo multivalorado de fotos gerou a tabela `fotos_imovel`.
+
+**Corretor → `corretor`**:
+A entidade Corretor virou a tabela `corretor`, com `id_corretor` como PK. O `CRECI` (registro profissional) foi mantido como coluna comum, e não como PK, pois a chave artificial é mais simples de referenciar. O atributo multivalorado de idiomas gerou a tabela `idioma`. Os relacionamentos com Contrato, Visita e Documento geraram as tabelas associativas `intermedia`, `realiza` e `registra`.
+
+**Contrato → `contrato`**:
+A entidade Contrato virou a tabela `contrato`, com `id_contrato` como PK. Recebeu a chave estrangeira `id_imovel`, pois cada contrato refere-se a um imóvel. Os relacionamentos com Corretor e Cliente são tratados pelas tabelas `intermedia` e `assina`.
+
+**Proprietário → `proprietario`**:
+A entidade Proprietário virou a tabela `proprietario`, com `id_proprietario` como PK. Não recebeu FK, pois o vínculo com o imóvel é feito pela tabela associativa `possui`.
+
+**Visita → `visita`**:
+A entidade Visita virou a tabela `visita`, com `id_visita` como PK. Recebeu a FK `id_imovel`, pois cada visita é feita em um imóvel. Os vínculos com Corretor e Cliente são feitos pelas tabelas `realiza` e `agenda`.
+
+**Cliente → `cliente`**:
+A entidade Cliente virou a tabela `cliente`, com `id_cliente` como PK. Não recebeu FK, é referenciada por `encomenda` e pelas tabelas associativas `assina` e `agenda`.
+
+**Documento → `documento`**:
+A entidade Documento virou a tabela `documento`, com `id_doc` como PK. Não recebeu FK, o vínculo com o corretor que o registrou é feito pela tabela associativa `registra`.
+
+**Encomenda → `encomenda`**:
+A entidade Encomenda virou a tabela `encomenda`, com `id_encomenda` como PK. Recebeu a FK `id_cliente`, pois cada encomenda é feita por um cliente.
+
 - **Atributos → Colunas:** *conversão correta dos atributos.*  
 - **Relacionamentos → Chaves:** *como os relacionamentos foram traduzidos.*  
 - **Cardinalidades:** *como cada cardinalidade (1:1, 1:N, N:N) foi tratada (inclusive tabelas associativas, se houver).*  
