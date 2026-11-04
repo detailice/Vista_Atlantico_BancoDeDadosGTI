@@ -373,7 +373,41 @@ Cada tabela contém apenas as duas chaves estrangeiras, que juntas formam a chav
  
  **Atributos multivalorados:**  Os atributos multivalorados seguiram a mesma lógica de coluna: a tabela `fotos_imovel` guarda o `id_imovel` do imóvel a que cada foto pertence, e a tabela `idioma` guarda o `id_corretor` do corretor que fala cada idioma.
  
-- **Cardinalidades:** *como cada cardinalidade (1:1, 1:N, N:N) foi tratada (inclusive tabelas associativas, se houver).*  
+- **Cardinalidades:**
+  
+**contrato 0:N referente_a 1:1 imóvel**
+Um contrato se refere a exatamente um imóvel, e um imóvel pode ter de 0 a muitos contratos. A FK `id_imovel` ficou em `contrato`. 
+
+**imovel 1:1 recebe 0:N visita**
+Uma visita é feita em exatamente um imóvel, e um imóvel pode receber de 0 a muitas visitas. A FK `id_imovel` ficou em `visita`.
+
+**cliente 1:1 realiza 0:N encomenda**
+Uma encomenda é feita por exatamente um cliente, e um cliente pode fazer de 0 a muitas encomendas. A FK `id_cliente` ficou em `encomenda`.
+
+Os atributos multivalorados também geraram relações 1:N: um imóvel tem várias fotos (`fotos_imovel` recebe `id_imovel`) e um corretor fala vários idiomas (`idioma` recebe `id_corretor`).
+
+**proprietário 1:N possui 0:N imóvel → `possui`**
+Um imóvel pode ter vários proprietários e um proprietário pode ter vários imóveis. A tabela contém `id_proprietario` e `id_imovel`.
+
+**corretor 1:N realiza 0:N visita → `realiza`**
+Uma visita pode ter mais de um corretor e um corretor pode realizar várias visitas. A tabela contém `id_corretor` e `id_visita`.
+
+**corretor 1:N registra 1:N documento → `registra`**
+Um documento pode ser registrado por mais de um corretor e um corretor pode registrar vários documentos. A tabela contém `id_corretor` e `id_doc`.
+
+**corretor 1:N intermedia 0:N contrato → `intermedia`**
+Um contrato pode ser intermediado por mais de um corretor e um corretor pode intermediar vários contratos. A tabela contém `id_corretor` e `id_contrato`.
+
+**cliente 1:N assina 0:N contrato → `assina`**
+Um contrato pode ser assinado por mais de um cliente e um cliente pode assinar vários contratos. A tabela contém `id_cliente` e `id_contrato`.
+
+**cliente 1:N agenda 0:N visita → `agenda`**
+Uma visita pode ser agendada por mais de um cliente e um cliente pode agendar várias visitas. A tabela contém `id_cliente` e `id_visita`.
+
+
+
+
+
 - **Generalização/especialização:** *se o DER tiver, qual estratégia de conversão foi usada (tabela única, uma tabela por entidade ou só as especializadas) e por quê.*
 ### 1.3 Definição de Chaves Primárias e Estrangeiras
 *Liste as PKs e FKs de cada tabela (serve de base para a justificativa técnica abaixo).*
