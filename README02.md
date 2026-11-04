@@ -250,7 +250,107 @@ A entidade Documento virou a tabela `documento`, com `id_doc` como PK. Não rece
 **Encomenda → `encomenda`**:
 A entidade Encomenda virou a tabela `encomenda`, com `id_encomenda` como PK. Recebeu a FK `id_cliente`, pois cada encomenda é feita por um cliente.
 
-- **Atributos → Colunas:** *conversão correta dos atributos.*  
+- **Atributos → Colunas**
+
+**Imóvel → `imovel`**
+O endereço é um atributo composto, então foi dividido em `logradouro`, `numero`, `complemento`, `bairro`, `cidade` e `cep`. Os demais atributos viraram uma coluna cada.
+- ID_IMOVEL → `id_imovel` (PK)
+- QTDE_QUARTOS → `qtde_quartos`
+- QTDE_BANHEIROS → `qtde_banheiros`
+- TIPO_IMOVEL → `tipo_imovel`
+- QTDE_VAGAS_GARAGEM → `qtde_vagas_garagem`
+- AREA_M2 → `area_m2`
+- VALOR_IMOVEL → `valor_imovel`
+- FINALIDADE → `finalidade`
+- TIPO_OFERTA → `tipo_oferta`
+- IPTU → `iptu`
+- STATUS_IMOVEL → `status_imovel`
+- LOGRADOURO → `logradouro`
+- NUMERO → `numero`
+- COMPLEMENTO → `complemento`
+- BAIRRO → `bairro`
+- CIDADE → `cidade`
+- CEP → `cep`
+
+**Corretor → `corretor`**
+Todos os atributos viraram colunas diretamente. O `CRECI` foi mantido como coluna comum, e não como PK.
+- ID_CORRETOR → `id_corretor` (PK)
+- CRECI → `creci`
+- NOME → `nome`
+- TELEFONE → `telefone`
+- STATUS_CORRETOR → `status_corretor`
+- EMAIL → `email`
+
+**Contrato → `contrato`**
+Todos os atributos viraram colunas diretamente, além da FK que liga o contrato ao imóvel.
+- ID_CONTRATO → `id_contrato` (PK)
+- ID_IMOVEL → `id_imovel` (FK)
+- DATA_INICIO → `data_inicio`
+- TIPO_CONTRATO → `tipo_contrato`
+- VALOR_CONTRATO → `valor_contrato`
+- FORMA_PAGAMENTO → `forma_pagamento`
+
+**Proprietário → `proprietario`**
+Todos os atributos viraram colunas diretamente.
+- ID_PROPRIETARIO → `id_proprietario` (PK)
+- NOME → `nome`
+- TELEFONE → `telefone`
+- EMAIL → `email`
+
+**Visita → `visita`**
+Data e horário foram mantidos em uma única coluna, pois descrevem o mesmo momento.
+- ID_VISITA → `id_visita` (PK)
+- ID_IMOVEL → `id_imovel` (FK)
+- DATA_HORARIO_VISITA → `data_horario_visita`
+- ANOTACAO_VISITA → `anotacao_visita`
+
+**Cliente → `cliente`**
+Todos os atributos viraram colunas diretamente.
+- ID_CLIENTE → `id_cliente` (PK)
+- NOME → `nome`
+- TELEFONE → `telefone`
+- EMAIL → `email`
+
+**Documento → `documento`**
+Todos os atributos viraram colunas diretamente.
+- ID_DOC → `id_doc` (PK)
+- NOME_DOC → `nome_doc`
+- DATA_DOC → `data_doc`
+- TIPO_DOC → `tipo_doc`
+
+**Encomenda → `encomenda`**
+Todos os atributos viraram colunas diretamente, além da FK que liga a encomenda ao cliente.
+- ID_ENCOMENDA → `id_encomenda` (PK)
+- ID_CLIENTE → `id_cliente` (FK)
+- VALOR_MINIMO → `valor_minimo`
+- VALOR_MAXIMO → `valor_maximo`
+- CIDADE_DESEJADA → `cidade_desejada`
+- BAIRRO_DESEJADO → `bairro_desejado`
+- DATA_ENCOMENDA → `data_encomenda`
+- DESC_IMOVEL → `desc_imovel`
+- STATUS_ENC → `status_enc`
+
+**Fotos do imóvel (atributo multivalorado) → `fotos_imovel`**
+Como um imóvel pode ter várias fotos, o atributo virou uma tabela própria, ligada ao imóvel por uma FK.
+- FOTOS_IMOVEL → `fotos_imovel` (PK)
+- ID_IMOVEL → `id_imovel` (FK)
+
+**Idioma do corretor (atributo multivalorado) → `idioma`**
+Como um corretor pode falar vários idiomas, o atributo virou uma tabela própria, ligada ao corretor por uma FK.
+- IDIOMA → `idioma` (PK)
+- ID_CORRETOR → `id_corretor` (FK)
+
+**Tabelas associativas (relacionamentos N:N)**
+Cada tabela contém apenas as duas chaves estrangeiras, que juntas formam a chave primária composta.
+**intermedia**: `id_corretor` (FK), `id_contrato` (FK)
+**assina**: `id_contrato` (FK), `id_cliente` (FK)
+**possui**: `id_imovel` (FK), `id_proprietario` (FK)
+**realiza**: `id_visita` (FK), `id_corretor` (FK)
+**agenda**: `id_visita` (FK), `id_cliente` (FK)
+**registra**: `id_doc` (FK), `id_corretor` (FK)
+
+
+
 - **Relacionamentos → Chaves:** *como os relacionamentos foram traduzidos.*  
 - **Cardinalidades:** *como cada cardinalidade (1:1, 1:N, N:N) foi tratada (inclusive tabelas associativas, se houver).*  
 - **Generalização/especialização:** *se o DER tiver, qual estratégia de conversão foi usada (tabela única, uma tabela por entidade ou só as especializadas) e por quê.*
