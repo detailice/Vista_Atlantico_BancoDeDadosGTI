@@ -473,7 +473,9 @@ Uma visita pode ser agendada por mais de um cliente e um cliente pode agendar v�
 ### 1.4 Processo de Normalização (1FN, 2FN e 3FN)
 O processo de normalização foi considerado durante a elaboração e revisão do modelo em sala de aula , cm o objetivo de organizar os dados, reduzir redundâncias e preservar a integridade das informações armazenadas.
 
-- **1FN:** 
+- **1FN:**
+A 1FN foi considerada na organização dos atributos, buscando garantir que cada coluna armazene valores individuais. No modelo, os atributos multivalorados foram separados em tabelas próprias: `fotos_imovel`, para armazenar as fotos dos imóveis, e `idioma`, para registrar os idiomas falados pelos corretores. Além disso, o endereço do imóvel foi dividido em campos específicos, como logradouro, número, complemento, bairro, cidade e CEP.
+
 - **2FN:** *eliminação de dependências parciais.*  
 - **3FN:** *eliminação de dependências transitivas.*  
 - **Justificativa do processo:** *por que cada forma normal foi necessária no seu caso.*
