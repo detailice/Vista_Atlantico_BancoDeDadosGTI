@@ -405,9 +405,6 @@ Um contrato pode ser assinado por mais de um cliente e um cliente pode assinar v
 Uma visita pode ser agendada por mais de um cliente e um cliente pode agendar várias visitas. A tabela contém `id_cliente` e `id_visita`.
 
 
-
-
-
 - **Generalização/especialização:**
   
 - O DER não possui generalização/especialização, portanto nenhuma das estratégias de conversão foi necessária. Corretor, Cliente e Proprietário têm atributos parecidos (`nome`, `telefone`, `email`), mas foram modelados como entidades independentes, pois têm papéis e relacionamentos diferentes no sistema.
@@ -482,7 +479,18 @@ Uma visita pode ser agendada por mais de um cliente e um cliente pode agendar v�
 - A centralização das informações no banco de dados permitirá à VISTA ATLANTICO IMOVEIS obter uma visão mais organizada de suas operações comerciais , facilitando  acompanhamento da carteira de imoveis , dos clientes , dos proprietáios , dos corretores , das visitas e dos contratos. Aparti dessas informações , a imobiliaria poderá acompanhar indicadores relacionados a disponibilidade dos imoveis, à movimentações de visitas , ao volume de negociações e ao desempenho comercial dos corretores. Essas informações poderão auxiliar a gestão na identificação de oportunidade de negocio, no acompanhamneto dos resultados, e no planejamento das atividades comercias, considerando também as variações sazonais da procura por imovéis na região da baixada santista.
   
 - **Indicadores e métricas gerenciais** propostos (KPIs):
-- 
+- - **G01 – Faturamento por período:** valor total contratado por mês e por tipo de contrato (tabela `contrato`).
+- **G02 – Produtividade por corretor:** corretores que mais fecham contratos e realizam visitas (tabelas `corretor`, `intermedia`, `contrato`, `realiza` e `visita`).
+- **G03 – Taxa de conversão de visitas:** percentual de visitas que terminam em contrato (tabelas `visita`, `contrato`, `agenda` e `assina`).
+- **G04 – Negócios sem visita:** quantidade de contratos fechados sem visita prévia do cliente ao imóvel (tabelas `contrato`, `assina`, `agenda` e `visita`).
+- **G05 – Imóveis sem giro:** imóveis disponíveis que estão parados, sem nenhum contrato (tabelas `imovel` e `contrato`).
+- **G06 – Demanda não atendida:** bairros com mais encomendas e se há imóvel disponível compatível com a faixa de valor pedida (tabelas `encomenda` e `imovel`).
+- **G07 – Desempenho por localização e tipo de imóvel:** bairros e tipos de imóvel que concentram mais visitas, contratos e valor (tabelas `imovel`, `visita` e `contrato`).
+- **G08 – Taxa de atendimento das encomendas:** quantidade de encomendas abertas, atendidas e canceladas (tabela `encomenda`).
+- **G09 – Volume de atendimentos:** quantidade de visitas e de imóveis visitados por mês (tabelas `visita` e `imovel`).
+- **G10 – Estoque (carteira) de imóveis:** carteira de imóveis por situação e tipo de oferta, com o valor total (tabela `imovel`).
+
+
 -   
 - **Potencial dos dados para BI:**
 - A utlilização de ferramentas de Business Intlligence poderá transformar os dados armazenados no banco em paineis gerenciaveis e relatorios visuais, facilitando a interpretação dos resultados pela administração da imobiliaria. entre as possibilidades de aplicação , destacam-se:
