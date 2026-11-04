@@ -375,33 +375,33 @@ Cada tabela contém apenas as duas chaves estrangeiras, que juntas formam a chav
  
 - **Cardinalidades:**
   
-**contrato 0:N referente_a 1:1 imóvel**
+**Contrato 0:N Referente_a 1:1 Imóvel →**
 Um contrato se refere a exatamente um imóvel, e um imóvel pode ter de 0 a muitos contratos. A FK `id_imovel` ficou em `contrato`. 
 
-**imovel 1:1 recebe 0:N visita**
+**Imovel 1:1 Recebe 0:N Visita →**
 Uma visita é feita em exatamente um imóvel, e um imóvel pode receber de 0 a muitas visitas. A FK `id_imovel` ficou em `visita`.
 
-**cliente 1:1 realiza 0:N encomenda**
+**Cliente 1:1 Realiza 0:N Encomenda →**
 Uma encomenda é feita por exatamente um cliente, e um cliente pode fazer de 0 a muitas encomendas. A FK `id_cliente` ficou em `encomenda`.
 
 Os atributos multivalorados também geraram relações 1:N: um imóvel tem várias fotos (`fotos_imovel` recebe `id_imovel`) e um corretor fala vários idiomas (`idioma` recebe `id_corretor`).
 
-**proprietário 1:N possui 0:N imóvel → `possui`**
+**Proprietário 1:N Possui 0:N Imóvel →**
 Um imóvel pode ter vários proprietários e um proprietário pode ter vários imóveis. A tabela contém `id_proprietario` e `id_imovel`.
 
-**corretor 1:N realiza 0:N visita → `realiza`**
+**Corretor 1:N Realiza 0:N Visita →**
 Uma visita pode ter mais de um corretor e um corretor pode realizar várias visitas. A tabela contém `id_corretor` e `id_visita`.
 
-**corretor 1:N registra 1:N documento → `registra`**
+**Corretor 1:N Registra 1:N Documento →**
 Um documento pode ser registrado por mais de um corretor e um corretor pode registrar vários documentos. A tabela contém `id_corretor` e `id_doc`.
 
-**corretor 1:N intermedia 0:N contrato → `intermedia`**
+**Corretor 1:N Intermedia 0:N Contrato →**
 Um contrato pode ser intermediado por mais de um corretor e um corretor pode intermediar vários contratos. A tabela contém `id_corretor` e `id_contrato`.
 
-**cliente 1:N assina 0:N contrato → `assina`**
+**Cliente 1:N Assina 0:N Contrato →**
 Um contrato pode ser assinado por mais de um cliente e um cliente pode assinar vários contratos. A tabela contém `id_cliente` e `id_contrato`.
 
-**cliente 1:N agenda 0:N visita → `agenda`**
+**Cliente 1:N Agenda 0:N Visita →**
 Uma visita pode ser agendada por mais de um cliente e um cliente pode agendar várias visitas. A tabela contém `id_cliente` e `id_visita`.
 
 
