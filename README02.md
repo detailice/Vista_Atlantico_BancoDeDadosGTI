@@ -215,6 +215,11 @@
 | *Chaves estrangeiras em três entidades* | *Removemos as chaves estrangeiras das entidades no modelo conceitual* | *As chaves estrangeiras não pertencem ao modelo conceitual, apenas ao modelo lógico* |
 | *Link externo do BrModelo no repositório ao invés da imagem do modelo conceitual* | *Removemos o link e adicionamos a imagem no repositório* | *É obrigatório a imagem no repositório para a melhor visualização* |
 | *Cardinalidades presentes nos relacionamentos do modelo conceitual divergem do README* | *Modificamos as cardinalidades do DER para serem compatíveis com as cardinalidades do README* | *As cardinalidades precisam ser iguais nos dois documentos* |
+|*A entidade CORRETOR não se liga a CONTRATO e VISITA não se liga a IMÓVEL*|*Adicionamos relações entre CORRETOR com CONTRATO e VISITA com IMOVEL*|*São relações obrigatórias pelas regras de negócio e o contexto*|
+|*Valores de domínio desenhado como atributos*|*Retiramos valores de domínio*|*Valores de domínio não pertencem ao modelo conceitual*|
+|*TIPO como atributo de ASSINA*|*Retiramos o atributo tipo em ASSINA e colocamos somente em CONTRATO*|*O atributo tipo é pertinente ao tipo de contrato (venda ou locação), e não ao tipo de assinatura*|
+|*Ausência da entidade encomenda de imóvel*|*Criamos a entidade ENCOMENDA*|*A encomenda é um dos processos principais e possui dados a serem armazenados, portanto devem ser entidades*|
+|*Divergência na chave primária do CORRETOR*|*Declaramos como chave primaria ID_CORRETOR e o CRECI como atributo único*|*O ID_CORRETOR garante a segurança de dados do corretor e o CRECI é único e somente em cada estado, usar ID garante unicidade em todos os casos*|
 
 ### 1.2 Conversão do Modelo Conceitual para o Modelo Lógico
 *(vale 7,5%)*
