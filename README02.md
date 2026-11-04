@@ -41,14 +41,22 @@
 
 - **Evidências da organização:** Inseridas no repositório, pasta "LEVANTAMENTO".
 
-- **Responsável pela organização:**
+- **Responsável pela organização: Valéria Nogueira**
 
 **Relato da entrevista**
-- **Quem:** 
-- **Quando e onde:** 
+- **Quem: Claudia Regina da Silva Santos.** 
+- **Quando e onde: A entrevista foi realizada no dia 02/09/2026, em Rua Tupi- Praia Grande.** 
 - **Comprovação:**
 - **O que foi levantado:** 
+### Levantamento de Requisitos e Processos
 
+O levantamento de requisitos foi realizado junto à gestão da Vista Atlântico Negócios Imobiliários LTDA, uma imobiliária de pequeno porte (EPP) composta por uma equipe de oito pessoas, sendo uma diretora/gerente e sete corretores. A empresa possui uma carteira ativa de aproximadamente 900 a 1.000 anúncios e atua na intermediação de operações de venda e locação de imóveis na região da Baixada Santista. Durante a entrevista, identificou-se que o principal problema da organização é a descentralização dos dados, com uma forte dependência de planilhas e registros em papel, o que dificulta o acesso rápido ao histórico de clientes, visitas e contratos.
+
+Para a modelagem do novo sistema, definiu-se que a plataforma deve permitir o registro de usuários padrão, onde os proprietários podem cadastrar os seus próprios imóveis com dados detalhados e fotos de alta qualidade, ficando o anúncio sujeito à aprovação de um corretor. Por sua vez, os clientes podem navegar, enviar mensagens aos corretores, agendar visitas e, caso não encontrem o imóvel ideal, registrar uma "encomenda" com as características desejadas (como bairro e faixa de preço), recebendo alertas quando houver compatibilidade. A captação de imóveis também pode ser feita diretamente pelo corretor mediante um contrato de autorização, sendo obrigatório que todos os anúncios e transações contenham o número do CRECI do responsável. A divulgação externa é gerida pela diretoria através de serviços terceirizados.
+
+A jornada do cliente prossegue com o agendamento de visitas pela plataforma, as quais exigem o acompanhamento presencial do corretor, que registra posteriormente as anotações pertinentes no sistema. Havendo interesse, avança-se para a proposta e rigorosa análise de documentos, como comprovantes de renda e certidões negativas. O setor jurídico externo elabora os contratos de compra e locação, garantindo a adequação à legislação. Nas locações, exige-se garantia locatícia e a elaboração de laudos de vistoria de entrada e saída, detalhando o estado do imóvel e da mobília, documentos que devem ser assinados pelas partes. Já nas vendas, as transações à vista são finalizadas em cartório, enquanto as financiadas seguem para o correspondente bancário.
+
+Por fim, as rotinas financeiras e de comissionamento determinam que, nas vendas, a comissão padrão é de 6% sobre o valor da transação, sendo dividida em 50% para a imobiliária e 50% para o corretor. Nas locações, a comissão equivale ao primeiro mês de aluguel, ou a 30% em casos de locação por temporada de até 90 dias. A imobiliária atua também na administração das locações, cobrando os encargos ao inquilino (aluguel, IPTU, condomínio), retendo a sua taxa de administração e repassando o valor líquido ao proprietário em um prazo de até cinco dias úteis, com a execução de réguas de cobrança em situações de inadimplência.
 ---
 
 ### **Processos de negócio:**
