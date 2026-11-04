@@ -513,8 +513,17 @@ As aplicações apresentadas representam possibilidades futuras, não funcionali
 **Rastreabilidade:** inclua uma tabela que ligue cada problema declarado na caracterização da organização e cada KPI proposto às tabelas que o sustentam e à consulta do script SQL que o responde (pelo código da consulta — ver seção 3):
 | Problema ou KPI | Tabelas envolvidas | Consulta no script |
 | :---- | :---- | :---- |
-| *ex.: P1 — ruptura de estoque de bebidas* | *PRODUTO, MOVIMENTACAO\_ESTOQUE* | *G03* |
-| *ex.: ticket médio por ambiente* | *PEDIDO, ITEM\_PEDIDO, AMBIENTE* | *G05* |
+| *P1 — Descentralização de dados* | *ENCOMENDA, IMOVEL, VISITA, CONTRATO, CLIENTE* | *G06, G07* |
+| *KPI de faturamento por período* | *CONTRATO* | *G01* |
+| *KPI de produtividade por corretor* | *CORRETOR, INTERMEDIA, CONTRATO, REALIZA, VISITA* | *G02* |
+| *KPI de taxa de conversão de visitas* | *VISITA, CONTRATO, AGENDA, ASSINA* | *G03* |
+| *KPI de negócios sem visita* | *CONTRATO, ASSINA, AGENDA, VISITA* | *G04* |
+| *Imóveis sem giro* | *IMOVEL, CONTRATO* | *G05* |
+| *Demanda não atendida* | *ENCOMENDA, IMOVEL* | *G06* |
+| *KPI de desempenho por localização/tipo* | *IMOVEL, VISITA, CONTRATO* | *G07* |
+| *KPI de taxa de atendimento das encomendas* | *ENCOMENDA* | *G08* |
+| *KPI de volume de atendimentos* | *VISITA, IMOVEL* | *G09* |
+| *KPI de estoque (carteira) de imóveis* | *IMOVEL* | *G10* |
 &nbsp;
 *KPI sem consulta no script que o calcule não é considerado KPI. Cada problema declarado deve ter pelo menos uma consulta que o responda.*
 > **O que é KPI:** *Key Performance Indicator* (indicador-chave de desempenho) é um número que mostra, de forma objetiva, se a organização está indo bem em algo que importa para a gestão dela. Um KPI tem **fórmula** (como é calculado), **período** (por dia, semana, mês) e, de preferência, uma **meta** para comparação. Exemplos: ticket médio por venda, taxa de cancelamento de pedidos, produtos abaixo do estoque mínimo, tempo médio de atendimento, número de beneficiários atendidos por mês, percentual de doações recorrentes. "Melhorar o atendimento" não é KPI; "tempo médio entre o pedido e a entrega, por semana" é.
