@@ -46,7 +46,7 @@
 **Relato da entrevista**
 - **Quem: Claudia Regina da Silva Santos.** 
 - **Quando e onde: A entrevista foi realizada no dia 02/09/2026, em Rua Tupi- Praia Grande.** 
-- **Comprovação:**
+- **Comprovação:(Arquivos anexados)**
 - **O que foi levantado:** 
 ### Levantamento de Requisitos e Processos
 
@@ -57,6 +57,7 @@ Para a modelagem do novo sistema, definiu-se que a plataforma deve permitir o re
 A jornada do cliente prossegue com o agendamento de visitas pela plataforma, as quais exigem o acompanhamento presencial do corretor, que registra posteriormente as anotações pertinentes no sistema. Havendo interesse, avança-se para a proposta e rigorosa análise de documentos, como comprovantes de renda e certidões negativas. O setor jurídico externo elabora os contratos de compra e locação, garantindo a adequação à legislação. Nas locações, exige-se garantia locatícia e a elaboração de laudos de vistoria de entrada e saída, detalhando o estado do imóvel e da mobília, documentos que devem ser assinados pelas partes. Já nas vendas, as transações à vista são finalizadas em cartório, enquanto as financiadas seguem para o correspondente bancário.
 
 Por fim, as rotinas financeiras e de comissionamento determinam que, nas vendas, a comissão padrão é de 6% sobre o valor da transação, sendo dividida em 50% para a imobiliária e 50% para o corretor. Nas locações, a comissão equivale ao primeiro mês de aluguel, ou a 30% em casos de locação por temporada de até 90 dias. A imobiliária atua também na administração das locações, cobrando os encargos ao inquilino (aluguel, IPTU, condomínio), retendo a sua taxa de administração e repassando o valor líquido ao proprietário em um prazo de até cinco dias úteis, com a execução de réguas de cobrança em situações de inadimplência.
+
 ---
 
 ### **Processos de negócio:**
