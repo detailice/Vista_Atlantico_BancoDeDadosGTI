@@ -476,9 +476,12 @@ O processo de normalização foi considerado durante a elaboração e revisão d
 - **1FN:**
 A 1FN foi considerada na organização dos atributos, buscando garantir que cada coluna armazene valores individuais. No modelo, os atributos multivalorados foram separados em tabelas próprias: `fotos_imovel`, para armazenar as fotos dos imóveis, e `idioma`, para registrar os idiomas falados pelos corretores. Além disso, o endereço do imóvel foi dividido em campos específicos, como logradouro, número, complemento, bairro, cidade e CEP.
 
-- **2FN:** *eliminação de dependências parciais.*  
-- **3FN:** *eliminação de dependências transitivas.*  
+- **2FN:**
+A 2FN foi considerada na organização das tabelas e na definição das chaves primárias. Os relacionamentos muitos para muitos foram separados em tabelas associativas, como `possui`, `assina`, `intermedia`, `realiza`, `registra` e `agenda`. Nessas tabelas, as chaves estrangeiras que identificam cada relacionamento devem formar uma chave primária composta, evitando a ocorrência de dependências parciais de atributos não-chave.
+- **3FN:**
+A 3FN foi considerada na organização das entidades e de seus atributos, buscando garantir que os atributos não-chave dependam diretamente da chave primária, sem dependências transitivas. A separação das informações em entidades específicas, como `cliente`, `proprietario`, `corretor`, `imovel` e `contrato`, contribui para reduzir a repetição desnecessária de informações.  
 - **Justificativa do processo:** *por que cada forma normal foi necessária no seu caso.*
+
 ### 1.5 Justificativas Técnicas das Decisões
 *(vale 7,5%)*
 - Justificar as **chaves primárias** escolhidas.  
