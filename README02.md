@@ -479,8 +479,10 @@ A 1FN foi considerada na organização dos atributos, buscando garantir que cada
 - **2FN:**
 A 2FN foi considerada na organização das tabelas e na definição das chaves primárias. Os relacionamentos muitos para muitos foram separados em tabelas associativas, como `possui`, `assina`, `intermedia`, `realiza`, `registra` e `agenda`. Nessas tabelas, as chaves estrangeiras que identificam cada relacionamento devem formar uma chave primária composta, evitando a ocorrência de dependências parciais de atributos não-chave.
 - **3FN:**
-A 3FN foi considerada na organização das entidades e de seus atributos, buscando garantir que os atributos não-chave dependam diretamente da chave primária, sem dependências transitivas. A separação das informações em entidades específicas, como `cliente`, `proprietario`, `corretor`, `imovel` e `contrato`, contribui para reduzir a repetição desnecessária de informações.  
-- **Justificativa do processo:** *por que cada forma normal foi necessária no seu caso.*
+A 3FN foi considerada na organização das entidades e de seus atributos, buscando garantir que os atributos não-chave dependam diretamente da chave primária, sem dependências transitivas. A separação das informações em entidades específicas, como `cliente`, `proprietario`, `corretor`, `imóvel` e `contrato`, contribui para reduzir a repetição desnecessária de informações.
+   
+- **Justificativa do processo:**
+Conforme a revisão realizada em sala de aula, as formas normais foram consideradas durante a construção do modelo. A separação dos atributos multivalorados, a organização dos relacionamentos muitos para muitos e a divisão dos atributos compostos contribuíram para estruturar os dados de maneira organizada. A validação definitiva da normalização será realizada por meio da conferência do modelo lógico relacional e do script SQL completo.
 
 ### 1.5 Justificativas Técnicas das Decisões
 *(vale 7,5%)*
