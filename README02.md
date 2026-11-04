@@ -471,8 +471,9 @@ Uma visita pode ser agendada por mais de um cliente e um cliente pode agendar v�
    IDIOMA (PK), ID_CORRETOR (FK)
   
 ### 1.4 Processo de Normalização (1FN, 2FN e 3FN)
-*(vale 7,5%)*
-- **1FN:** *eliminação de grupos repetitivos/atributos multivalorados.*  
+O processo de normalização foi considerado durante a elaboração e revisão do modelo em sala de aula , cm o objetivo de organizar os dados, reduzir redundâncias e preservar a integridade das informações armazenadas.
+
+- **1FN:** 
 - **2FN:** *eliminação de dependências parciais.*  
 - **3FN:** *eliminação de dependências transitivas.*  
 - **Justificativa do processo:** *por que cada forma normal foi necessária no seu caso.*
