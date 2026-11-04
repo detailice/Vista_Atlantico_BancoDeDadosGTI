@@ -479,7 +479,8 @@ Uma visita pode ser agendada por mais de um cliente e um cliente pode agendar v�
 - A centralização das informações no banco de dados permitirá à VISTA ATLANTICO IMOVEIS obter uma visão mais organizada de suas operações comerciais , facilitando  acompanhamento da carteira de imoveis , dos clientes , dos proprietáios , dos corretores , das visitas e dos contratos. Aparti dessas informações , a imobiliaria poderá acompanhar indicadores relacionados a disponibilidade dos imoveis, à movimentações de visitas , ao volume de negociações e ao desempenho comercial dos corretores. Essas informações poderão auxiliar a gestão na identificação de oportunidade de negocio, no acompanhamneto dos resultados, e no planejamento das atividades comercias, considerando também as variações sazonais da procura por imovéis na região da baixada santista.
   
 - **Indicadores e métricas gerenciais** propostos (KPIs):
-- - **G01 – Faturamento por período:** valor total contratado por mês e por tipo de contrato (tabela `contrato`).
+
+- **G01 – Faturamento por período:** valor total contratado por mês e por tipo de contrato (tabela `contrato`).
 - **G02 – Produtividade por corretor:** corretores que mais fecham contratos e realizam visitas (tabelas `corretor`, `intermedia`, `contrato`, `realiza` e `visita`).
 - **G03 – Taxa de conversão de visitas:** percentual de visitas que terminam em contrato (tabelas `visita`, `contrato`, `agenda` e `assina`).
 - **G04 – Negócios sem visita:** quantidade de contratos fechados sem visita prévia do cliente ao imóvel (tabelas `contrato`, `assina`, `agenda` e `visita`).
@@ -491,7 +492,6 @@ Uma visita pode ser agendada por mais de um cliente e um cliente pode agendar v�
 - **G10 – Estoque (carteira) de imóveis:** carteira de imóveis por situação e tipo de oferta, com o valor total (tabela `imovel`).
 
 
--   
 - **Potencial dos dados para BI:**
 - A utlilização de ferramentas de Business Intlligence poderá transformar os dados armazenados no banco em paineis gerenciaveis e relatorios visuais, facilitando a interpretação dos resultados pela administração da imobiliaria. entre as possibilidades de aplicação , destacam-se:
 - Painel de desempenho da imobiiaria: apresentaçao da quantidade de imoveis cadastrados , disponiveis e distribuidos por tipo e finalidade.
