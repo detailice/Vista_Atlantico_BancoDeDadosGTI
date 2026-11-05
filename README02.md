@@ -242,6 +242,8 @@ Centralizar as informações e automatizar os principais processos da imobiliár
 **Caso A — mesma organização da Entrega 1**
 *Apresente o **DER conceitual revisado**, na notação descrita acima. A revisão parte da correção da Entrega 1 recebida pelo grupo — o DER e os demais itens acima. Para cada apontamento da correção, registre o que foi feito:*
 
+link para visualização no repositório: https://github.com/detailice/Vista_Atlantico_BancoDeDadosGTI/blob/main/MODELO_CONCEITUAL_VISTA_ATLANTICO.jpeg
+
 | Apontamento da correção da E1 | O que mudou no trabalho | Por quê |
 | :---- | :---- | :---- |
 | *Chaves estrangeiras em três entidades* | *Removemos as chaves estrangeiras das entidades no modelo conceitual* | *As chaves estrangeiras não pertencem ao modelo conceitual, apenas ao modelo lógico* |
@@ -254,9 +256,10 @@ Centralizar as informações e automatizar os principais processos da imobiliár
 |*Divergência na chave primária do CORRETOR*|*Declaramos como chave primaria ID_CORRETOR e o CRECI como atributo único*|*O ID_CORRETOR garante a segurança de dados do corretor e o CRECI é único e somente em cada estado, usar ID garante unicidade em todos os casos*|
 
 ### 1.2 Conversão do Modelo Conceitual para o Modelo Lógico
-- **Entidades → Tabelas**
 
-  
+link para visualização no repositório: https://github.com/detailice/Vista_Atlantico_BancoDeDadosGTI/blob/main/MODELO_LOGICO_VISTA_ATLANTICO.png
+
+- **Entidades → Tabelas** 
 **Imóvel → `imovel`**:
 A entidade Imóvel virou a tabela `imovel`, com `id_imovel` como PK. É a entidade central do sistema: não recebe chaves estrangeiras, mas é referenciada por `contrato`, `visita`, `fotos_imovel` e pela tabela associativa `possui`. O atributo composto de endereço foi dividido em colunas, e o atributo multivalorado de fotos gerou a tabela `fotos_imovel`.
 
