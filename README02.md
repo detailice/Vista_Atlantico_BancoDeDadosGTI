@@ -569,9 +569,9 @@ O banco de dados relacional foi estruturado não apenas para a operação diári
 - Painel de desempenho comercial: acompanhamento da quantidade de contratos , valores negociados e participação dos corretores nas negociações.
 - Relatório de visitas : identificação dos imoveis mais visitados e acompanhamento da movimentação de interessados.
 - Análise temporal: comparação mensal dos registros de visitas e contratos, permitindo observar períodos de maior ou menor movimentação comercial.
-Essas ferramentas poderão contribuir para uma gestão baseada em dados, reduzindo a dependência de controles decentralizados e facilitando o acesso às informações estratégicas. 
--
-- - **Aplicações analíticas e de IA:**
+Essas ferramentas poderão contribuir para uma gestão baseada em dados, reduzindo a dependência de controles decentralizados e facilitando o acesso às informações estratégicas.
+
+- **Aplicações analíticas e de IA:**
   -A estrutura de dados proposta poderá servir como base para futuras aplicações de Inteligência Artificial, com a finalidade de apoiar os processos comerciais e melhorar o atendimento aos clientes.
 As principais possibilidades identificadas são:
 
@@ -596,8 +596,7 @@ As aplicações apresentadas representam possibilidades futuras, não funcionali
 | *KPI de volume de atendimentos* | *VISITA, IMOVEL* | *G09* |
 | *KPI de estoque (carteira) de imóveis* | *IMOVEL* | *G10* |
 &nbsp;
-> **O que é KPI:** *Key Performance Indicator* (indicador-chave de desempenho) é um número que mostra, de forma objetiva, se a organização está indo bem em algo que importa para a gestão dela. Um KPI tem **fórmula** (como é calculado), **período** (por dia, semana, mês) e, de preferência, uma **meta** para comparação. Exemplos: ticket médio por venda, taxa de cancelamento de pedidos, produtos abaixo do estoque mínimo, tempo médio de atendimento, número de beneficiários atendidos por mês, percentual de doações recorrentes. "Melhorar o atendimento" não é KPI; "tempo médio entre o pedido e a entrega, por semana" é.
-> **Como levantar:** é recomendável usar pesquisas e ferramentas de IA para descobrir quais indicadores são usados por organizações do mesmo tipo (ex.: "principais KPIs de uma pizzaria", "indicadores de gestão de uma ONG de doação de alimentos") e quais análises de BI e de IA costumam ser aplicadas a elas. Depois, **filtre pelo que o seu banco consegue calcular**: um KPI só vale se as tabelas do modelo tiverem os dados necessários e se houver uma consulta no script que o calcule (ver *Rastreabilidade*, abaixo). Se possível, confirme com o responsável pela organização quais indicadores seriam úteis para ele. Registre esse uso de IA na seção 6\.
+
 ---
 ## 2\. Modelo Lógico Relacional
 *(diagrama separado — vale 10% na Dimensão Procedimental)*
@@ -650,28 +649,9 @@ SELECT ...
 *Teste o script do zero (banco vazio) antes de entregar, para garantir que ele executa sem erros.*
 ---
 ## 4\. Massa de Dados
-*(incluída no script ou em arquivo separado — parte da nota de Implementação SQL, 12%)*
-Se a massa de dados ficar em arquivo separado, ele deve seguir a mesma regra do script: **um arquivo no formato `.sql` no repositório**, de preferência na pasta **`docs`** (ex.: `docs/massa_de_dados.sql`), com link no README.
-- **Dados reais da organização (nomes de clientes, fiéis, beneficiários, doadores, valores reais etc.) não devem ser utilizados, em respeito à privacidade dessas informações.** A massa de dados deve ser **fictícia**, mas **coerente com as operações modeladas** (mesmos tipos de processo, volumes e regras observados na organização real).  
-- Volume de registros **coerente com a realidade da organização** (nada de 3 linhas de exemplo — mas também nada artificialmente inflado sem sentido).  
-- **Explique como o volume real da organização** — os números informados em *Contexto e porte* (seção 1.1), como clientes ativos, pedidos por mês, atendimentos por semana, itens no estoque — **justifica a quantidade de registros de cada tabela** da massa de dados.  
-- Dados consistentes o suficiente para validar os processos organizacionais modelados (ex.: pedidos que referenciam clientes e produtos existentes, ou doações que referenciam doadores e campanhas existentes).  
-- **Variedade e quantidade coerentes com a organização, para que os testes sejam possíveis:** os dados devem cobrir as situações reais — não só o caso comum, mas também pedidos cancelados, clientes sem compras, produtos abaixo do estoque mínimo, pagamentos em formas diferentes, registros em períodos diferentes. Sem essa variedade, as consultas gerenciais e de auditoria (seção 3\) não têm o que mostrar: uma consulta de produtos abaixo do estoque mínimo que retorna vazio não demonstra nada.  
-- **Documente o uso de LLMs** para gerar essa massa de dados na seção 6 (**Uso de Inteligência Artificial**), incluindo ferramentas, prompts e ajustes feitos manualmente.
----
-## 5\. Repositório GitHub (CHECKLIST)
-*(vale 13% — Documentação e Repositório)*
-O repositório deve conter:
-- Relatório Técnico (no `README.md`)  
-- **Dicionário de Dados** atualizado, no modelo do arquivo `02-03g_Exemplo_Dicionario_Dados.pdf` e com as restrições de integridade de cada coluna (obrigatoriedade, unicidade, valores permitidos, valor padrão), em **um único arquivo HTML** no repositório. **Exceção — turma de GTI:** o dicionário é apresentado em **um único arquivo Markdown (`.md`) separado do README**, seguindo o mesmo modelo do `02-03g_Exemplo_Dicionario_Dados.pdf`.  
-- Diagramas (DER revisado e modelo lógico)  
-- Levantamento (pasta `levantamento`, recomendada) e evidências da organização e da entrevista (fotos JPG ou PNG)  
-- Script SQL completo em arquivo `.sql` (de preferência na pasta `docs`)  
-- **Histórico de commits** que evidencie o desenvolvimento ao longo do tempo (evite um único commit final)  
-- **Evidências de colaboração entre os membros do grupo:** é a listagem de commits do repositório, que deve estar **equilibrada entre os integrantes** — a quantidade de commits deve se distribuir de forma proporcional entre todos os membros do grupo, cada um fazendo commits com a própria conta do GitHub. O integrante precisa ser **identificável na conta do GitHub**: o nome configurado na conta deve ser compatível com o nome do aluno na tabela de Integrantes, onde também deve constar o usuário do GitHub de cada um
+Presente no SCRIPT SQL, visualização disponível aqui: https://github.com/detailice/Vista_Atlantico_BancoDeDadosGTI/blob/main/Vista_Atlantico0411.sql
 
-
-## 6. Uso de Inteligência Artificial
+## 5. Uso de Inteligência Artificial
 
 Durante o desenvolvimento deste projeto, utilizamos diferentes ferramentas de Inteligência Artificial para ajudar em dúvidas técnicas, revisão de modelagem, geração de dados e polimento do texto. O grupo alternou entre os modelos, e documentamos abaixo como lidamos com as informações (aproveitando o que era útil e corrigindo alucinações):
 
