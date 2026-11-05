@@ -516,22 +516,22 @@ A arquitetura e a modelagem do banco de dados da Vista Atlântico Negócios Imob
 * **2ª e 3ª Formas Normais (2FN e 3FN):** Relacionamentos de cardinalidade Muitos-para-Muitos (N:N) foram convertidos em tabelas associativas (ex.: `possui`, `assina`, `intermedia`, `realiza`, `agenda`, `registra`). Essa decomposição elimina dependências parciais e transitivas de atributos não-chave.
 * **Relacionamento Ternário de Visita:** O evento `VISITA` vincula obrigatoriamente um `CLIENTE`, um `CORRETOR` e um `IMOVEL`. Essa modelagem atende à restrição de obrigatoriedade, espelhando a regra que exige que qualquer visita presencial seja acompanhada por um corretor credenciado e ligada a um interessado real **(Regras Operacionais RN08 e RN10)**.
 
-* **Definição de Chaves Primárias e Unicidade**
+**Definição de Chaves Primárias e Unicidade**
 
 * **Chaves Primárias Artificiais:** Adotou-se o uso de identificadores numéricos únicos (como `id_imovel`, `id_corretor`) como chaves primárias (*Surrogate Keys*). Isso otimiza a indexação do SGBD e simplifica o mapeamento de chaves estrangeiras em tabelas associativas.
 * **Identificadores Profissionais e Unicidade:** O número de registro do Conselho Regional de Corretores de Imóveis (`CRECI`) foi implementado com uma restrição `UNIQUE` na tabela `CORRETOR` **(Restrição Legal RN02)**. A prática atende à obrigatoriedade da Lei nº 6.530/1978, evitando a duplicidade de profissionais na plataforma sem engessar a chave primária interna.
 
-* **Chaves Estrangeiras e Restrições de Integridade**
+**Chaves Estrangeiras e Restrições de Integridade**
 
 * **Integridade Referencial e Cardinalidades:** A aplicação rigorosa de chaves estrangeiras (*Foreign Keys*) previne inconsistências e a geração de registros órfãos, garantindo a obrigatoriedade de vínculos válidos — como impossibilitar o agendamento de uma visita para um imóvel deletado ou criar um contrato sem associar as partes devidas **(Regras Operacionais RN08 e RN12)**.
 
-* **Conformidade Legal e Decisões Arquiteturais**
+**Conformidade Legal e Decisões Arquiteturais**
 
 * **Controle de Acesso e Minimização:** O modelo prevê suporte a níveis de acesso distintos (usuários padrão vs. privilegiados). O armazenamento atende ao princípio da finalidade da Lei Geral de Proteção de Dados (Lei nº 13.709/2018), colhendo apenas dados necessários para a execução de procedimentos preliminares e contratos (Art. 7º, II e V) **(Restrição Legal RN01)**.
 * **Preservação de Histórico (*Soft Delete*):** Em conformidade com as regras da Lei do Inquilinato (Lei nº 8.245/91), o sistema evita a exclusão física (instrução `DELETE`) de dados ligados a negociações, implementando a exclusão lógica (*soft delete*) ou inativação de cadastros **(Restrição Legal RN03)**. Isso preserva o histórico necessário para fins de auditoria financeira e resolução de litígios.
 * **Auditoria de Banco de Dados:** O sistema e suas tabelas estão projetados para trabalhar com ferramentas de auditoria (como o plugin `audit_log` do MySQL), garantindo rastreabilidade total das operações de leitura e atualização, atendendo ao princípio da responsabilização (Art. 6º, X da LGPD) **(Restrição Legal RN01)**.
 
-* **Arquitetura para Inteligência de Negócios (BI)**
+**Arquitetura para Inteligência de Negócios (BI)**
 
 O banco de dados relacional foi estruturado não apenas para a operação diária (OLTP), mas como fundação para a extração analítica. A modelagem viabiliza o cálculo de KPIs fundamentais com junções (`JOINs`) eficientes:
 
