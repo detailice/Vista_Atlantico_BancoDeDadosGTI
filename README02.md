@@ -692,3 +692,16 @@ Durante o desenvolvimento deste projeto, utilizamos diferentes ferramentas de In
 | **Trechos rejeitados ou corrigidos** | Descartamos a sugestão da IA de separar até o Bairro e Cidade em tabelas próprias, pois consideramos desnecessário para o tamanho do nosso sistema. |
 | **Justificativa da escolha final** | Adotamos a correção principal (separar dados do proprietário do imóvel), pois fazia total sentido para manter o modelo na Terceira Forma Normal e evitar redundância. |
 | **Reflexão crítica** | A IA ajuda a identificar anomalias no banco, mas pode ter o viés de sugerir níveis de normalização excessivos (over-engineering). Revisamos tudo criticamente para aplicar apenas o que o modelo realmente pedia, sem inventar tabelas inúteis. |
+
+<br>
+
+| Item | O que registrar |
+| :--- | :--- |
+| **Ferramenta e etapa** | **Claude 3.5 Sonnet (Versão Gratuita)** - Adequação do Dicionário de Dados à LGPD. |
+| **Motivação** | Como a imobiliária guarda muito dado pessoal de cliente e locatário, queríamos adicionar campos no banco para garantir que o sistema estaria preparado para a LGPD. |
+| **Prompt(s) utilizados** | *"O professor pediu pra pensar na LGPD no nosso banco de dados da imobiliária. Que campos eu tenho que colocar na tabela de clientes pra não dar problema com a lei de proteção de dados?"* |
+| **Resposta recebida** | O Claude sugeriu colocar colunas de `data_consentimento` e um status para saber se o cliente pediu pra excluir os dados. Foi útil porque inicialmente tínhamos focado só no cadastro básico. |
+| **Fontes consultadas e verificadas** | Lemos materiais sobre os princípios da LGPD e adaptamos nosso Dicionário de Dados incluindo essas novas colunas. |
+| **Trechos rejeitados ou corrigidos** | Rejeitamos lógicas complexas de mascaramento e criptografia pontual de CPF sugeridas pela IA, que fugiam do escopo da disciplina. |
+| **Justificativa da escolha final** | Optamos por manter apenas as colunas de controle (consentimento e exclusão), pois agregam valor na adequação sem tornar a modelagem impossível de fazer no nosso nível de conhecimento. |
+| **Reflexão crítica** | A IA às vezes ignora limitações técnicas de um projeto de faculdade e joga conceitos muito avançados. Sempre filtramos o que era irreal de fazer e implementamos os conceitos de privacidade de forma funcional e simplificada. |
