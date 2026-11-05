@@ -525,6 +525,12 @@ A arquitetura e a modelagem do banco de dados da Vista Atlântico Negócios Imob
 
 * **Integridade Referencial e Cardinalidades:** A aplicação rigorosa de chaves estrangeiras (*Foreign Keys*) previne inconsistências e a geração de registros órfãos, garantindo a obrigatoriedade de vínculos válidos — como impossibilitar o agendamento de uma visita para um imóvel deletado ou criar um contrato sem associar as partes devidas **(Regras Operacionais RN08 e RN12)**.
 
+* **Conformidade Legal e Decisões Arquiteturais**
+
+* **Controle de Acesso e Minimização:** O modelo prevê suporte a níveis de acesso distintos (usuários padrão vs. privilegiados). O armazenamento atende ao princípio da finalidade da Lei Geral de Proteção de Dados (Lei nº 13.709/2018), colhendo apenas dados necessários para a execução de procedimentos preliminares e contratos (Art. 7º, II e V) **(Restrição Legal RN01)**.
+* **Preservação de Histórico (*Soft Delete*):** Em conformidade com as regras da Lei do Inquilinato (Lei nº 8.245/91), o sistema evita a exclusão física (instrução `DELETE`) de dados ligados a negociações, implementando a exclusão lógica (*soft delete*) ou inativação de cadastros **(Restrição Legal RN03)**. Isso preserva o histórico necessário para fins de auditoria financeira e resolução de litígios.
+* **Auditoria de Banco de Dados:** O sistema e suas tabelas estão projetados para trabalhar com ferramentas de auditoria (como o plugin `audit_log` do MySQL), garantindo rastreabilidade total das operações de leitura e atualização, atendendo ao princípio da responsabilização (Art. 6º, X da LGPD) **(Restrição Legal RN01)**.
+
 ### 1.6 Proposta de Arquitetura Analítica para BI e IA
 
 - **Informações estratégicas**
