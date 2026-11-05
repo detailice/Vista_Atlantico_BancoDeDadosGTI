@@ -731,3 +731,16 @@ Durante o desenvolvimento deste projeto, utilizamos diferentes ferramentas de In
 | **Trechos rejeitados ou corrigidos** | Rejeitamos comandos extras que o chat gerou (como Procedures complementares) e corrigimos o delimitador do banco (`DELIMITER //`) que veio com um erro de sintaxe. |
 | **Justificativa da escolha final** | Aproveitamos a estrutura principal de `NEW` e `OLD`, porque a lógica de armazenamento estava correta e otimizava o que queríamos fazer. |
 | **Reflexão crítica** | A IA é ótima para criar o "esqueleto" de automações SQL, mas raramente entrega o código executável de primeira. O código gerado muitas vezes vem misturado com sintaxe de outros bancos, exigindo revisão crítica para adaptar ao nosso SGBD. |
+
+<br>
+
+| Item | O que registrar |
+| :--- | :--- |
+| **Ferramenta e etapa** | **Gemini 1.5 Pro** - Definição de KPIs e Consultas Gerenciais (Seção 3). |
+| **Motivação** | A gente precisava de ideias para indicadores gerenciais e ajuda pra montar os comandos `JOIN` mais complexos sem errar a sintaxe SQL. |
+| **Prompt(s) utilizados** | *"Pensando nessa imobiliária, quais métricas legais a gente pode tirar? Faz uns 3 SELECTs usando JOIN e GROUP BY que mostrem dados interessantes, tipo faturamento por mês."* |
+| **Resposta recebida** | Recebemos três consultas estruturadas. A resposta surpreendeu porque ele calculou a taxa de ocupação dos imóveis usando funções de data (`DATEDIFF`), economizando nosso tempo. |
+| **Fontes consultadas e verificadas** | Revisamos se os KPIs resolviam as dores relatadas pelo cliente na entrevista e testamos todas as consultas no banco de dados. |
+| **Trechos rejeitados ou corrigidos** | Rejeitamos métricas mirabolantes (como cálculo preditivo de inadimplência) que não faziam sentido para os dados que tínhamos, corrigindo as consultas apenas para o que levantamos na entrevista. |
+| **Justificativa da escolha final** | Escolhemos usar os SELECTs sugeridos para faturamento e taxa de ocupação pois batiam exatamente com os problemas que a imobiliária tem hoje, encaixando bem com a justificativa do projeto. |
+| **Reflexão crítica** | Fizemos a revisão para garantir que a IA não inventasse métricas que o sistema não suporta. Quando ela deu consultas fictícias ou inviáveis, descartamos e citamos no repositório apenas o que testamos ser factível. |
