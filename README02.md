@@ -253,7 +253,6 @@ Centralizar as informações e automatizar os principais processos da imobiliár
 |*Divergência na chave primária do CORRETOR*|*Declaramos como chave primaria ID_CORRETOR e o CRECI como atributo único*|*O ID_CORRETOR garante a segurança de dados do corretor e o CRECI é único e somente em cada estado, usar ID garante unicidade em todos os casos*|
 
 ### 1.2 Conversão do Modelo Conceitual para o Modelo Lógico
-*(vale 7,5%)*
 - **Entidades → Tabelas**
 
   
