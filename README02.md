@@ -239,9 +239,6 @@ Centralizar as informações e automatizar os principais processos da imobiliár
 
 **Notação do DER conceitual**
 
-**Caso A — mesma organização da Entrega 1**
-*Apresente o **DER conceitual revisado**, na notação descrita acima. A revisão parte da correção da Entrega 1 recebida pelo grupo — o DER e os demais itens acima. Para cada apontamento da correção, registre o que foi feito:*
-
 link para visualização no repositório: https://github.com/detailice/Vista_Atlantico_BancoDeDadosGTI/blob/main/MODELO_CONCEITUAL_VISTA_ATLANTICO.jpeg
 
 | Apontamento da correção da E1 | O que mudou no trabalho | Por quê |
@@ -445,7 +442,6 @@ Uma visita pode ser agendada por mais de um cliente e um cliente pode agendar v�
 
   
 ### 1.3 Definição de Chaves Primárias e Estrangeiras
-*Liste as PKs e FKs de cada tabela (serve de base para a justificativa técnica abaixo).*
 
 - **PROPRIETARIO:**
   ID_PROPRIETARIO (PK)
@@ -547,7 +543,7 @@ O banco de dados relacional foi estruturado não apenas para a operação diári
 ### 1.6 Proposta de Arquitetura Analítica para BI e IA
 
 - **Informações estratégicas**
-- A centralização das informações no banco de dados permitirá à VISTA ATLANTICO IMOVEIS obter uma visão mais organizada de suas operações comerciais , facilitando  acompanhamento da carteira de imoveis , dos clientes , dos proprietários, dos corretores , das visitas e dos contratos. A partir dessas informações , a imobiliaria poderá acompanhar indicadores relacionados a disponibilidade dos imoveis, à movimentações de visitas , ao volume de negociações e ao desempenho comercial dos corretores. Essas informações poderão auxiliar a gestão na identificação de oportunidade de negocio, no acompanhamneto dos resultados, e no planejamento das atividades comercias, considerando também as variações sazonais da procura por imovéis na região da baixada santista.
+- A centralização das informações no banco de dados permitirá à VISTA ATLANTICO IMOVEIS obter uma visão mais organizada de suas operações comerciais, facilitando  acompanhamento da carteira de imoveis, dos clientes, dos proprietários, dos corretores, das visitas e dos contratos. A partir dessas informações, a imobiliaria poderá acompanhar indicadores relacionados a disponibilidade dos imoveis, à movimentações de visitas, ao volume de negociações e ao desempenho comercial dos corretores. Essas informações poderão auxiliar a gestão na identificação de oportunidade de negocio, no acompanhamneto dos resultados, e no planejamento das atividades comercias, considerando também as variações sazonais da procura por imovéis na região da baixada santista.
   
 - **Indicadores e métricas gerenciais** propostos (KPIs):
 
@@ -565,8 +561,8 @@ O banco de dados relacional foi estruturado não apenas para a operação diári
 
 - **Potencial dos dados para BI:**
 - A utilização de ferramentas de Business Intelligence poderá transformar os dados armazenados no banco em paineis gerenciaveis e relatorios visuais, facilitando a interpretação dos resultados pela administração da imobiliária. entre as possibilidades de aplicação , destacam-se:
-- Painel de desempenho da imobiiaria: apresentaçao da quantidade de imoveis cadastrados , disponiveis e distribuidos por tipo e finalidade.
-- Painel de desempenho comercial: acompanhamento da quantidade de contratos , valores negociados e participação dos corretores nas negociações.
+- Painel de desempenho da imobiiaria: apresentaçao da quantidade de imoveis cadastrados, disponiveis e distribuidos por tipo e finalidade.
+- Painel de desempenho comercial: acompanhamento da quantidade de contratos, valores negociados e participação dos corretores nas negociações.
 - Relatório de visitas : identificação dos imoveis mais visitados e acompanhamento da movimentação de interessados.
 - Análise temporal: comparação mensal dos registros de visitas e contratos, permitindo observar períodos de maior ou menor movimentação comercial.
 Essas ferramentas poderão contribuir para uma gestão baseada em dados, reduzindo a dependência de controles decentralizados e facilitando o acesso às informações estratégicas.
@@ -581,7 +577,8 @@ As principais possibilidades identificadas são:
 - Análise de desempenho dos corretores: utilização dos registros de visitas e contratos para identificar padrões de desempenho e apoiar a distribuição de oportunidades comerciais.
 As aplicações apresentadas representam possibilidades futuras, não funcionalidades já implementadas. Sua viabilidade dependerá da disponibilidade de dados históricos suficientes, da qualidade das informações armazenadas e da validação dos resultados obtidos pelos modelos analíticos.
 
-**Rastreabilidade:** inclua uma tabela que ligue cada problema declarado na caracterização da organização e cada KPI proposto às tabelas que o sustentam e à consulta do script SQL que o responde (pelo código da consulta — ver seção 3):
+**Rastreabilidade:**
+
 | Problema ou KPI | Tabelas envolvidas | Consulta no script |
 | :---- | :---- | :---- |
 | *P1 — Descentralização de dados* | *ENCOMENDA, IMOVEL, VISITA, CONTRATO, CLIENTE* | *G06, G07* |
@@ -600,6 +597,7 @@ As aplicações apresentadas representam possibilidades futuras, não funcionali
 ---
 ## 2\. Modelo Lógico Relacional
 
+link para visualização no repositório: https://github.com/detailice/Vista_Atlantico_BancoDeDadosGTI/blob/main/MODELO_LOGICO_VISTA_ATLANTICO.png
 
 ## 3\. Script SQL Completo
 
