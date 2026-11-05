@@ -30,6 +30,8 @@ VISITA constrói um relacionamento ternário entre CLIENTE e CORRETOR (um client
 
 **ENCOMENDA** é o preenchimento de informações do imóvel desejado que gera um alerta por e-mail ou telefone se encontrado para o cliente
 
+**DOCUMENTO** é o resgistro feito pelo corretor
+
 Cliente se cadastra/loga no sistema → cliente seleciona o tipo de imóvel que deseja visualizar → cliente seleciona o imóvel de interesse, marcando uma visita → o agendamento gera um registro em VISITA, ligando esse CLIENTE a um CORRETOR → a critério do cliente, a negociação pode avançar e gerar um CONTRATO, que é referenciado nos registros do CLIENTE e do CORRETOR → toda leitura ou escrita nessas quatro tabelas é registrada pelo log de acesso do SGBD (§5), o que sustenta auditoria e conformidade com a LGPD (§6). 
 
 ### 5.2 Convenções do dicionário
@@ -175,6 +177,19 @@ Leitura: ID_ENCOMENDA é identificador único, a chave seguinte é estrangeira e
 
 **índices:** PK ID_ENCOMENDA; índice em ID_CLIENTE (relatórios comerciais de análise de popularidade entre os clientes); índice em ID_CORRETOR (relatórios de performance por período).
 
+**DOCUMENTO**
+> **DOCUMENTO = @ID_DOC + NM_DOC + DT_DOC + TP_DOC**
+Leitura:@ID_DOC é o identificador único; os outros três campos seguintes são obrigatórios e conectados por +.
+
+| Atributo | Tipo físico | Obrigatório | Significado e relevância |
+| -------- | --------- |---------|---------|
+| ID_DOC | Interger | Sim (PK) | Identificador do documento.|
+| NM_DOC | Varchar(120) | Sim | Nome declarado no documento.|
+| DT_DOC | Date | Sim | Data do registro do documento.|
+| TP_DOC | Varchar(100) | Sim | Endereço de e-mail ativo, possibilita outra forma de comunicação com a imobiliária e o corretor.|
+
+**índices:** PK ID_DOCUMENTO; índice secundário em NM_CLIENTE (busca por nome na base de dados)
+
 
 
 
@@ -193,7 +208,8 @@ A matriz abaixo estabelece os níveis de acesso propostos para as entidades do s
 | CONTRATO | Usuários padrão participantes da negociação; corretores responsáveis; administradores | Administradores e corretores autorizados | Administradores e corretores autorizados | Sem exclusão direta; preservação conforme obrigações legais e exercício regular de direitos |
 | CORRETOR | Próprio corretor, quanto aos seus dados; administradores | Administradores | Administradores; corretor, somente nos próprios dados pessoais quando autorizado | Sem exclusão direta; inativação do cadastro em caso de desligamento |
 | VISITA | Usuários padrão envolvidos na visita; corretor responsável; administradores | Corretores responsáveis | Corretores responsáveis; administradores | Sem exclusão direta; priorizar cancelamento ou inativação do registro |
-| ENCOMENDA | Usuários padrão envolvidos na visita; corretor responsável; administradores | Usuários padrão, por meio do próprio cadastro; administradores | Usuários padrão, por meio do próprio cadastro; administradores | Usuários padrão, por meio do próprio cadastro; administradores |
+| ENCOMENDA | Usuários padrão envolvidos na visita; corretor responsável; administradores | Usuários padrão, por meio do próprio cadastro; administradores | Usuários padrão, por meio do próprio cadastro; administradores | Sem exclusão direta; priorizar cancelamento ou inativação do registro |
+| DOCUMENTO | Usuários padrão envolvidos na visita; corretor responsável; administradores | Administradores e corretores autorizados | Administradores e corretores autorizados | Sem exclusão direta; priorizar cancelamento ou inativação do registro |
 
 
 **Observações sobre as permissões:**
