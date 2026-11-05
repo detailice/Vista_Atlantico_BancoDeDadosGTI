@@ -705,3 +705,16 @@ Durante o desenvolvimento deste projeto, utilizamos diferentes ferramentas de In
 | **Trechos rejeitados ou corrigidos** | Rejeitamos lógicas complexas de mascaramento e criptografia pontual de CPF sugeridas pela IA, que fugiam do escopo da disciplina. |
 | **Justificativa da escolha final** | Optamos por manter apenas as colunas de controle (consentimento e exclusão), pois agregam valor na adequação sem tornar a modelagem impossível de fazer no nosso nível de conhecimento. |
 | **Reflexão crítica** | A IA às vezes ignora limitações técnicas de um projeto de faculdade e joga conceitos muito avançados. Sempre filtramos o que era irreal de fazer e implementamos os conceitos de privacidade de forma funcional e simplificada. |
+
+<br>
+
+| Item | O que registrar |
+| :--- | :--- |
+| **Ferramenta e etapa** | **ChatGPT Plus (GPT-4o)** - Geração de Massa de Dados (Seção 4). |
+| **Motivação** | Fazer na mão centenas de linhas de INSERT interligadas (Cliente, Imóvel e Contrato) ia levar dias e era muito fácil errar um ID, gerando erro de chave estrangeira no script. |
+| **Prompt(s) utilizados** | *"Cria pra mim uns 50 INSERTs na tabela de Cliente e uns 100 na de Contrato de Aluguel pra nossa imobiliária. Finge que são clientes do Brasil, cria uns nomes falsos, e bota as datas variando nesse último semestre."* |
+| **Resposta recebida** | Os scripts foram gerados quase completos, mantendo bem a lógica das chaves estrangeiras. |
+| **Fontes consultadas e verificadas** | Rodamos o arquivo `.sql` gerado direto no nosso banco de dados local para testar a sintaxe e as constraints. |
+| **Trechos rejeitados ou corrigidos** | A IA gerou algumas datas de aluguel no futuro e CPFs com formatações inconsistentes. Corrigimos tudo isso manualmente no arquivo `.sql` antes de submeter no repositório. |
+| **Justificativa da escolha final** | Mantivemos o uso da ferramenta pela agilidade absurda. Apesar dos pequenos erros, foi mais fácil corrigir as anomalias geradas do que digitar 150 linhas de inserção do zero. |
+| **Reflexão crítica** | Ao gerar a massa, notamos que a IA se perde no meio do processo e começa a dar dados irreais. Revisamos rigorosamente os registros e corrigimos as falhas na cronologia para o banco de dados parecer um ambiente de produção realista. |
