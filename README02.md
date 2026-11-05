@@ -100,9 +100,9 @@ Centralizar as informações e automatizar os principais processos da imobiliár
 
 - **Proposta e negociação:** Após um cliente se interessar por um imóvel, ele entra em contato com o corretor via telefone ou no botão "Enviar mensagem" na página do imóvel. Os corretores recebem a mensagem e formalizam a proposta, que depois de ser aceita pelo proprietário, a imobiliária solicita os documentos<sup>**1,2**</sup> do imóvel e os documentos do proprietário<sup>**3**</sup>. Caso tudo esteja regular e o pagamento for a vista, as partes interessadas formalizam no cartório com assinatura de escrituras públicas, caso seja um imóvel financiado, tudo é enviado ao correspondente bancário da imobiliária e ele dá andamento.
 
-- ***Comissão:** Após a negociação ser firmada com a assinatura do contrato, o corretor tem direito a 6% do valor da venda, que é pago pelo vendedor, sendo esses 6% divididos entre corretor e imobiliária, ficando 50% para cada.
+- **Comissão:** Após a negociação ser firmada com a assinatura do contrato, o corretor tem direito a 6% do valor da venda, que é pago pelo vendedor, sendo esses 6% divididos entre corretor e imobiliária, ficando 50% para cada.
 
-- ***Administração da locação (Cobrança e repasse de aluguéis):** A imobiliária atua como mediadora financeira, consolidando o valor e os encargos (IPTU e condomínio, se houver), em um único boleto, envia ao locatário e faz a conciliação bancária assim que o pagamento é efetuado. Dessa quantia, é descontada a taxa de administração devida à imobiliária, além de eventuais despesas autorizadas de manutenção ou retenções de impostos. Depois da compensação, o valor líquido é transferido para a conta do proprietário dentro do prazo contratual (até 5 dias úteis) , acompanhado de um extrato detalhado da transação. Em caso de atraso ou inadimplência, a imobiliária executa a régua de cobrança com aplicação de multa e juros e, se necessário, aciona as garantias locatícias do contrato — como seguro fiança, fiadores ou a cláusula de aluguel garantido — para assegurar o recebimento dos valores.
+- **Administração da locação (Cobrança e repasse de aluguéis):** A imobiliária atua como mediadora financeira, consolidando o valor e os encargos (IPTU e condomínio, se houver), em um único boleto, envia ao locatário e faz a conciliação bancária assim que o pagamento é efetuado. Dessa quantia, é descontada a taxa de administração devida à imobiliária, além de eventuais despesas autorizadas de manutenção ou retenções de impostos. Depois da compensação, o valor líquido é transferido para a conta do proprietário dentro do prazo contratual (até 5 dias úteis) , acompanhado de um extrato detalhado da transação. Em caso de atraso ou inadimplência, a imobiliária executa a régua de cobrança com aplicação de multa e juros e, se necessário, aciona as garantias locatícias do contrato — como seguro fiança, fiadores ou a cláusula de aluguel garantido — para assegurar o recebimento dos valores.
 
 - **Vistoria de entrada e saída:** Antes da assinatura de contrato, o corretor responsável elabora um laudo que registra as condições de pintura, instalações e hidráulicas, pisos, revestimentos, portas, janelas e qualquer mobília existente, com fotos anexadas. Esse documento é validado por ambas as partes (locador e locatário) e assinado antes da entrega oficial de chaves. No encerramento do contrato, a vistoria de saída compara o estado atual do imóvel com o laudo inicial para identificar se houve danos extraordinários causados pelo uso indevido ou falta de manutenção por parte do locatário. O inquilino não responde pelo desgastes naturais decorrentes do uso regular do imóvel ao longo do tempo, mas fica obrigado a reparar estragos causados por mau uso, como furos não autorizados em azulejos ou avarias em equipamentos. Uma vez constatada a igualdade com a vistoria inicial ou finalizados os reparos devidos, o imóvel é recebido e o contrato é formalmente rescindido com a devolução das chaves.
 
@@ -256,7 +256,7 @@ link para visualização no repositório: https://github.com/detailice/Vista_Atl
 
 link para visualização no repositório: https://github.com/detailice/Vista_Atlantico_BancoDeDadosGTI/blob/main/MODELO_LOGICO_VISTA_ATLANTICO.png
 
-- **Entidades → Tabelas** 
+**Entidades → Tabelas** 
 **Imóvel → `imovel`**:
 A entidade Imóvel virou a tabela `imovel`, com `id_imovel` como PK. É a entidade central do sistema: não recebe chaves estrangeiras, mas é referenciada por `contrato`, `visita`, `fotos_imovel` e pela tabela associativa `possui`. O atributo composto de endereço foi dividido em colunas, e o atributo multivalorado de fotos gerou a tabela `fotos_imovel`.
 
@@ -605,6 +605,7 @@ Visualização disponível aqui: https://github.com/detailice/Vista_Atlantico_Ba
 
 
 ## 4\. Massa de Dados
+
 Presente no SCRIPT SQL, visualização disponível aqui: https://github.com/detailice/Vista_Atlantico_BancoDeDadosGTI/blob/main/Vista_Atlantico0411.sql
 
 ## 5. Uso de Inteligência Artificial
