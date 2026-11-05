@@ -718,3 +718,16 @@ Durante o desenvolvimento deste projeto, utilizamos diferentes ferramentas de In
 | **Trechos rejeitados ou corrigidos** | A IA gerou algumas datas de aluguel no futuro e CPFs com formatações inconsistentes. Corrigimos tudo isso manualmente no arquivo `.sql` antes de submeter no repositório. |
 | **Justificativa da escolha final** | Mantivemos o uso da ferramenta pela agilidade absurda. Apesar dos pequenos erros, foi mais fácil corrigir as anomalias geradas do que digitar 150 linhas de inserção do zero. |
 | **Reflexão crítica** | Ao gerar a massa, notamos que a IA se perde no meio do processo e começa a dar dados irreais. Revisamos rigorosamente os registros e corrigimos as falhas na cronologia para o banco de dados parecer um ambiente de produção realista. |
+
+<br>
+
+| Item | O que registrar |
+| :--- | :--- |
+| **Ferramenta e etapa** | **ChatGPT Plus (GPT-4o)** - Criação de Triggers para Auditoria. |
+| **Motivação** | Precisávamos criar uma automação no banco pra salvar o histórico de alterações, como quando o valor do aluguel ou o status do contrato muda. |
+| **Prompt(s) utilizados** | *"Como que eu faço uma trigger no MySQL pra salvar o histórico de quando alguém altera o status de um contrato na imobiliária? Faz o código pra mim salvando o valor antigo e o novo numa tabela de log."* |
+| **Resposta recebida** | O chat entregou o esqueleto da Trigger usando `OLD` e `NEW` e também o código para criar a tabela de log prévia. |
+| **Fontes consultadas e verificadas** | Fizemos testes manuais dando `UPDATE` nos contratos no nosso banco para ver se a trigger disparava corretamente. |
+| **Trechos rejeitados ou corrigidos** | Rejeitamos comandos extras que o chat gerou (como Procedures complementares) e corrigimos o delimitador do banco (`DELIMITER //`) que veio com um erro de sintaxe. |
+| **Justificativa da escolha final** | Aproveitamos a estrutura principal de `NEW` e `OLD`, porque a lógica de armazenamento estava correta e otimizava o que queríamos fazer. |
+| **Reflexão crítica** | A IA é ótima para criar o "esqueleto" de automações SQL, mas raramente entrega o código executável de primeira. O código gerado muitas vezes vem misturado com sintaxe de outros bancos, exigindo revisão crítica para adaptar ao nosso SGBD. |
