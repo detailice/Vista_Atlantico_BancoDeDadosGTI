@@ -6,7 +6,7 @@ Repositório criado para o Projeto Semestral de Modelagem de Banco de Dados.
 
 - **Nome e natureza da organização:** VISTA ATLANTICO NEGOCIOS IMOBILIARIOS LTDA
 
-**Contexto e porte:**
+**Contexto e pote:**
 - **Fins lucrativos:** Com fins lucrativos. A empresa é registrada como uma Sociedade Empresária Limitada (Ltda.) voltada ao setor privado.
 - **Tamanho da operação:** Classificada no regime de EPP (Empresa de Pequeno Porte). Tem sede localizada em Praia Grande / SP.
 - **Número de pessoas envolvidas:** 8
