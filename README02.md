@@ -515,13 +515,16 @@ A arquitetura e a modelagem do banco de dados da Vista Atlântico Negócios Imob
 * **1ª Forma Normal (1FN):** Atributos compostos foram decompostos (ex.: o endereço do `IMOVEL` foi dividido em logradouro, número, bairro, cidade, CEP). Atributos multivalorados foram isolados em tabelas próprias (`fotos_imovel` e `idioma` do corretor), eliminando repetições na mesma tupla.
 * **2ª e 3ª Formas Normais (2FN e 3FN):** Relacionamentos de cardinalidade Muitos-para-Muitos (N:N) foram convertidos em tabelas associativas (ex.: `possui`, `assina`, `intermedia`, `realiza`, `agenda`, `registra`). Essa decomposição elimina dependências parciais e transitivas de atributos não-chave.
 * **Relacionamento Ternário de Visita:** O evento `VISITA` vincula obrigatoriamente um `CLIENTE`, um `CORRETOR` e um `IMOVEL`. Essa modelagem atende à restrição de obrigatoriedade, espelhando a regra que exige que qualquer visita presencial seja acompanhada por um corretor credenciado e ligada a um interessado real **(Regras Operacionais RN08 e RN10)**.
+
 * **Definição de Chaves Primárias e Unicidade**
 
 * **Chaves Primárias Artificiais:** Adotou-se o uso de identificadores numéricos únicos (como `id_imovel`, `id_corretor`) como chaves primárias (*Surrogate Keys*). Isso otimiza a indexação do SGBD e simplifica o mapeamento de chaves estrangeiras em tabelas associativas.
 * **Identificadores Profissionais e Unicidade:** O número de registro do Conselho Regional de Corretores de Imóveis (`CRECI`) foi implementado com uma restrição `UNIQUE` na tabela `CORRETOR` **(Restrição Legal RN02)**. A prática atende à obrigatoriedade da Lei nº 6.530/1978, evitando a duplicidade de profissionais na plataforma sem engessar a chave primária interna.
 
+* **Chaves Estrangeiras e Restrições de Integridade**
 
-  
+* **Integridade Referencial e Cardinalidades:** A aplicação rigorosa de chaves estrangeiras (*Foreign Keys*) previne inconsistências e a geração de registros órfãos, garantindo a obrigatoriedade de vínculos válidos — como impossibilitar o agendamento de uma visita para um imóvel deletado ou criar um contrato sem associar as partes devidas **(Regras Operacionais RN08 e RN12)**.
+
 ### 1.6 Proposta de Arquitetura Analítica para BI e IA
 
 - **Informações estratégicas**
