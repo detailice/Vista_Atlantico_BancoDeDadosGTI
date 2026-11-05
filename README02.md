@@ -679,3 +679,16 @@ Durante o desenvolvimento deste projeto, utilizamos diferentes ferramentas de In
 | **Trechos rejeitados ou corrigidos** | Rejeitamos as sugestões de processos muito complexos (como integração automática com bancos) e corrigimos o que não era pertinente ou que não se encaixava no que levantamos pós-entrevista. |
 | **Justificativa da escolha final** | Mantivemos a estrutura básica do fluxo de aluguel porque nos deu uma base sólida, mas adaptamos apenas para as funções que o cliente relatou que fazia manualmente hoje. |
 | **Reflexão crítica** | Fizemos uma revisão de todas as respostas para entender a pertinência das informações. A IA tende a sugerir sistemas de grande porte e adicionar funções irreais para o nosso contexto, então precisamos filtrar bastante para não fugir do escopo da disciplina. |
+
+<br>
+
+| Item | O que registrar |
+| :--- | :--- |
+| **Ferramenta e etapa** | **Gemini 1.5 Pro** - Revisão da Normalização do Modelo Lógico (1FN, 2FN, 3FN). |
+| **Motivação** | Estávamos na dúvida se a nossa tabela de imóveis e proprietários estava normalizada direito ou se ia dar problema na hora de criar as chaves estrangeiras. |
+| **Prompt(s) utilizados** | *"Dá uma olhada nas nossas tabelas do projeto da imobiliária [colar esquema]. Tem algum erro de normalização aí? Vê se já tá na 3FN ou se a gente precisa separar o endereço do imóvel em outra tabela."* |
+| **Resposta recebida** | A IA percebeu que alguns dados do proprietário estavam misturados na tabela do imóvel e sugeriu a correção. A explicação ajudou bastante o grupo a entender como aplicar a 3FN sem complicar demais. |
+| **Fontes consultadas e verificadas** | Revisamos a literatura teórica da disciplina sobre dependência transitiva e aplicamos as correções no nosso DER. |
+| **Trechos rejeitados ou corrigidos** | Descartamos a sugestão da IA de separar até o Bairro e Cidade em tabelas próprias, pois consideramos desnecessário para o tamanho do nosso sistema. |
+| **Justificativa da escolha final** | Adotamos a correção principal (separar dados do proprietário do imóvel), pois fazia total sentido para manter o modelo na Terceira Forma Normal e evitar redundância. |
+| **Reflexão crítica** | A IA ajuda a identificar anomalias no banco, mas pode ter o viés de sugerir níveis de normalização excessivos (over-engineering). Revisamos tudo criticamente para aplicar apenas o que o modelo realmente pedia, sem inventar tabelas inúteis. |
