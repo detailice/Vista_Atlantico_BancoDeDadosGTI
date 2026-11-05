@@ -744,3 +744,16 @@ Durante o desenvolvimento deste projeto, utilizamos diferentes ferramentas de In
 | **Trechos rejeitados ou corrigidos** | Rejeitamos métricas mirabolantes (como cálculo preditivo de inadimplência) que não faziam sentido para os dados que tínhamos, corrigindo as consultas apenas para o que levantamos na entrevista. |
 | **Justificativa da escolha final** | Escolhemos usar os SELECTs sugeridos para faturamento e taxa de ocupação pois batiam exatamente com os problemas que a imobiliária tem hoje, encaixando bem com a justificativa do projeto. |
 | **Reflexão crítica** | Fizemos a revisão para garantir que a IA não inventasse métricas que o sistema não suporta. Quando ela deu consultas fictícias ou inviáveis, descartamos e citamos no repositório apenas o que testamos ser factível. |
+
+<br>
+
+| Item | O que registrar |
+| :--- | :--- |
+| **Ferramenta e etapa** | **ChatGPT Plus (GPT-4o)** - Estruturação de BI (Views). |
+| **Motivação** | Queríamos deixar o banco preparado para um futuro painel (dashboard), criando Views que facilitassem a leitura dos dados consolidados sem precisar rodar queries pesadas na produção. |
+| **Prompt(s) utilizados** | *"O que a gente pode fazer de VIEW pro nosso banco de dados da imobiliária pensando em usar num dashboard depois? Monta o SQL de uma view legal que junte clientes, imóveis e contratos."* |
+| **Resposta recebida** | A IA criou a VIEW desnormalizando as três tabelas principais para melhorar a velocidade de leitura para o BI. |
+| **Fontes consultadas e verificadas** | Executamos o script de criação da VIEW e validamos a resposta no banco local. |
+| **Trechos rejeitados ou corrigidos** | A IA tinha agrupado os dados cortando o ID do imóvel e do cliente. Corrigimos o código para manter esses IDs, pois precisaremos deles como chaves no futuro. |
+| **Justificativa da escolha final** | A VIEW final foi mantida e adaptada porque o conceito de "achatar" os dados (desnormalizar para leitura) que a IA explicou faz todo sentido em projetos de Business Intelligence. |
+| **Reflexão crítica** | Ao pedir scripts de BI, a IA otimizou de forma que eliminou dados cruciais de rastreabilidade. Percebemos o viés da IA de focar apenas no visual do resultado em vez da arquitetura relacional, exigindo correção manual do SELECT. |
