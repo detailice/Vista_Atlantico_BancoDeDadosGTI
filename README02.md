@@ -600,54 +600,12 @@ As aplicações apresentadas representam possibilidades futuras, não funcionali
 ---
 ## 2\. Modelo Lógico Relacional
 
-O modelo lógico deve seguir a **notação visual do brModelo** para o modelo lógico, como no exemplo abaixo. Informe no README **em qual software ou aplicativo ele foi criado**.
-![Exemplo de modelo lógico na notação do brModelo](Exemplo_Logico.png)
-| Elemento | Como aparece | No exemplo |
-| :---- | :---- | :---- |
-| **Tabela** | retângulo com o nome da tabela no topo e uma linha por coluna | `Entity 1`, `Entity 5` |
-| **Coluna** | nome da coluna, à esquerda, com o tipo de dado à direita | `Attribute 30` — `INT` |
-| **Chave primária** | marca `PK` ao lado do tipo | `Chave 1`, em `Entity 1`; `Chave 50` \+ `Chave 51`, em `Entity 5` (chave primária composta) |
-| **Chave estrangeira** | marca `FK` ao lado do tipo | `Chave 3`, em `Entity 4` |
-| **Coluna que é chave primária e estrangeira** | marcas `PK, FK` | `Chave 1`, em `Entity 2` |
-| **Ligação entre tabelas** | linha entre a tabela da FK e a tabela referenciada, com a cardinalidade `(mín, máx)` em cada ponta | `Entity 3` — `Entity 4`: `(1, 1)` e `(0, n)` |
-&nbsp;
-Deve apresentar claramente:
-- Tabelas  
-- Atributos (colunas), com seus tipos de dados  
-- Chaves primárias  
-- Chaves estrangeiras  
-- Cardinalidades já convertidas
-As **demais restrições de integridade** — obrigatoriedade (`NOT NULL`), unicidade (`UNIQUE`), valores permitidos (`CHECK`), valores padrão (`DEFAULT`) — não aparecem no diagrama do brModelo e devem ser documentadas no **dicionário de dados** (seção 5\) e implementadas no **script SQL** (seção 3).
----
+
 ## 3\. Script SQL Completo
 
-O script completo é **um arquivo no formato `.sql` disponível no repositório**, de preferência numa pasta chamada **`docs`** (ex.: `docs/script.sql`), com link no README. Script colado só no README, em PDF, em imagem ou em outro formato não é aceito.
-**SGBD:** MySQL — o disponível no laboratório ou outra instalação equivalente a que o grupo tenha acesso. O script deve executar no MySQL.
-O script deve conter, nesta ordem lógica:
-1. `CREATE DATABASE`  
-2. `CREATE TABLE` (todas as tabelas, com tipos de dados adequados)  
-3. **Constraints** (PK, FK, `NOT NULL`, `UNIQUE`, `CHECK` etc.)  
-4. `INSERT INTO` (carga da massa de dados — ver seção 4\)  
-5. `SELECT` com `JOIN` (consultas que cruzam múltiplas tabelas)  
-6. `UPDATE`  
-7. `DELETE`  
-8. **Consultas gerenciais** (que respondem perguntas de gestão, ex.: faturamento/arrecadação por período, número de atendimentos/beneficiários)  
-9. **Consultas de auditoria** (que verificam consistência/integridade dos dados)
-Cada **consulta gerencial** e cada **consulta de auditoria** deve ter um cabeçalho em comentário com um código (`G01`, `G02`… para gerenciais; `A01`, `A02`… para auditoria), a pergunta que ela responde em português e o que ela atende:
-```sql
--- G03 — Quais bebidas estão abaixo do estoque mínimo hoje?
--- Atende: P1 (ruptura de estoque de bebidas)
-SELECT ...
--- A02 — Existe pedido registrado sem nenhum item?
--- Verifica: RN04 (todo pedido tem ao menos um item)
-SELECT ...
-```
-&nbsp;
-- **Consultas gerenciais** respondem aos problemas declarados e aos KPIs da seção 1.6 — pelo menos uma por problema declarado e por KPI.  
-- **Consultas de auditoria** verificam regras de negócio, citando o código da regra (`RNxx`) que cada uma confere.  
-- Essas mesmas consultas são as usadas na demonstração da apresentação final (seção 7).
-*Teste o script do zero (banco vazio) antes de entregar, para garantir que ele executa sem erros.*
----
+Visualização disponível aqui: https://github.com/detailice/Vista_Atlantico_BancoDeDadosGTI/blob/main/Vista_Atlantico0411.sql
+
+
 ## 4\. Massa de Dados
 Presente no SCRIPT SQL, visualização disponível aqui: https://github.com/detailice/Vista_Atlantico_BancoDeDadosGTI/blob/main/Vista_Atlantico0411.sql
 
