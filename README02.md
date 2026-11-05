@@ -572,7 +572,7 @@ O banco de dados relacional foi estruturado não apenas para a operação diári
 Essas ferramentas poderão contribuir para uma gestão baseada em dados, reduzindo a dependência de controles decentralizados e facilitando o acesso às informações estratégicas.
 
 - **Aplicações analíticas e de IA:**
-  -A estrutura de dados proposta poderá servir como base para futuras aplicações de Inteligência Artificial, com a finalidade de apoiar os processos comerciais e melhorar o atendimento aos clientes.
+- A estrutura de dados proposta poderá servir como base para futuras aplicações de Inteligência Artificial, com a finalidade de apoiar os processos comerciais e melhorar o atendimento aos clientes.
 As principais possibilidades identificadas são:
 
 - Sistema de recomendação de imóveis: utilização de algoritmos para recomendar imóveis aos clientes de acordo com critérios como localização, faixa de preço, tipo de imóvel, quantidade de quartos, banheiros e vagas de garagem. Para essa aplicação, será necessário armazenar as preferências e os critérios de busca dos clientes.
@@ -599,7 +599,7 @@ As aplicações apresentadas representam possibilidades futuras, não funcionali
 
 ---
 ## 2\. Modelo Lógico Relacional
-*(diagrama separado — vale 10% na Dimensão Procedimental)*
+
 O modelo lógico deve seguir a **notação visual do brModelo** para o modelo lógico, como no exemplo abaixo. Informe no README **em qual software ou aplicativo ele foi criado**.
 ![Exemplo de modelo lógico na notação do brModelo](Exemplo_Logico.png)
 | Elemento | Como aparece | No exemplo |
@@ -620,7 +620,7 @@ Deve apresentar claramente:
 As **demais restrições de integridade** — obrigatoriedade (`NOT NULL`), unicidade (`UNIQUE`), valores permitidos (`CHECK`), valores padrão (`DEFAULT`) — não aparecem no diagrama do brModelo e devem ser documentadas no **dicionário de dados** (seção 5\) e implementadas no **script SQL** (seção 3).
 ---
 ## 3\. Script SQL Completo
-*(arquivo `.sql` — vale 12% na Dimensão Procedimental)*
+
 O script completo é **um arquivo no formato `.sql` disponível no repositório**, de preferência numa pasta chamada **`docs`** (ex.: `docs/script.sql`), com link no README. Script colado só no README, em PDF, em imagem ou em outro formato não é aceito.
 **SGBD:** MySQL — o disponível no laboratório ou outra instalação equivalente a que o grupo tenha acesso. O script deve executar no MySQL.
 O script deve conter, nesta ordem lógica:
