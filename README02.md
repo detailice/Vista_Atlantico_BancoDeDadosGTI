@@ -531,6 +531,15 @@ A arquitetura e a modelagem do banco de dados da Vista Atlântico Negócios Imob
 * **Preservação de Histórico (*Soft Delete*):** Em conformidade com as regras da Lei do Inquilinato (Lei nº 8.245/91), o sistema evita a exclusão física (instrução `DELETE`) de dados ligados a negociações, implementando a exclusão lógica (*soft delete*) ou inativação de cadastros **(Restrição Legal RN03)**. Isso preserva o histórico necessário para fins de auditoria financeira e resolução de litígios.
 * **Auditoria de Banco de Dados:** O sistema e suas tabelas estão projetados para trabalhar com ferramentas de auditoria (como o plugin `audit_log` do MySQL), garantindo rastreabilidade total das operações de leitura e atualização, atendendo ao princípio da responsabilização (Art. 6º, X da LGPD) **(Restrição Legal RN01)**.
 
+* **Arquitetura para Inteligência de Negócios (BI)**
+
+O banco de dados relacional foi estruturado não apenas para a operação diária (OLTP), mas como fundação para a extração analítica. A modelagem viabiliza o cálculo de KPIs fundamentais com junções (`JOINs`) eficientes:
+
+* **Taxa de Conversão de Visitas:** Cruzamento entre as tabelas `VISITA`, `AGENDA` e `CONTRATO`.
+* **Tempo Médio de Vacância e Giro:** Análise de disponibilidade através do status do `IMOVEL` e a data de seu último `CONTRATO`.
+* **Demanda Não Atendida:** Mapeamento cruzando os parâmetros da tabela de `ENCOMENDA` (o que os clientes buscam) com as características do estoque de imóveis disponíveis.
+* **Produtividade Comercial:** Apuração de comissionamento cruzando a tabela `INTERMEDIA` com os respectivos contratos firmados.
+
 ### 1.6 Proposta de Arquitetura Analítica para BI e IA
 
 - **Informações estratégicas**
