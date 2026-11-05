@@ -241,6 +241,7 @@ Centralizar as informações e automatizar os principais processos da imobiliár
 
 **Caso A — mesma organização da Entrega 1**
 *Apresente o **DER conceitual revisado**, na notação descrita acima. A revisão parte da correção da Entrega 1 recebida pelo grupo — o DER e os demais itens acima. Para cada apontamento da correção, registre o que foi feito:*
+
 | Apontamento da correção da E1 | O que mudou no trabalho | Por quê |
 | :---- | :---- | :---- |
 | *Chaves estrangeiras em três entidades* | *Removemos as chaves estrangeiras das entidades no modelo conceitual* | *As chaves estrangeiras não pertencem ao modelo conceitual, apenas ao modelo lógico* |
