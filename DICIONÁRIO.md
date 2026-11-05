@@ -11,7 +11,7 @@ Este modelo representa uma imobiliária, na qual cada cliente possui seu cadastr
 | Contrato  | Cliente | 1:N — um contrato é assinado por um ou mais clientes |
 | Cliente  | Visita | 1:1 opcional — um cliente pode ou não visitar um imóvel  |
 | Visita  | Corretor | 1:1 opcional — um corretor pode ou não acompanhar visitas a um imóvel  |
-| Corretor  | Contrato | 1:N — um contrato é assinado por um ou mais clientes  |
+| Corretor  | Contrato | 1:N — um contrato é assinado por um ou mais corretores (co-corretagem)  |
 | Cliente  | Encomenda | 1:N — um cliente pode realizar uma ou mais encomendas  |
 | Corretor  | Documento | 1:N — um corretor pode registrar um ou mais documentos  |
 
@@ -74,7 +74,7 @@ Notação Formal utilizada:
 **índices:** PK ID_PROPRIETARIO; índice secundário em NM_PROPRIETARIO (busca por nome nos registros do sistema)
 
 **IMOVEL**
-> **IMOVEL = @ID_IMOVEL + ID_PROPRIETARIO + TP_IMOVEL + [TP_VENDA| TP_LOCAÇÃO] + MQ_ÁREA + IN_STATUS + QT_VAGA_GARAGEM + QT_BANHEIROS + QT_QUARTOS + VL_IMOVEL + TP_FINALIDADE + EN_IMOVEL + PR_IPTU** 
+> **IMOVEL = @ID_IMOVEL + ID_PROPRIETARIO + TP_IMOVEL + TP_OFERTA + MQ_AREA + DS_STATUS + QT_VAGA_GARAGEM + QT_BANHEIROS + QT_QUARTOS + VL_IMOVEL + TP_FINALIDADE + NM_NUMERO + EN_LOGRADOURO + EN_BAIRRO + EN_COMPLEMENTO + EN_CIDADE + EN_CEP + VL_IPTU**
 
 **Leitura:** @ID_IMOVEL é identificador único, seguido pelo ID_PROPRIETÁRIO obrigatório, que garante com que todo imóvel possua um proprietário prévio; os outros onze campos são obrigatórios e conectados por +, [TP_VENDA|TP_LOCAÇÃO] exige escolher um tipo de oferta para cadastro e posteriormente filtragem de pesquisa. <sup> *notação formal da escolha obrigatória modificada para compatibilidade com markdown de tabela do github.*</sup>
 
@@ -84,12 +84,12 @@ Notação Formal utilizada:
 | ID_PROPRIETARIO | Integer | Sim (FK) | Referência ao titular do imóvel em contratos e negociações. |
 | TP_IMOVEL | Varchar(30) | Sim | Classificação dos imóveis de acordo com seu tipo; Permite filtragem nas pesquisas no site. |
 | TP_OFERTA_VENDA;TP_OFERTA_LOCAÇÃO | Varchar(10) | Sim (escolha) | Modelos de oferta para obtenção de um imóvel, seja de maneira temporária ou permanente; Direciona os clientes de acordo com suas necessidades. |
-| MQ_ÁREA | Decimal(8,2) | Sim | Área de metros quadrados em cada imóvel; Contextualiza o tamanho dos imóveis. |
-| DS_STATUS | Varchar (30) | Sim | Indicador da condição do imóvel; Imóveis já vendidos ou alugados não aparecem nas telas de anuncio e busca, com registros salvos por questões de auditória interna ou juridica. |
+| MQ_AREA | Decimal(8,2) | Sim | Área de metros quadrados em cada imóvel; Contextualiza o tamanho dos imóveis. |
+| TP_OFERTA| Varchar (30) | Sim | Modalidade de negociação. Domínio restrito por constraint. |
 | QT_VAGA_GARAGEM | Integer | Sim | Quantidade de vagas de garagem disponíveis; Define um dos critérios para negociação, acerca da necessidade dos clientes. |
 | QT_BANHEIROS | Integer | Sim | Quantidade de banheiros contidos no imóvel; Define um dos critérios para negociação, acerca da necessidade dos clientes. |
 | QT_QUARTOS | Integer | Sim | Quantidade de quartos contidos no imóvel; Define um dos critérios para negociação, acerca da necessidade dos clientes. |
-| VL_IMOVEL | Real | Sim | Preço de negociação do imóvel; Um dos critérios basais para a decisão final dos clientes |
+| VL_IMOVEL | DECIMAL(10,2) | Sim | Preço de negociação do imóvel; Um dos critérios basais para a decisão final dos clientes |
 | TP_FINALIDADE | Varchar(30) | Sim | Uso especifico do imóvel; Determinada em contrato, passível de multa ou rescisão contratual em caso de mudança não autorizada |
 | NM_NUMERO | Varchar(10) | Sim | Elemento principal da localização do imóvel|
 | EN_LOGRADOURO |VARCHAR(150) | Sim | Elemento principal da localização do imóvel|
@@ -97,19 +97,20 @@ Notação Formal utilizada:
 | EN_COMPLEMENTO | Varchar(100) | Sim | Elemento principal da localização do imóvel|
 | EN_CIDADE | Varchar(80) | Sim | Elemento principal da localização do imóvel|
 | EN_CEP |CHAR(9) | Sim | Elemento principal da localização do imóvel|
-| VL_IPTU | Real | Sim | Preço do IPTU (Imposto Predial e Territorial Urbano); Um dos dados primordiais em negociações de compra e/ou venda de imóveis |
+| VL_IPTU | DECIMAL(12,2) | Sim | Preço do IPTU (Imposto Predial e Territorial Urbano); Um dos dados primordiais em negociações de compra e/ou venda de imóveis |
 
 **índices:** PK ID_IMOVEL; índice secundário em ID_PROPRIETARIO (Chave estrangeira para acelerar a pesquisa do imóvel)
 
 
 **CONTRATO**
-> **CONTRATO = @ID_CONTRATO + ID_IMOVEL + DT_INICIO + (DT_FIM) + TP_CONTRATO + VL_CONTRATO + TP_FORMA_PAGAMENTO**
+> **CONTRATO = @ID_CONTRATO + ID_IMOVEL + ID_CLIENTE + ID_PROPRIETARIO + ID_CORRETOR + TP_CONTRATO + TP_FORMA_PAGAMENTO + VL_CONTRATO + DT_INICIO + (DT_FIM)**
 
 Leitura:@ID_CONTRATO é o identificador único, seguido da chave estrangeira ID_IMOVEL. O atributo DT_FIM está entre parênteses por ser um dado opcional (aplicado prioritariamente a contratos de locação).
 
 | Atributo | Tipo físico | Obrigatório | Significado e relevância |
 | -------- | --------- |---------|---------|
 | ID_CONTRATO | CHAR(10) | Sim (PK) | Código de localização do registro em sistema. |
+| ID_IMOVEL | CHAR(11) | Sim (FK) | Referência ao imóvel; Opera como um dos pilares do contrato. |
 | ID_CLIENTE | INT | Sim (FK) | Referência ao cliente; Opera como um dos pilares do contrato. |
 | ID_PROPRIETARIO | INT | Sim (FK) | Referência ao proprietário; Diz respeito a uma das principais partes interessadas na negociação. |
 | ID_CORRETOR | INT | Sim (FK) | Referência ao corretor; De suma importância em negociações com corretagem. |
@@ -122,8 +123,8 @@ Leitura:@ID_CONTRATO é o identificador único, seguido da chave estrangeira ID_
 **índices:** PK ID_CONTRATO; índice em ID_CLIENTE (localiza o contrato a partir do locador ou comprador); índice em ID_CORRETOR (relatórios de performance por período)
 
 **CORRETOR**
-> **CORRETOR = **CORRETOR = @ID_CORRETOR + ID_CRECI + NM_CORRETOR + TL_CORRETOR + TP_STATUS_CORRETOR + EM_CORRETOR**
-Leitura: @ID_CORRETOR é o identificador único. ID_CRECI utiliza o prefixo de identificador por se tratar de um registro formal junto ao conselho regional. O campo TP_STATUS_CORRETOR aceita a escolha entre alternativas de disponibilidade [Ativo | Afastado | Férias].
+> **CORRETOR = @ID_CORRETOR + ID_CRECI + NM_CORRETOR + TL_CORRETOR + EM_CORRETOR + LG_CORRETOR + TP_STATUS_CORRETOR**
+Leitura: @ID_CORRETOR é o identificador único. ID_CRECI utiliza o prefixo de identificador por se tratar de um registro formal junto ao conselho regional. O campo TP_STATUS_CORRETOR marca a disponibilidade em sistema.
 
 | Atributo | Tipo físico | Obrigatório | Significado e relevância |
 | -------- | --------- |---------|---------|
@@ -133,7 +134,7 @@ Leitura: @ID_CORRETOR é o identificador único. ID_CRECI utiliza o prefixo de i
 | TL_CORRETOR | VARCHAR(20) | Sim | Número de telefone ativo para contato. Permite um meio de comunicação direta com seus clientes. |
 | EM_CORRETOR | VARCHAR(100) | Sim | Endereço de e-mail ativo, possibilita outra forma de comunicação com o corretor. |
 | LG_CORRETOR | VARCHAR(30) | Sim | Línguas faladas pelo corretor; Orienta a escolha de clientes estrangeiros ou imigrantes recém migrados. |
-| TP_STATUS_CORRETOR | VARCHAR(30) | Sim | Indicador de disponibilidade do corretor; Corretores em período de férias ou afastados das funções não são exibidos como agentes disponíveis para contato. |
+| TP_STATUS_CORRETOR | VARCHAR(30) | Sim | Indicador de disponibilidade do corretor, domínio restrito por constraint; Corretores em período de férias ou afastados das funções não são exibidos como agentes disponíveis para contato. |
 
 **índices:** PK ID_CORRETOR; índice único em ID_CRECI (evita duplicidade de registros profissionais e agiliza validações)
 
@@ -151,7 +152,7 @@ Leitura:@ID_CLIENTE é o identificador único; os demais campos são dados obrig
 **índices:** PK ID_CLIENTE; índice secundário em NM_CLIENTE (busca por nome na base de dados)
 
 **VISITA**
-> **VISITA = @ID_VISITA + ID_IMOVEL + ID_CLIENTE + ID_CORRETOR +DT_HR_VISITA + (DS_ANOTACAO_VISITA)**
+> **VISITA = @ID_VISITA + ID_IMOVEL + ID_CLIENTE + ID_CORRETOR + DT_HR_VISITA + (DS_ANOTACAO_VISITA)**
 Leitura: @ID_VISITA é o identificador único e ID_IMOVEL é a chave estrangeira do imóvel visitado. DT_HR_VISITA combina data e horário. DS_ANOTACAO_VISITA está entre parênteses por ser opcional.
 
 | Atributo | Tipo físico | Obrigatório | Significado e relevância |
@@ -160,14 +161,13 @@ Leitura: @ID_VISITA é o identificador único e ID_IMOVEL é a chave estrangeira
 | ID_IMOVEL | CHAR(11) | Sim (FK) | Referencial do imóvel visitado; impede que visitas sejam marcadas sem um imóvel informado |
 | ID_CLIENTE | INT | Sim (FK) | Referencial do cliente; garante que toda visita possua um par de cliente e corretor |
 | ID_CORRETOR | INT | Sim (FK) | Referencial do corretor; garante que toda visita seja acompanhada por um corretor autenticado na plataforma. |
-| DT_HR_VISITA | DATETIME | Sim | Data marcada para visitação de cada imóvel. Necessária para organização da agenda de compromissos de cada corretor. |
-| TM_HORARIO | TIME | Sim | Horário marcado para visitação do imóvel; Necessária para organização da agenda de compromissos de cada corretor. |
+| DT_HR_VISITA | DATETIME | Sim | Data e hora marcadas para visitação de cada imóvel. Necessária para organização da agenda de compromissos de cada corretor. |
 | DS_ANOTACAO_VISITA | VARCHAR(500) | Não | Descrição livre das opiniões e impressões dos clientes. |
 
 **índices:** PK ID_VISITA; índice em ID_IMOVEL (relatórios comerciais de análise de popularidade entre os clientes); índice em ID_CORRETOR (relatórios de performance por período).
 
 **ENCOMENDA**
-> **ENCOMENDA = @ID_ENCOMENDA + ID_CLIENTE + VL_MINIMO + EN_CIDADE_DESEJADA + EN_BAIRRO_DESEJADO + VL_MAXIMO + DT_ENCOMENDA + (DS_IMOVEL) + TP_STATUS_ENCOMENDA**
+> **ENCOMENDA = @ID_ENCOMENDA + ID_CLIENTE + VL_MINIMO + EN_CIDADE_DESEJADA + EN_BAIRRO_DESEJADO + VL_MAXIMO + DT_ENCOMENDA + (DS_IMOVEL)**
 Leitura: ID_ENCOMENDA é identificador único, a chave seguinte é estrangeira e referencia aos clientes. DS_Imovel é um campo descritivo e opcional.
 
 | Atributo | Tipo físico | Obrigatório | Significado e relevância |
@@ -184,15 +184,16 @@ Leitura: ID_ENCOMENDA é identificador único, a chave seguinte é estrangeira e
 **índices:** PK ID_ENCOMENDA; índice secundário em ID_CLIENTE (busca de encomendas por cliente).
 
 **DOCUMENTO**
-> **DOCUMENTO = @ID_DOC + NM_DOC + DT_DOC + TP_DOC**
-Leitura:@ID_DOC é o identificador único; os outros três campos seguintes são obrigatórios e conectados por +.
+> **DOCUMENTO = @ID_DOC + NM_DOC + DT_DOC + TP_DOC + ID_CORRETOR**
+Leitura:@ID_DOC é o identificador único; os outros três campos seguintes são obrigatórios e conectados por +, para rastreabilidade de atividades, os documentos são ligados aos corretores que os inseriram na plataforma
 
 | Atributo | Tipo físico | Obrigatório | Significado e relevância |
 | -------- | --------- |---------|---------|
-| ID_DOC | Interger | Sim (PK) | Identificador do documento.|
+| ID_DOC | INT | Sim (PK) | Identificador do documento.|
 | NM_DOC | Varchar(120) | Sim | Nome declarado no documento.|
 | DT_DOC | Date | Sim | Data do registro do documento.|
-| TP_DOC | Varchar(100) | Sim | Endereço de e-mail ativo, possibilita outra forma de comunicação com a imobiliária e o corretor.|
+| TP_DOC | Varchar(100) | Sim | Tipo de documento para melhor localização.|
+| ID_CORRETOR | INT | Sim (FK) | Corretor responsável por inserir o documento.
 
 **índices:** PK ID_DOC; índice secundário em NM_DOC (busca por nome do documento).
 
