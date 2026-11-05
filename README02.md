@@ -757,3 +757,16 @@ Durante o desenvolvimento deste projeto, utilizamos diferentes ferramentas de In
 | **Trechos rejeitados ou corrigidos** | A IA tinha agrupado os dados cortando o ID do imóvel e do cliente. Corrigimos o código para manter esses IDs, pois precisaremos deles como chaves no futuro. |
 | **Justificativa da escolha final** | A VIEW final foi mantida e adaptada porque o conceito de "achatar" os dados (desnormalizar para leitura) que a IA explicou faz todo sentido em projetos de Business Intelligence. |
 | **Reflexão crítica** | Ao pedir scripts de BI, a IA otimizou de forma que eliminou dados cruciais de rastreabilidade. Percebemos o viés da IA de focar apenas no visual do resultado em vez da arquitetura relacional, exigindo correção manual do SELECT. |
+
+<br>
+
+| Item | O que registrar |
+| :--- | :--- |
+| **Ferramenta e etapa** | **Gemini 1.5 Pro** - Polimento e Revisão Textual Geral (Problemas, Relato da entrevista, Processos, Requisitos, etc.). |
+| **Motivação** | Nós tínhamos rascunhos com anotações de todas as seções descritivas da imobiliária, mas queríamos deixar a escrita mais coesa e técnica para o repositório do GitHub, já que é super normal usar a IA pra estruturar ideias com uma linguagem melhor. |
+| **Prompt(s) utilizados** | *"Reescreva de uma maneira mais profissional. Esse texto vai para o meu repositório do GitHub em um trabalho de banco de dados. Melhore a linguagem, mas não adicione informações novas e nem faça alterações nos pontos principais e nem nos nossos levantamentos da imobiliária."* |
+| **Resposta recebida** | A IA devolveu os textos com uma fluidez muito melhor, transformando nossas anotações informais num vocabulário de projeto técnico. |
+| **Fontes consultadas e verificadas** | Fizemos a leitura minuciosa de cada seção após a reescrita, comparando com nossos rascunhos originais para ter certeza de que a essência do negócio foi mantida. |
+| **Trechos rejeitados ou corrigidos** | Rejeitamos os trechos em que a IA inventou dados sobre o porte da empresa ou colocou jargões técnicos exagerados que fugiam do nosso tom acadêmico, e reescrevemos com as nossas palavras. |
+| **Justificativa da escolha final** | Decidimos usar a versão polida pela IA nas partes estruturais porque a leitura ficou muito mais agradável e direta, o que ajuda na clareza da documentação do README. |
+| **Reflexão crítica** | A IA tem um vício em querer "florear" demais textos descritivos e tentar preencher lacunas com dados imaginários (mesmo quando pedimos pra não inventar). Tivemos que fazer uma revisão crítica pesada para cortar essas alucinações e manter a fidelidade da nossa entrevista. |
