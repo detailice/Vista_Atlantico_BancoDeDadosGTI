@@ -485,11 +485,37 @@ A 3FN foi considerada na organização das entidades e de seus atributos, buscan
 Conforme a revisão realizada em sala de aula, as formas normais foram consideradas durante a construção do modelo. A separação dos atributos multivalorados, a organização dos relacionamentos muitos para muitos e a divisão dos atributos compostos contribuíram para estruturar os dados de maneira organizada. A validação definitiva da normalização será realizada por meio da conferência do modelo lógico relacional e do script SQL completo.
 
 ### 1.5 Justificativas Técnicas das Decisões
-*(vale 7,5%)*
-- Justificar as **chaves primárias** escolhidas.  
-- Justificar as **chaves estrangeiras** e os relacionamentos que elas implementam.  
-- Justificar as **restrições** aplicadas (unicidade, obrigatoriedade, valores permitidos etc.), citando o código da regra de negócio (`RNxx`) que cada restrição implementa, quando houver.  
-- Justificar **decisões arquiteturais** gerais do modelo.
+
+A arquitetura e a modelagem do banco de dados da Vista Atlântico Negócios Imobiliários LTDA foram concebidas para solucionar a descentralização de informações — caracterizada pela dependência de planilhas e registros em papel — e fornecer uma base robusta para a gestão e a escalabilidade das operações da imobiliária.
+
+Modelagem Entidade-Relacionamento e Normalização
+
+* **Separação de Entidades Principais:** A estruturação em entidades independentes (`PROPRIETARIO`, `CLIENTE`, `CORRETOR`, `IMOVEL`, `CONTRATO`, `VISITA`, `ENCOMENDA`) garante o princípio da responsabilidade única. Embora clientes, proprietários e corretores compartilhem atributos básicos de contato, seus papéis no sistema e regras de negócio diferem substancialmente **(RNxx)**.
+* **1ª Forma Normal (1FN):** Atributos compostos foram decompostos (ex.: o endereço do `IMOVEL` foi dividido em logradouro, número, bairro, cidade, CEP). Atributos multivalorados foram isolados em tabelas próprias (`fotos_imovel` e `idioma` do corretor), eliminando repetições na mesma tupla.
+* **2ª e 3ª Formas Normais (2FN e 3FN):** Relacionamentos de cardinalidade Muitos-para-Muitos (N:N) foram convertidos em tabelas associativas (ex.: `possui`, `assina`, `intermedia`, `realiza`, `agenda`, `registra`). Essa decomposição elimina dependências parciais e transitivas de atributos não-chave.
+* **Relacionamento Ternário de Visita:** O evento `VISITA` vincula obrigatoriamente um `CLIENTE`, um `CORRETOR` e um `IMOVEL`. Essa modelagem atende à restrição de obrigatoriedade, espelhando a regra que exige que qualquer visita presencial seja acompanhada por um corretor credenciado e ligada a um interessado real **(RNxx)**.
+
+Definição de Chaves e Restrições de Integridade
+
+* **Chaves Primárias Artificiais:** Adotou-se o uso de identificadores numéricos únicos (como `id_imovel`, `id_corretor`) como chaves primárias (*Surrogate Keys*). Isso otimiza a indexação do SGBD e simplifica o mapeamento de chaves estrangeiras em tabelas associativas.
+* **Identificadores Profissionais e Unicidade:** O número de registro do Conselho Regional de Corretores de Imóveis (`CRECI`) foi implementado com uma restrição `UNIQUE` na tabela `CORRETOR` **(RNxx)**. A prática atende à obrigatoriedade da Lei nº 6.530/1978, evitando a duplicidade de profissionais na plataforma sem engessar a chave primária interna.
+* **Integridade Referencial:** A aplicação rigorosa de chaves estrangeiras (*Foreign Keys*) previne inconsistências e a geração de registros órfãos, garantindo a obrigatoriedade de vínculos válidos — como impossibilitar o agendamento de uma visita para um imóvel deletado ou criar um contrato sem associar as partes devidas **(RNxx)**.
+
+Conformidade Legal (LGPD e Legislação Setorial)
+
+* **Controle de Acesso e Minimização:** O modelo prevê suporte a níveis de acesso distintos (usuários padrão vs. privilegiados). O armazenamento atende ao princípio da finalidade da Lei Geral de Proteção de Dados (Lei nº 13.709/2018), colhendo apenas dados necessários para a execução de procedimentos preliminares e contratos (Art. 7º, II e V).
+* **Preservação de Histórico (*Soft Delete*):** Em conformidade com as regras da Lei do Inquilinato (Lei nº 8.245/91), o sistema evita a exclusão física (instrução `DELETE`) de dados ligados a negociações, implementando a exclusão lógica (*soft delete*) ou inativação de cadastros **(RNxx)**. Isso preserva o histórico necessário para fins de auditoria financeira e resolução de litígios.
+* **Auditoria de Banco de Dados:** O sistema e suas tabelas estão projetados para trabalhar com ferramentas de auditoria (como o plugin `audit_log` do MySQL), garantindo rastreabilidade total das operações de leitura e atualização, atendendo ao princípio da responsabilização (Art. 6º, X da LGPD).
+
+Arquitetura para Inteligência de Negócios (BI)
+
+O banco de dados relacional foi estruturado não apenas para a operação diária (OLTP), mas como fundação para a extração analítica. A modelagem viabiliza o cálculo de KPIs fundamentais com junções (`JOINs`) eficientes:
+
+* **Taxa de Conversão de Visitas:** Cruzamento entre as tabelas `VISITA`, `AGENDA` e `CONTRATO`.
+* **Tempo Médio de Vacância e Giro:** Análise de disponibilidade através do status do `IMOVEL` e a data de seu último `CONTRATO`.
+* **Demanda Não Atendida:** Mapeamento cruzando os parâmetros da tabela de `ENCOMENDA` (o que os clientes buscam) com as características do estoque de imóveis disponíveis.
+* **Produtividade Comercial:** Apuração de comissionamento cruzando a tabela `INTERMEDIA` com os respectivos contratos firmados.
+  
 ### 1.6 Proposta de Arquitetura Analítica para BI e IA
 
 - **Informações estratégicas**
