@@ -665,19 +665,17 @@ O repositório deve conter:
 - **Evidências de colaboração entre os membros do grupo:** é a listagem de commits do repositório, que deve estar **equilibrada entre os integrantes** — a quantidade de commits deve se distribuir de forma proporcional entre todos os membros do grupo, cada um fazendo commits com a própria conta do GitHub. O integrante precisa ser **identificável na conta do GitHub**: o nome configurado na conta deve ser compatível com o nome do aluno na tabela de Integrantes, onde também deve constar o usuário do GitHub de cada um
 
 
-## 6\. Uso de Inteligência Artificial
-*(documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, levantamento de processos, requisitos e regras típicos, escrita, organização de ideias, revisão de texto, geração de massa de dados ou apoio a scripts SQL)*
-Para cada uso relevante de ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc.), registre:
+## 6. Uso de Inteligência Artificial
+
+Durante o desenvolvimento deste projeto, utilizamos diferentes ferramentas de Inteligência Artificial para ajudar em dúvidas técnicas, revisão de modelagem, geração de dados e polimento do texto. O grupo alternou entre os modelos, e documentamos abaixo como lidamos com as informações (aproveitando o que era útil e corrigindo alucinações):
+
 | Item | O que registrar |
-| :---- | :---- |
-| **Ferramenta e etapa** | Qual IA foi usada e em qual parte do trabalho (ex.: normalização, geração da massa de dados, escrita de queries SQL, redação do relatório, preparação dos slides). |
-| **Motivação** | Por que o grupo recorreu à IA nesse ponto específico. |
-| **Prompt(s) utilizados** | Texto exato (ou muito próximo) do que foi perguntado/pedido à IA. |
-| **Resposta recebida** | Resumo ou trecho relevante da resposta da IA. |
-| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como. |
-| **Trechos rejeitados ou corrigidos** | O que da resposta da IA foi descartado, editado ou corrigido manualmente (ex.: query SQL ajustada, dado fictício alterado), e por quê. |
-| **Justificativa da escolha final** | Por que o grupo manteve, adaptou ou rejeitou o que a IA sugeriu. |
-| **Reflexão crítica** | Limites, vieses ou erros identificados no uso da IA nessa etapa (ex.: normalização incorreta sugerida pela IA, script SQL com erro de sintaxe, dado fictício incoerente com o volume real da organização). |
-&nbsp;
-*Se o grupo não usou nenhuma ferramenta de IA em alguma dessas etapas, declare isso explicitamente.*
-**Uso de IA observado e não declarado será penalizado.**
+| :--- | :--- |
+| **Ferramenta e etapa** | **Claude 3.5 Sonnet (Versão Gratuita)** - Levantamento de Processos e Requisitos Típicos (Seção 1). |
+| **Motivação** | Como não temos vivência no mercado imobiliário, precisávamos de uma base para saber se as informações que pegamos na entrevista faziam sentido e se esquecemos de mapear alguma regra importante. |
+| **Prompt(s) utilizados** | *"Quais são as regras de negócio e processos normais de uma imobiliária do litoral? O que o sistema deles precisa ter de requisito funcional pra parte de locação de temporada?"* |
+| **Resposta recebida** | O modelo detalhou bem o fluxo de aluguel e vistoria. O mais interessante foi que ele lembrou de processos operacionais específicos de imóveis na praia (como controle de manutenção por maresia), que ajudaram a complementar nossos requisitos. |
+| **Fontes consultadas e verificadas** | Conferimos se os processos faziam sentido com as anotações da entrevista e ajustamos os requisitos para a realidade do nosso cliente. |
+| **Trechos rejeitados ou corrigidos** | Rejeitamos as sugestões de processos muito complexos (como integração automática com bancos) e corrigimos o que não era pertinente ou que não se encaixava no que levantamos pós-entrevista. |
+| **Justificativa da escolha final** | Mantivemos a estrutura básica do fluxo de aluguel porque nos deu uma base sólida, mas adaptamos apenas para as funções que o cliente relatou que fazia manualmente hoje. |
+| **Reflexão crítica** | Fizemos uma revisão de todas as respostas para entender a pertinência das informações. A IA tende a sugerir sistemas de grande porte e adicionar funções irreais para o nosso contexto, então precisamos filtrar bastante para não fugir do escopo da disciplina. |
