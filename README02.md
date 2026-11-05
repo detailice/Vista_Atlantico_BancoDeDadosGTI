@@ -46,17 +46,39 @@
 **Relato da entrevista**
 - **Quem: Claudia Regina da Silva Santos.** 
 - **Quando e onde: A entrevista foi realizada no dia 02/09/2026, em Rua Tupi- Praia Grande.** 
-- **Comprovação:(Arquivos anexados)**
+- **Comprovação:(Arquivos anexados na pasta :"LEVANTAMENTO")**
 - **O que foi levantado:** 
-### Levantamento de Requisitos e Processos
+## Levantamento de Requisitos
 
-O levantamento de requisitos foi realizado junto à gestão da Vista Atlântico Negócios Imobiliários LTDA, uma imobiliária de pequeno porte (EPP) composta por uma equipe de oito pessoas, sendo uma diretora/gerente e sete corretores. A empresa possui uma carteira ativa de aproximadamente 900 a 1.000 anúncios e atua na intermediação de operações de venda e locação de imóveis na região da Baixada Santista. Durante a entrevista, identificou-se que o principal problema da organização é a descentralização dos dados, com uma forte dependência de planilhas e registros em papel, o que dificulta o acesso rápido ao histórico de clientes, visitas e contratos.
+O levantamento de requisitos foi realizado junto à gestão da **Vista Atlântico Negócios Imobiliários LTDA**, uma imobiliária de pequeno porte localizada na Baixada Santista, composta por uma diretora/gerente e sete corretores, com aproximadamente 900 a 1.000 anúncios ativos.
 
-Para a modelagem do novo sistema, definiu-se que a plataforma deve permitir o registro de usuários padrão, onde os proprietários podem cadastrar os seus próprios imóveis com dados detalhados e fotos de alta qualidade, ficando o anúncio sujeito à aprovação de um corretor. Por sua vez, os clientes podem navegar, enviar mensagens aos corretores, agendar visitas e, caso não encontrem o imóvel ideal, registrar uma "encomenda" com as características desejadas (como bairro e faixa de preço), recebendo alertas quando houver compatibilidade. A captação de imóveis também pode ser feita diretamente pelo corretor mediante um contrato de autorização, sendo obrigatório que todos os anúncios e transações contenham o número do CRECI do responsável. A divulgação externa é gerida pela diretoria através de serviços terceirizados.
+Foi identificada como principal dificuldade a **descentralização das informações**, devido ao uso de planilhas e registros em papel, dificultando o acesso ao histórico de clientes, imóveis, visitas e contratos.
 
-A jornada do cliente prossegue com o agendamento de visitas pela plataforma, as quais exigem o acompanhamento presencial do corretor, que registra posteriormente as anotações pertinentes no sistema. Havendo interesse, avança-se para a proposta e rigorosa análise de documentos, como comprovantes de renda e certidões negativas. O setor jurídico externo elabora os contratos de compra e locação, garantindo a adequação à legislação. Nas locações, exige-se garantia locatícia e a elaboração de laudos de vistoria de entrada e saída, detalhando o estado do imóvel e da mobília, documentos que devem ser assinados pelas partes. Já nas vendas, as transações à vista são finalizadas em cartório, enquanto as financiadas seguem para o correspondente bancário.
+### Funcionalidades do Sistema
 
-Por fim, as rotinas financeiras e de comissionamento determinam que, nas vendas, a comissão padrão é de 6% sobre o valor da transação, sendo dividida em 50% para a imobiliária e 50% para o corretor. Nas locações, a comissão equivale ao primeiro mês de aluguel, ou a 30% em casos de locação por temporada de até 90 dias. A imobiliária atua também na administração das locações, cobrando os encargos ao inquilino (aluguel, IPTU, condomínio), retendo a sua taxa de administração e repassando o valor líquido ao proprietário em um prazo de até cinco dias úteis, com a execução de réguas de cobrança em situações de inadimplência.
+A plataforma deverá permitir o cadastro de usuários, proprietários, clientes e corretores. Os proprietários poderão cadastrar imóveis com fotos e informações detalhadas, sujeitos à aprovação de um corretor. Os clientes poderão pesquisar imóveis, entrar em contato, agendar visitas e registrar encomendas com suas preferências, recebendo alertas sobre oportunidades compatíveis.
+
+Os corretores também poderão cadastrar imóveis captados diretamente, mediante autorização do proprietário. Todos os anúncios e transações deverão identificar o responsável por meio do número do CRECI.
+
+### Negociações e Contratos
+
+O sistema deverá registrar agendamentos de visitas, acompanhamentos e observações dos corretores. Após o interesse do cliente, serão realizadas propostas e análises documentais.
+
+Os contratos serão elaborados pelo setor jurídico terceirizado. Nas locações, deverão ser registrados a garantia locatícia e os laudos de vistoria de entrada e saída. Nas vendas, a conclusão ocorrerá em cartório ou por meio de financiamento bancário.
+
+### Gestão Financeira e Comissões
+
+O sistema deverá contemplar as seguintes regras financeiras:
+
+- **Vendas:** comissão de 6% sobre o valor da transação, dividida igualmente entre imobiliária e corretor.
+- **Locações:** comissão equivalente ao primeiro mês de aluguel.
+- **Temporada:** comissão de 30% para locações de até 90 dias.
+- **Administração de imóveis:** cobrança de aluguel, IPTU e condomínio, retenção da taxa administrativa e repasse do valor líquido ao proprietário em até cinco dias úteis.
+- **Inadimplência:** controle de cobranças e acompanhamento dos pagamentos pendentes.
+
+### Objetivo do Sistema
+
+Centralizar as informações e automatizar os principais processos da imobiliária, proporcionando maior organização, agilidade no atendimento, controle das negociações e eficiência na gestão de imóveis, clientes e operações financeiras.
 
 ---
 
