@@ -12,6 +12,7 @@ Este modelo representa uma imobiliária, na qual cada cliente possui seu cadastr
 | Cliente  | Visita | 1:1 opcional — um cliente pode ou não visitar um imóvel  |
 | Visita  | Corretor | 1:1 opcional — um corretor pode ou não acompanhar visitas a um imóvel  |
 | Corretor  | Contrato | 1:N — um contrato é assinado por um ou mais clientes  |
+| Cliente  | Encomenda | 1:N — um cliente pode realizar uma ou mais encomendas  |
 
 VISITA constrói um relacionamento ternário entre CLIENTE e CORRETOR (um cliente se interessa por um imóvel e aciona o corretor, a negociação pode exigir uma visita) 
 
@@ -27,7 +28,7 @@ VISITA constrói um relacionamento ternário entre CLIENTE e CORRETOR (um client
 
 **VISITA** é o evento no qual um ou mais clientes acompanham um corretor a um imóvel 
 
-### 5.1 **Fluxo de dados**
+**ENCOMENDA** é o preenchimento de informações do imóvel desejado que gera um alerta por e-mail ou telefone se encontrado para o cliente
 
 Cliente se cadastra/loga no sistema → cliente seleciona o tipo de imóvel que deseja visualizar → cliente seleciona o imóvel de interesse, marcando uma visita → o agendamento gera um registro em VISITA, ligando esse CLIENTE a um CORRETOR → a critério do cliente, a negociação pode avançar e gerar um CONTRATO, que é referenciado nos registros do CLIENTE e do CORRETOR → toda leitura ou escrita nessas quatro tabelas é registrada pelo log de acesso do SGBD (§5), o que sustenta auditoria e conformidade com a LGPD (§6). 
 
@@ -157,6 +158,26 @@ Leitura: ID_VISITA é identificador único, as três chaves seguintes são estra
 
 **índices:** PK ID_VISITA; índice em ID_IMOVEL (relatórios comerciais de análise de popularidade entre os clientes); índice em ID_CORRETOR (relatórios de performance por período).
 
+**ENCOMENDA**
+> **ENCOMENDA = @ID_ENCOMENDA + ID_CLIENTE + VALOR_MINIMO + CIDADE_DESEJADA + BAIRRO_DESEJADO + VALOR_MAXIMO + DT_ENCOMENDA + DS_IMOVEL + STATUS_ENC**
+Leitura: ID_ENCOMENDA é identificador único, a chave seguinte é estrangeira e referencia aos clientes.
+
+| Atributo | Tipo físico | Obrigatório | Significado e relevância |
+| -------- | --------- |---------|---------|
+| ID_ENCOMENDA | Integer | Sim (PK) | Identificador da encomenda. |
+| ID_CLIENTE| Integer | Sim (FK)| Referencial do cliente |
+| VALOR_MINIMO | Integer | Sim | Valor minimo do imovél encomendado |
+| CIDADE_DESEJADA | Varchar | Sim | Cidade desejada que o imovél pertence |
+| BAIRRO_DESEJADO | Varchar | Sim | Bairro desejado que o imovél pertence |
+| VALOR_MAXIMO | Integer | Sim | Valor maximo do imovél encomendado |
+| DT_ENCOMENDA | Date | Sim | Data da encomenda feita pelo cliente |
+| DS_IMOVEL | Varchar | Não | Descrição do imovél desejado |
+
+**índices:** PK ID_ENCOMENDA; índice em ID_CLIENTE (relatórios comerciais de análise de popularidade entre os clientes); índice em ID_CORRETOR (relatórios de performance por período).
+
+
+
+
 ### 5.3 Log de acesso (metadado operacional) 
 As quatro tabelas ficam sob o mesmo mecanismo de auditoria do SGBD: o plugin audit_log do MySQL, configurado para gravar em formato JSON no caminho definido por audit_log_file (variável de sistema, sob $HOME neste ambiente — nunca sob /tmp, pelas mesmas razões que valem para LibreOffice/ffmpeg). Na ausência do plugin, a alternativa é o log geral (general_log=ON, log_output=TABLE), consultável em mysql.general_log. Retenção e rotação do log seguem política própria, independente da retenção dos dados de negócio. 
 
@@ -172,6 +193,8 @@ A matriz abaixo estabelece os níveis de acesso propostos para as entidades do s
 | CONTRATO | Usuários padrão participantes da negociação; corretores responsáveis; administradores | Administradores e corretores autorizados | Administradores e corretores autorizados | Sem exclusão direta; preservação conforme obrigações legais e exercício regular de direitos |
 | CORRETOR | Próprio corretor, quanto aos seus dados; administradores | Administradores | Administradores; corretor, somente nos próprios dados pessoais quando autorizado | Sem exclusão direta; inativação do cadastro em caso de desligamento |
 | VISITA | Usuários padrão envolvidos na visita; corretor responsável; administradores | Corretores responsáveis | Corretores responsáveis; administradores | Sem exclusão direta; priorizar cancelamento ou inativação do registro |
+| ENCOMENDA | Usuários padrão envolvidos na visita; corretor responsável; administradores | Usuários padrão, por meio do próprio cadastro; administradores | Usuários padrão, por meio do próprio cadastro; administradores | Usuários padrão, por meio do próprio cadastro; administradores |
+
 
 **Observações sobre as permissões:**
 
