@@ -13,6 +13,7 @@ Este modelo representa uma imobiliária, na qual cada cliente possui seu cadastr
 | Visita  | Corretor | 1:1 opcional — um corretor pode ou não acompanhar visitas a um imóvel  |
 | Corretor  | Contrato | 1:N — um contrato é assinado por um ou mais clientes  |
 | Cliente  | Encomenda | 1:N — um cliente pode realizar uma ou mais encomendas  |
+| Corretor  | Documento | 1:N — um corretor pode registrar um ou mais documentos  |
 
 VISITA constrói um relacionamento ternário entre CLIENTE e CORRETOR (um cliente se interessa por um imóvel e aciona o corretor, a negociação pode exigir uma visita) 
 
@@ -30,7 +31,7 @@ VISITA constrói um relacionamento ternário entre CLIENTE e CORRETOR (um client
 
 **ENCOMENDA** é o preenchimento de informações do imóvel desejado que gera um alerta por e-mail ou telefone se encontrado para o cliente
 
-**DOCUMENTO** é o resgistro feito pelo corretor
+**DOCUMENTO** é o documento de negociação resgistrado pelo corretor
 
 Cliente se cadastra/loga no sistema → cliente seleciona o tipo de imóvel que deseja visualizar → cliente seleciona o imóvel de interesse, marcando uma visita → o agendamento gera um registro em VISITA, ligando esse CLIENTE a um CORRETOR → a critério do cliente, a negociação pode avançar e gerar um CONTRATO, que é referenciado nos registros do CLIENTE e do CORRETOR → toda leitura ou escrita nessas quatro tabelas é registrada pelo log de acesso do SGBD (§5), o que sustenta auditoria e conformidade com a LGPD (§6). 
 
@@ -175,7 +176,7 @@ Leitura: ID_ENCOMENDA é identificador único, a chave seguinte é estrangeira e
 | DT_ENCOMENDA | Date | Sim | Data da encomenda feita pelo cliente |
 | DS_IMOVEL | Varchar | Não | Descrição do imovél desejado |
 
-**índices:** PK ID_ENCOMENDA; índice em ID_CLIENTE (relatórios comerciais de análise de popularidade entre os clientes); índice em ID_CORRETOR (relatórios de performance por período).
+**índices:** PK ID_ENCOMENDA; índice secundário em ID_CLIENTE (busca de encomendas por cliente).
 
 **DOCUMENTO**
 > **DOCUMENTO = @ID_DOC + NM_DOC + DT_DOC + TP_DOC**
@@ -188,9 +189,7 @@ Leitura:@ID_DOC é o identificador único; os outros três campos seguintes são
 | DT_DOC | Date | Sim | Data do registro do documento.|
 | TP_DOC | Varchar(100) | Sim | Endereço de e-mail ativo, possibilita outra forma de comunicação com a imobiliária e o corretor.|
 
-**índices:** PK ID_DOCUMENTO; índice secundário em NM_CLIENTE (busca por nome na base de dados)
-
-
+**índices:** PK ID_DOC; índice secundário em NM_DOC (busca por nome do documento).
 
 
 ### 5.3 Log de acesso (metadado operacional) 
