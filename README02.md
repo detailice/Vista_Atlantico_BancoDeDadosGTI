@@ -11,6 +11,7 @@
 | Paulo Ricardo Freitas | RGM 47917687 | pauloneymar400-cloud |
 | Thiago Barbante | RGM 47856564 | tbarbante |
 
+#### Apresentação final: https://www.youtube.com/watch?v=eFwXkJhOnWs
 
 ### 1.1 Revisão do Modelo Conceitual
 
